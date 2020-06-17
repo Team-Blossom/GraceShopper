@@ -2,7 +2,6 @@ const db = require('../server/db')
 const {User} = require('../server/db/models')
 
 async function seedUsers() {
-  await db.sync({force: true})
   console.log('db synced!')
 
   const users = await Promise.all([
