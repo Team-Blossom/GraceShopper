@@ -3,13 +3,16 @@ const db = require('../db')
 
 const Orders = db.define('orders', {
   date: {
-    type: Sequelize.DATE
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW
   },
   quantity: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    defaultValue: 0
   },
   price: {
-    type: Sequelize.FLOAT(12, 2)
+    type: Sequelize.FLOAT(12, 2),
+    defaultValue: 0
   },
   address: {
     type: Sequelize.STRING
