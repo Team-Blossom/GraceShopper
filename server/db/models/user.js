@@ -27,9 +27,9 @@ const User = db.define('user', {
   },
   role: {
     type: Sequelize.STRING,
-    defaultValue: 'Novice',
+    defaultValue: 'Master',
     validate: {
-      isIn: [['Novice', 'Alchemist']]
+      isIn: [['Master', 'Alchemist']]
     }
   },
   salt: {
