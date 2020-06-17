@@ -2,7 +2,6 @@
 
 const db = require('../server/db')
 const {User} = require('../server/db/models')
-const seedUsers = require('./seedUsers')
 
 async function seed() {
   await db.sync({force: true})
@@ -23,7 +22,7 @@ async function seed() {
 async function runSeed() {
   console.log('seeding...')
   try {
-    await seedUsers()
+    await seed()
   } catch (err) {
     console.error(err)
     process.exitCode = 1
