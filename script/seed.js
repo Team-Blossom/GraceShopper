@@ -3,18 +3,20 @@
 const db = require('../server/db')
 const {User} = require('../server/db/models')
 const {createProds} = require('./seedProducts')
-const {seedUsers} = require('./seedUsers')
+const seedUsers = require('./seedUsers')
+const orderSeed = require('./orderSeed')
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
-  const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
-  ])
-
-  console.log(`seeded ${users.length} users`)
+  // const users = await Promise.all([
+  //   User.create({email: 'cody@email.com', password: '123'}),
+  //   User.create({email: 'murphy@email.com', password: '123'}),
+  // ])
+  await seedUsers()
+  await orderSeed()
+  await createProds()
   console.log(`seeded successfully`)
 }
 
@@ -24,8 +26,7 @@ async function seed() {
 async function runSeed() {
   console.log('seeding...')
   try {
-    await db.sync({force: true})
-    await createProds()
+    await seed()
   } catch (err) {
     console.error(err)
     process.exitCode = 1

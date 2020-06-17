@@ -15,7 +15,7 @@ const Orders = db.define('orders', {
     type: Sequelize.STRING
   },
   billing: {
-    type: Sequelize.INTEGER
+    type: Sequelize.BIGINT
   },
   status: {
     type: Sequelize.STRING,
