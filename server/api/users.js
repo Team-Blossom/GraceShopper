@@ -2,6 +2,7 @@ const router = require('express').Router()
 const {User} = require('../db/models')
 module.exports = router
 
+//get all users
 router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({
@@ -15,3 +16,33 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+// router.get('/:userId', async (req, res, next) => {
+//   try {
+//     const user = await User.findOne({where: {id: req.params.userId}})
+//     res.json(user)
+//   } catch (error) {
+//     console.log(error)
+//     next(error)
+//   }
+// })
+
+// router.get('/login', async (req, res, next) => {
+//   try {
+//     const user = await User.findOne({where: {email: req.params.email}})
+//     res.json(user)
+//   } catch (error) {
+//     next(error)
+//   }
+// })
+
+// router.post('/signup', async (req, res, next) => {
+//   try {
+//     const newUser = await User.create(req.body)
+
+//     res.json(newUser)
+//   } catch (error) {
+//     console.log(error)
+//     next(error)
+//   }
+// })
