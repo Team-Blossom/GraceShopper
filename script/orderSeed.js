@@ -2,7 +2,6 @@ const db = require('../server/db')
 const {Orders} = require('../server/db/models')
 
 async function orderSeed() {
-  await db.sync({force: true})
   console.log('db synced!')
 
   const orders = await Promise.all([
