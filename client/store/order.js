@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from './index'
 
 //ACTION TYPES
 const GET_CART = 'GET_CART'
@@ -7,30 +8,28 @@ const GET_CART = 'GET_CART'
 const getCart = cart => ({type: GET_CART, cart})
 
 //THUNK CREATORS
-export const getCartThunk = user => async dispatch => {
+export const getCartThunk = () => async dispatch => {
+  //is user logged in
   try {
-    const cart = await axios.get(`/api/orders/${user.id}`)
+    const cart = await axios.get(`/api/orders/`)
     dispatch(getCart(cart.data))
   } catch (error) {
     console.error(error)
   }
 }
 
-export const addProductThunk = (user, product) => async dispatch => {
+export const addProductThunk = product => async dispatch => {
   try {
-    const cartWithNewItem = await axios.post(`/api/orders/${user.id}`, product)
+    const cartWithNewItem = await axios.post(`/api/orders/`, product)
     dispatch(getCart(cartWithNewItem.data))
   } catch (error) {
     console.error(error)
   }
 }
 
-export const removeProductThunk = (user, product) => async dispatch => {
+export const removeProductThunk = product => async dispatch => {
   try {
-    const cartWithoutOldItem = await axios.delete(
-      `/api/orders/${user.id}`,
-      product
-    )
+    const cartWithoutOldItem = await axios.delete(`/api/orders/`, product)
     dispatch(getCart(cartWithoutOldItem.data))
   } catch (error) {
     console.error(error)

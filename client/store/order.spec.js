@@ -1,5 +1,6 @@
 /* global describe beforeEach afterEach it */
 
+//these don't work
 import {expect} from 'chai'
 import {getCartThunk, addProductThunk, removeProductThunk} from './order'
 import axios from 'axios'
@@ -28,7 +29,6 @@ describe('thunk creators', () => {
 
   describe('getCartThunk', () => {
     it('eventually dispatches the GET_CART action', async () => {
-      const fakeUser = {id: '1'}
       const fakeCart = {
         id: 6,
         date: '2020-06-18T15:50:51.706Z',
@@ -41,8 +41,8 @@ describe('thunk creators', () => {
         updatedAt: '2020-06-18T15:50:51.739Z',
         userId: 1
       }
-      mockAxios.onGet('/api/orders/1').replyOnce(200, fakeCart)
-      await store.dispatch(getCartThunk(fakeUser))
+      mockAxios.onGet('/api/orders').replyOnce(200, fakeCart)
+      await store.dispatch(getCartThunk())
       const actions = store.getActions()
       expect(actions[0].type).to.be.equal('GET_CART')
       expect(actions[0].cart).to.be.deep.equal(fakeCart)
@@ -51,7 +51,6 @@ describe('thunk creators', () => {
 
   describe('addProductThunk', () => {
     it('addProductThunk: eventually dispatches the GET_CART action', async () => {
-      const fakeUser = {id: '1'}
       const fakeProduct = {
         id: 2,
         name: 'indignitas',
@@ -78,8 +77,8 @@ describe('thunk creators', () => {
         updatedAt: '2020-06-18T15:50:51.739Z',
         userId: 1
       }
-      mockAxios.onPost('/api/orders/1', fakeProduct).replyOnce(201, fakeCart)
-      await store.dispatch(addProductThunk(fakeUser, fakeProduct))
+      mockAxios.onPost('/api/orders', fakeProduct).replyOnce(201, fakeCart)
+      await store.dispatch(addProductThunk(fakeProduct))
       const actions = store.getActions()
       expect(actions[0].type).to.be.equal('GET_CART')
     })
