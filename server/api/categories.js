@@ -28,8 +28,8 @@ router.get('/:categoryId', async (req, res, next) => {
 //create category
 router.post('/', async (req, res, next) => {
   try {
-    await Category.create(req.body)
-    res.sendStatus(201)
+    const category = await Category.create(req.body)
+    res.json(category)
   } catch (error) {
     next(error)
   }
