@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SingleProduct</title>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="./styleView.css">
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Merienda:wght@400;700&family=Metal+Mania&family=Piedra&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav id="mainNav">
+    <ul>
+      <li>
+        <a href="">Who We Are</a>
+      </li>
+      <li>
+        <a href="productsView.html">Products</a>
+      </li>
+      <li>
+        <a href="singleProductView.html">Sign Up / Log In</a>
+      </li>
+      <li>
+        <a href="">
+          <!-- <i class="fa fa-shopping-bag" aria-hidden="true"></i> -->
+          <!-- <div></div> -->
+          CART
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <section id="singleProdSection">
+    <div id="theProd">
+        <div id="imageCont">
+          <img id="mainImage" src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg">
+          <div id="prodImgNav">
+            <!-- NEEDS ONCLICK FUNCTION THAT CHANGES MAINIMAGE SRC AND PLACES CLASSNAME -->
+            <a href="">
+              <img class="activeProdImg" src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg">
+            </a>
+            <a href="">
+              <img src="./imagesViews/annie-spratt-xt79nQxc9Q0-unsplash.jpg">
+            </a>
+          </div>
+        </div>
+        <div id="prodDetails">
+          <h1>PRODUCT NAME</h1>
+          <h2>Description: </h2>
+          <p>PRODUCT DESCRIPTION Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque iusto, vitae pariatur aut illum tempore, quaerat quidem sequi eos atque ad ipsa a voluptatibus magni at earum ratione dignissimos deleniti quibusdam, repellendus asperiores eius ipsam. Molestiae, voluptatum non! Eligendi quibusdam repellat reiciendis ex minima. A placeat et officia culpa vero.</p>
+
+          <h2>Price: <span style="color:#F77F00">PRODUCT PRICE</span> &#164;</h2>
+          <form>
+            <ul>
+              <li>
+                <label><h2>Quantity:</h2></label>
+                <input type='number' max="10" min='1' value='1'>
+              </li>
+              <li>
+                <a class="btn">ADD TO CART</a>
+              </li>
+            </ul>
+          </form>
+        </div>
+        <!-- Recommended Items -->
+    </div>
+    <footer>
+      <p>UTONIUM <span style="color: #F77F00">&copy;</span> 2020</p>
+      <p>Low Skrull Prices. High Quality Standards. Forever.</p>
+      <a href="">Admin Login</a>
+    </footer>
+  </section>
+</body>
+</html>
