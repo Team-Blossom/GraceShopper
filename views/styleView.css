@@ -69,6 +69,24 @@ hr {
   border: solid 3px #6d6875;
   width: 80%;
 }
+
+/* footer */
+footer {
+  background-color: #61210f;
+  height: 80px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+footer > * {
+  color: white;
+  font-size: 0.5rem;
+}
+footer > a:hover {
+  color: #f77f00;
+}
+
+/* forms */
 form {
   display: flex;
   justify-content: center;
@@ -131,6 +149,38 @@ select:focus {
   background-color: #f77f00;
   color: white;
 }
+/* navigation */
+nav#mainNav {
+  height: 60px;
+  background-color: #f77f00;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: flex-end;
+  align-items: center;
+}
+nav#mainNav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+nav#mainNav ul li {
+  margin: 0 15px;
+}
+nav#mainNav ul li > * {
+  color: white;
+}
+nav#mainNav a:hover {
+  border-bottom: solid 3px white;
+}
+nav#mainNav a.activeMainNav {
+  background-color: #61210f;
+}
+nav#mainNav i {
+  color: wheat;
+}
+
 /* SIGN UP  */
 #signupSection,
 #loginSection {
@@ -453,12 +503,27 @@ select:focus {
   height: 100%;
   width: 50%;
   padding-left: 50px;
+  /* background-color: green; */
 }
 
 #prodDetails p {
   font-size: 0.7rem;
+  margin-bottom: 20px;
 }
 
-#prodDetails a {
-  margin-top: 50px;
+#prodDetails form ul li {
+  /* background-color: aqua; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: flex-start;
+}
+
+#prodDetails form ul li label {
+  margin-right: 10px;
+}
+
+#prodDetails form ul li input {
+  background-color: #f77f00;
+  text-align: center;
+  color: white;
 }
