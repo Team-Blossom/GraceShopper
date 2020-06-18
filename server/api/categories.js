@@ -19,7 +19,7 @@ router.get('/:categoryId', async (req, res, next) => {
       where: {id: req.params.categoryId},
       include: {model: Product, where: {categoryId: req.params.categoryId}}
     })
-    res.json(category)
+    await res.json(category)
   } catch (error) {
     next(error)
   }
@@ -28,8 +28,17 @@ router.get('/:categoryId', async (req, res, next) => {
 //create category
 router.post('/', async (req, res, next) => {
   try {
-    await Category.create(req.body)
-    res.sendStatus(201)
+    const category = await Category.create(req.body)
+    res.json(category)
+  } catch (error) {
+    next(error)
+  }
+})
+//delete category
+router.delete('/', async (req, res, next) => {
+  try {
+    await Category.destroy({where: {id: req.body.id}})
+    res.sendStatus(200)
   } catch (error) {
     next(error)
   }
