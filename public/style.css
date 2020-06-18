@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: sans-serif;
 }
 
@@ -18,4 +18,540 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+} */
+
+/* EXTRA INFO */
+
+/* Colors: */
+/* Princeton Orange: #F28123, rgb(242, 129, 35) */
+/* Orange: #F77F00 rgb(247,127, 0) */
+/* Titanium Yellow: #f4e915,  rgb(244, 233, 21) */
+/* Maximum Yellow Red: #FCBF49 rgb(252, 191, 73) */
+/* Liver Organ: #61210F, rgb(97, 33, 15) */
+/* Maximum Red: #D62828 rgb(214, 40, 40) */
+/* Lemon Meringue: #EAE2B7 rgb(234,226,183) */
+/* Prussian Blue: #003049 rgb(0,48,73) */
+/* Old Lavender: #6D6875 rgb(109,104,117) */
+
+/* Pictures: */
+/* Old Gran Paper: */
+/* https://lh3.googleusercontent.com/proxy/3Z1DfMmmuWVLEdMA3YdGgSE9zI4QKc2cpHcgBLo7WD3lXOq-qBClcj6pPSAoWLonNru0d3C2VkiSDEdGA-ppHCednwoLPjnL6gAhTyOAuaXMhnyACbYc-CZIqPAP8UwRHuPfYF8 */
+
+/* Product Holder */
+/* 'https://149349728.v2.pressablecdn.com/wp-content/uploads/2019/06/mervyn-chan-RFXxBTHze_M-unsplash.jpg' */
+
+/* Fonts */
+/* font-family: 'Cormorant', serif;
+font-family: 'Merienda', cursive;
+font-family: 'Metal Mania', cursive;
+font-family: 'Piedra', cursive; */
+
+/* UTILITY */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Merienda', cursive;
+  font-size: 24px;
+  color: black;
+  box-sizing: border-box;
+}
+body {
+  /* border: yellow solid 5px; */
+  background-color: #61210f;
+  height: 100vh;
+  width: 100vw;
+}
+section {
+  height: 100vh;
+  width: 100vw;
+  /* background-color: #EAE2B7; */
+}
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+p {
+  font-size: 0.5rem;
+}
+a,
+li,
+button {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+hr {
+  border: solid 3px #6d6875;
+  width: 80%;
+}
+
+/* footer */
+footer {
+  background-color: #61210f;
+  height: 80px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+footer > * {
+  color: white;
+  font-size: 0.5rem;
+}
+footer > a:hover {
+  color: #f77f00;
+}
+
+/* forms */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form ul {
+  width: 100%;
+}
+form ul li {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form li + li {
+  margin-top: 0.7em;
+}
+input {
+  border-radius: 5px;
+  border: none;
+}
+input:focus,
+select:focus {
+  /* background-color: #2b2a2a; */
+  /* outline: none; */
+  outline-color: yellow;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 5px 15px;
+  border: 1px solid rgb(216, 216, 216);
+  border-radius: 5px;
+  background-color: #61210f;
+  color: white;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: #f77f00;
+  color: white;
+}
+.btn-gold {
+  background-color: #f77f00;
+  color: white;
+}
+.btn-gold:hover {
+  background-color: orange;
+  color: white;
+}
+
+.sideline {
+  border-left: #61210f solid 3px;
+  margin: 0 20px;
+}
+::placeholder {
+  text-align: center;
+}
+
+.activeProdNav,
+#prodNav ul li a.activeProdNav:hover {
+  background-color: #f77f00;
+  color: white;
+}
+/* navigation */
+nav#mainNav {
+  height: 60px;
+  background-color: #f77f00;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: flex-end;
+  align-items: center;
+}
+nav#mainNav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+nav#mainNav ul li {
+  margin: 0 15px;
+}
+nav#mainNav ul li > * {
+  color: white;
+}
+nav#mainNav a:hover {
+  border-bottom: solid 3px white;
+}
+nav#mainNav a.activeMainNav {
+  background-color: #61210f;
+}
+nav#mainNav i {
+  color: wheat;
+}
+
+/* SIGN UP  */
+#signupSection,
+#loginSection {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#signupSection {
+  background-image: linear-gradient(
+      rgba(247, 127, 0, 0.3),
+      rgba(247, 127, 0, 0.3)
+    ),
+    url('https://lh3.googleusercontent.com/proxy/3Z1DfMmmuWVLEdMA3YdGgSE9zI4QKc2cpHcgBLo7WD3lXOq-qBClcj6pPSAoWLonNru0d3C2VkiSDEdGA-ppHCednwoLPjnL6gAhTyOAuaXMhnyACbYc-CZIqPAP8UwRHuPfYF8');
+  background-size: cover;
+}
+#loginSection {
+  background-color: orange;
+  color: white;
+  background-image: linear-gradient(
+      rgba(247, 127, 0, 0.3),
+      rgba(247, 127, 0, 0.3)
+    ),
+    url('./imagesViews/zahrin-lukman-VSNoQdimlQQ-unsplash.jpg');
+  background-size: cover;
+  /* opacity: 0.7; */
+}
+#noAccount,
+#hasAccount {
+  /* border: solid red 3px; */
+  height: 100%;
+  width: 90%;
+  /* display: none; */
+  /* display: flex; */
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+/* TEMPORARY, DELETE LATER */
+#noAccount {
+  display: flex;
+}
+#hasAccount {
+  display: flex;
+}
+
+#noAccount > h1,
+#hasAccount > h1 {
+  margin-top: 40px;
+  text-align: center;
+}
+#noAccount > h1 {
+  color: #61210f;
+}
+#noAccount > p,
+#hasAccount > p {
+  text-align: center;
+}
+#hasAccount > h1 {
+  color: white;
+}
+#hasAccount > p {
+  color: orange;
+}
+#noAccount div.panel,
+#hasAccount div.panel {
+  display: flex;
+  height: 65%;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#noAccount div.panel > *,
+#hasAccount div.panel > * {
+  height: 70%;
+  width: 30%;
+}
+
+#noAccount div.panel > div.sideline,
+#hasAccount div.panel > div.sideline {
+  width: 0;
+}
+#noAccount div.panel > form,
+#hasAccount div.panel > form {
+  flex-direction: column;
+  border-radius: 5px;
+}
+#noAccount div.panel > form {
+  background-color: rgba(247, 127, 0, 0.7);
+}
+#hasAccount div.panel > form {
+  background-color: rgba(234, 226, 183, 0.7);
+}
+#noAccount div.panel > form li:last-child button,
+#hasAccount div.panel > form li:last-child button {
+  font-size: 0.8rem;
+}
+#noAccount div.panel > form li input,
+#hasAccount div.panel > form li input {
+  width: 80%;
+}
+#noAccount div.panel > form li input {
+  background-color: #eae2b7;
+}
+#hasAccount div.panel > form li input {
+  background-color: white;
+}
+
+#noAccount div.panel > form li input:hover,
+#noAccount div.panel > form li input:focus,
+#hasAccount div.panel > form li input:hover,
+#hasAccount div.panel > form li input:focus {
+  background-color: white;
+  /* border: yellow 2px solid; */
+}
+
+#noAccount div.panel > div,
+#hasAccount div.panel > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#noAccount div.panel > div:last-child button,
+#hasAccount div.panel > div:last-child button {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+#noAccount a:last-child,
+#hasAccount a:last-child {
+  text-align: center;
+  font-size: 0.8rem;
+  width: auto;
+}
+#noAccount a:last-child:hover,
+#hasAccount a:last-child:hover {
+  color: orange;
+}
+#hasAccount a:last-child {
+  color: white;
+}
+
+/* PRODUCTS SECTION */
+#productsSection {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: none; */
+  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+  background-size: cover;
+  /* background-repeat: repeat; */
+  padding-top: 30px;
+}
+#productsSection #prodNav {
+  z-index: 20;
+  height: 80%;
+  width: 175px;
+  border-radius: 0 10px 10px 0;
+  /* margin-top: 50px; */
+  background-color: #61210f;
+  position: fixed;
+  left: 0;
+  bottom: 50px;
+
+  /* align-self: flex-end; */
+}
+#prodNav ul {
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+#prodNav ul li {
+  /* background-color: grey; */
+  /* height:  */
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#prodNav ul li:first-child,
+#prodNav ul li:first-child a {
+  border-radius: 0 10px 0 0;
+}
+#prodNav ul li:last-child,
+#prodNav ul li:last-child a {
+  border-radius: 0 0 10px 0;
+}
+
+#prodNav ul li a {
+  color: white;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#prodNav ul li a:hover {
+  background-color: wheat;
+  color: #f77f00;
+}
+#prodGroup {
+  background-color: wheat;
+  width: 80%;
+  height: auto;
+  /* TAKE AWAY LATER */
+  /* margin-top: 200px; */
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#prodGroup #prodBoxContainer {
+  width: 100%;
+  /* height: 100%; */
+  /* margin-top: 100px; */
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+#prodGroup #categoryTitle {
+  height: 150px;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('.//imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* color: orange */
+}
+#categoryTitle h1 {
+  color: #f77f00;
+}
+#prodBoxContainer > .prodBox {
+  background-color: green;
+  width: 30%;
+  height: 50%;
+  margin: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.prodBox > a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.prodBox img,
+.prodBox > a > img {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+.prodBox > div,
+.prodBox > a > div {
+  background-color: white;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: stretch; */
+}
+
+.prodBox div > * {
+  font-size: 0.5rem;
+  text-align: center;
+}
+
+/* SINGLE PRODUCT */
+#singleProdSection {
+  /* height: auto; */
+  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+}
+#theProd {
+  height: 100%;
+  width: 100%;
+  padding-top: 50px;
+  display: flex;
+  /* flex: 1; */
+  justify-content: center;
+  align-items: center;
+}
+
+#imageCont {
+  /* background-color: grey; */
+  height: 100%;
+  width: 40%;
+}
+#imageCont > img {
+  width: 100%;
+}
+#imageCont > #prodImgNav {
+  /* background-color: green; */
+  height: 50px;
+}
+#prodImgNav img {
+  height: 95%;
+}
+#prodImgNav img.activeProdImg {
+  border: orange solid 3px;
+}
+
+#prodDetails {
+  height: 100%;
+  width: 50%;
+  padding-left: 50px;
+  /* background-color: green; */
+}
+
+#prodDetails p {
+  font-size: 0.7rem;
+  margin-bottom: 20px;
+}
+
+#prodDetails form ul li {
+  /* background-color: aqua; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: flex-start;
+}
+
+#prodDetails form ul li label {
+  margin-right: 10px;
+}
+
+#prodDetails form ul li input {
+  background-color: #f77f00;
+  text-align: center;
+  color: white;
 }
