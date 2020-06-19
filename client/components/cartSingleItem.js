@@ -6,14 +6,23 @@ const CartSingleProduct = props => {
   const {product, addToCart, removeFromCart} = props
   const [quant, setQuant] = useState(product.cart.quantity)
 
+  let oldQuant
+
   const handleChange = event => {
-    const oldQuant = quant
+    oldQuant = quant
+    console.log('oldQuant: ', oldQuant)
     setQuant(Number(event.target.value))
-    if (quant < oldQuant) {
-      addToCart(product)
-    } else {
-      removeFromCart(product)
-    }
+  }
+  console.log('new quant: ', quant)
+
+  if (quant > oldQuant) {
+    console.log('added ', product.name)
+    addToCart(product)
+  } else if (quant < oldQuant) {
+    console.log('removed ', product)
+    removeFromCart(product)
+  } else {
+    console.log('did nothing')
   }
 
   return (
