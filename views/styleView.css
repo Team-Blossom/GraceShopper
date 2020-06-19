@@ -104,8 +104,12 @@ form ul li {
 form li + li {
   margin-top: 0.7em;
 }
+label {
+  margin-right: 10px;
+}
 input {
   border-radius: 5px;
+  text-align: center;
   border: none;
 }
 input:focus,
@@ -533,34 +537,92 @@ nav#mainNav i {
   height: auto;
   width: 100%;
   background-color: wheat;
-
+  background-image: url('./imagesViews/diego-passadori-e6frrz-kh-0-unsplash.jpg');
+  /* background-image: url('./imagesViews/joshua-bartell-6vvIBTvL90A-unsplash.jpg'); */
   display: flex;
   /* justify-content: center; */
   /* align-items: center; */
 }
+#cartSection p {
+  font-size: 1rem;
+}
 
 #theCart {
-  background-color: GREEN;
+  /* background-color: GREEN; */
   width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
-.slimProd {
-  background-color: #61210f;
-  margin: 10px;
+#theCart > h1 {
+  text-align: center;
+  color: white;
 }
-
-.slimProd input {
-  background-color: #f77f00;
+#theCart > hr {
+  width: 100%;
+  border-color: white;
+}
+#theCart > p {
+  text-align: right;
   color: white;
 }
 
+.slimProd {
+  background-color: wheat;
+  /* background-color: #f77f00; */
+  margin: 10px;
+  height: 150px;
+  border-radius: 10px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.slimProd img {
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+}
+
+.slimProd > div {
+  margin-left: 10px;
+}
+
+.slimProd form {
+  display: flex;
+  justify-content: flex-start;
+}
+.slimProd label,
+.slimProd input,
+.slimProd > div > p {
+  font-size: 0.8rem;
+}
+
+.slimProd input {
+  color: #f77f00;
+  background-color: white;
+}
+.slimProd a {
+  margin-left: auto;
+  margin-right: 20px;
+  font-size: 0.8rem;
+}
 #theSummary {
   height: 100vh;
   width: 30%;
-  background-color: #61210f;
+  /* position:relative; */
+  /* background-color: #61210f; */
 }
 
 #theSummary > div {
   margin: 10px;
+  padding: 10px;
   background-color: antiquewhite;
+  border-radius: 10px;
+  position: fixed;
+  top: 80px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
