@@ -50,7 +50,8 @@ router.post('/', async (req, res, next) => {
     next(error)
   }
 })
-//user can remove products from cart
+
+//user can remove some products from cart
 router.delete('/:productId', async (req, res, next) => {
   try {
     const product = await Product.findOne({where: {id: req.params.productId}})
@@ -73,6 +74,31 @@ router.delete('/:productId', async (req, res, next) => {
     if (cartItem.quantity === 0) {
       await order.removeProduct(product)
     }
+    await order.increment({quantity: -1, price: -product.price})
+    res.sendStatus(204)
+  } catch (error) {
+    next(error)
+  }
+})
+
+//user can remove all of one type of product from cart (row from cart table)
+
+router.delete('/:productId/all', async (req, res, next) => {
+  try {
+    const product = await Product.findOne({where: {id: req.params.productId}})
+
+    const order = await Orders.findOne({
+      where: {userId: req.user.id, status: 'cart'},
+      include: {model: Product}
+    })
+
+    if (!order) {
+      res.status(500).send('Cart is already empty')
+    }
+    await Cart.destroy({
+      where: {orderId: order.id, productId: product.id}
+    })
+
     await order.increment({quantity: -1, price: -product.price})
     res.sendStatus(204)
   } catch (error) {

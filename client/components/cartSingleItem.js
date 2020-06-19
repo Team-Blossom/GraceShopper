@@ -1,9 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
-import {getCartThunk, addProductThunk, removeProductThunk} from '../store/order'
+import {
+  getCartThunk,
+  addProductThunk,
+  removeProductThunk,
+  removeAllProdcutsThunk
+} from '../store/order'
 
 const CartSingleProduct = props => {
-  const {product, addToCart, removeFromCart} = props
+  const {product, addToCart, removeFromCart, deleteFromCart} = props
   const [quant, setQuant] = useState(product.cart.quantity)
   const [oldQuant, setOldQuant] = useState(product.cart.quantity)
 
@@ -27,26 +32,35 @@ const CartSingleProduct = props => {
     [quant]
   )
 
+  const deleteAll = () => {
+    console.log('clicked')
+    deleteFromCart(product)
+  }
+
   return (
     <div className="slimProd">
       {/* PRODUCT PICTURE HERE */}
-      <img src="" />
-      <h3>{product.name}</h3>
-      <p>Quantity:</p>
-      <form>
-        <input
-          name="quantity"
-          type="number"
-          max={10}
-          min={1}
-          defaultValue={product.cart.quantity}
-          onChange={handleChange}
-        />
-      </form>
-      <p>
-        Price: <span>{product.price * quant} ¤</span>
-      </p>
-      <a className="btn">Delete</a>
+      <img src={product.pictures[0]} />
+      <div>
+        <h3>{product.name.toUpperCase()}</h3>
+        <form>
+          <label>Quantity:</label>
+          <input
+            name="quantity"
+            type="number"
+            max={10}
+            min={1}
+            defaultValue={product.cart.quantity}
+            onChange={handleChange}
+          />
+        </form>
+        <p>
+          Price: <span>{product.price * quant} ¤</span>
+        </p>
+      </div>
+      <a className="btn" onClick={deleteAll}>
+        Delete
+      </a>
     </div>
   )
 }
@@ -61,7 +75,8 @@ const mapDispatch = dispatch => {
   return {
     getCart: () => dispatch(getCartThunk()),
     addToCart: product => dispatch(addProductThunk(product)),
-    removeFromCart: product => dispatch(removeProductThunk(product))
+    removeFromCart: product => dispatch(removeProductThunk(product)),
+    deleteFromCart: product => dispatch(removeAllProdcutsThunk(product))
   }
 }
 

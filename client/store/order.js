@@ -36,6 +36,16 @@ export const removeProductThunk = product => async dispatch => {
   }
 }
 
+export const removeAllProdcutsThunk = product => async dispatch => {
+  try {
+    await axios.delete('/api/orders/' + product.id + '/all')
+    const cartWithoutOldItem = await axios.get(`/api/orders`)
+    await dispatch(getCart(cartWithoutOldItem.data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 //INITIAL STATE
 const defaultCart = {}
 

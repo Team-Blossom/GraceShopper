@@ -17,6 +17,10 @@ class CartComponent extends React.Component {
             cart.products.map(product => {
               return <SlimProduct key={product.id} product={product} />
             })}
+          <hr />
+          <p>
+            Subtotal: <span>{cart.price} ¤</span>
+          </p>
         </div>
         <div id="theSummary">
           <div>
