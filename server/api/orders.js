@@ -7,7 +7,8 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     let order = await Orders.findOne({
-      where: {userId: req.user.id, status: 'cart'}
+      where: {userId: req.user.id, status: 'cart'},
+      include: {model: Product}
     })
     if (!order) {
       order = await Orders.create({userId: req.user.id, status: 'cart'})
