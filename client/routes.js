@@ -5,7 +5,12 @@ import PropTypes from 'prop-types'
 import {Login, Register, UserHome, Cart} from './components'
 import AllProducts from './components/AllProducts'
 import SingleProduct from './components/SingleProduct'
+
+import ProductsView from './components/ProductsView'
+
+
 import {me} from './store'
+
 /**
  * COMPONENT
  */
@@ -25,6 +30,7 @@ class Routes extends Component {
         <Route path="/allproducts" component={AllProducts} />
         <Route path="/cart" component={Cart} />
         <Route path="/allproducts/:productId" component={SingleProduct} />
+        <Route path="/categories/:categoryId" component={ProductsView} />
 
         {isLoggedIn && (
           <Switch>
