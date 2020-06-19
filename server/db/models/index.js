@@ -3,6 +3,8 @@ const User = require('./user')
 const Orders = require('./orders')
 const Category = require('./categories')
 const Product = require('./products')
+// const {Sequelize} = require('sequelize/types')
+const Sequelize = require('sequelize')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -21,8 +23,24 @@ const Product = require('./products')
 User.hasMany(Orders)
 Orders.belongsTo(User)
 
-Orders.belongsToMany(Product, {through: 'Cart_Products'})
-Product.belongsToMany(Orders, {through: 'Cart_Products'})
+const Cart = db.define(
+  'cart',
+  {
+    id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
+    },
+    quantity: {
+      type: Sequelize.INTEGER,
+      defaultValue: 1
+    }
+  },
+  {timestamps: false}
+)
+Orders.belongsToMany(Product, {through: Cart})
+Product.belongsToMany(Orders, {through: Cart})
 
 Category.hasMany(Product)
 Product.belongsTo(Category)
@@ -31,5 +49,6 @@ module.exports = {
   User,
   Orders,
   Category,
-  Product
+  Product,
+  Cart
 }

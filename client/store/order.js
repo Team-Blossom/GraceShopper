@@ -1,5 +1,4 @@
 import axios from 'axios'
-import store from './index'
 
 //ACTION TYPES
 const GET_CART = 'GET_CART'
@@ -12,7 +11,7 @@ export const getCartThunk = () => async dispatch => {
   //is user logged in
   try {
     const cart = await axios.get(`/api/orders/`)
-    dispatch(getCart(cart.data))
+    await dispatch(getCart(cart.data))
   } catch (error) {
     console.error(error)
   }
@@ -21,7 +20,7 @@ export const getCartThunk = () => async dispatch => {
 export const addProductThunk = product => async dispatch => {
   try {
     const cartWithNewItem = await axios.post(`/api/orders/`, product)
-    dispatch(getCart(cartWithNewItem.data))
+    await dispatch(getCart(cartWithNewItem.data))
   } catch (error) {
     console.error(error)
   }
@@ -29,8 +28,19 @@ export const addProductThunk = product => async dispatch => {
 
 export const removeProductThunk = product => async dispatch => {
   try {
-    const cartWithoutOldItem = await axios.delete(`/api/orders/`, product)
-    dispatch(getCart(cartWithoutOldItem.data))
+    await axios.delete(`/api/orders/` + product.id)
+    const cartWithoutOldItem = await axios.get(`/api/orders`)
+    await dispatch(getCart(cartWithoutOldItem.data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const removeAllProdcutsThunk = product => async dispatch => {
+  try {
+    await axios.delete('/api/orders/' + product.id + '/all')
+    const cartWithoutOldItem = await axios.get(`/api/orders`)
+    await dispatch(getCart(cartWithoutOldItem.data))
   } catch (error) {
     console.error(error)
   }
