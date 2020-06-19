@@ -1,33 +1,62 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 import {fetchProducts} from '../store/products'
+import axios from 'axios'
+import {addProductThunk} from '../store/order'
 
 export class AllProducts extends React.Component {
-  //   constructor() {
-  //     super()
-
-  //     //this.handleClick = this.handleClick.bind(this)
-  //   }
-  componentDidMount() {
+  constructor() {
+    super()
+    this.state = {
+      categories: []
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
+  async componentDidMount() {
     this.props.getProducts()
+    const categories = await axios.get('/api/categories')
+
+    this.setState({categories: categories.data})
+    console.log(this.state)
+  }
+  handleClick() {
+    console.log(this)
   }
   render() {
     const products = this.props.products
-    console.log(products)
+    const categories = this.state.categories
+
     return (
       <section id="productsSection">
         <div id="prodNav">
           <ul>
-            <li>
-              <a href className="activeProdNav">
+            {/* <li>
+              <NavLink href className="activeProdNav">
                 All Products
-              </a>
-            </li>
-            <li>
-              <a href> Emotes</a>
-            </li>
-            <li>
+              </NavLink>
+            </li> */}
+            {categories.map(category => {
+              return (
+                <li key={category.id}>
+                  <NavLink
+                    to={{
+                      pathname: `/categories/${category.id}`,
+                      props: {category: category}
+                    }}
+                    onClick={() => {
+                      console.log(this)
+                      this.handleClick()
+                    }}
+                    value={category.id}
+                  >
+                    {category.name}
+                  </NavLink>
+                </li>
+              )
+            })}
+
+            {/* <li>
               <a href> Elixirs</a>
             </li>
             <li>
@@ -38,11 +67,10 @@ export class AllProducts extends React.Component {
             </li>
             <li>
               <a href> Literature</a>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div id="prodGroup">
-          {/* CATEGORIES NEED BACKGROUND IMAGES */}
           <div id="categoryTitle">
             <h1>ALL PRODUCTS</h1>
           </div>
@@ -64,22 +92,20 @@ export class AllProducts extends React.Component {
               )
             })}
           </div>
-
-          {/* <div className="prodBox">
+          <div className="prodBox">
+            <a href>
+              <img src="https://149349728.v2.pressablecdn.com/wp-content/uploads/2019/06/mervyn-chan-RFXxBTHze_M-unsplash.jpg" />
+            </a>
+            <div>
               <a href>
-                <img src="https://149349728.v2.pressablecdn.com/wp-content/uploads/2019/06/mervyn-chan-RFXxBTHze_M-unsplash.jpg" />
+                <p>PRODUCT NAME</p>
+                <p>0.00 ¤</p>
               </a>
-              <div>
-                <a href>
-                  <p>PRODUCT NAME</p>
-                  <p>0.00 ¤</p>
-                </a>
-                <a className="btn btn-gold" href>
-                  ADD TO CART
-                </a>
-              </div>
+              <a className="btn btn-gold" href>
+                ADD TO CART
+              </a>
             </div>
-            */}
+          </div>{' '}
         </div>
         {/* </div> */}
       </section>
@@ -97,6 +123,9 @@ const mapDispatch = dispatch => {
   return {
     getProducts: () => {
       dispatch(fetchProducts())
+    },
+    addProduct: product => {
+      dispatch(addProductThunk(product))
     }
   }
 }
