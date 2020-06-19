@@ -47,9 +47,7 @@ const AuthForm = props => {
           <div>
             {/* Third party  */}
             <button type="button">FACEBOOK BUTTON</button>
-            <a href="/auth/google">
-              <button type="button">GOOGLE BUTTON</button>
-            </a>
+            <button type="button">GOOGLE BUTTON</button>
           </div>
         </div>
         {/* link to login view */}
