@@ -8,7 +8,10 @@ class CartComponent extends React.Component {
     this.props.getCart()
   }
   render() {
-    const cart = this.props.cart
+    let cart = this.props.cart
+    if (!cart.id) {
+      cart.price = 0
+    }
     return (
       <section id="cartSection">
         <div id="theCart">
@@ -29,11 +32,11 @@ class CartComponent extends React.Component {
               Subtotal: <span>{cart.price} ¤</span>
             </p>
             <p>
-              Estimated Taxes: <span>MONEY ¤</span>
+              Estimated Taxes: <span>{cart.price * 0.05} ¤</span>
             </p>
             <hr />
             <p>
-              Total: <span>MONEY ¤</span>
+              Total: <span>{cart.price * 1.05}¤</span>
             </p>
             <a className="btn btn-gold">Proceed To Checkout</a>
           </div>
