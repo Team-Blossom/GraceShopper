@@ -1,5 +1,6 @@
 import React from 'react'
-import {connect, Link} from 'react-redux'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {auth} from '../store'
 import PropTypes from 'prop-types'
 
@@ -52,7 +53,7 @@ const AuthForm = props => {
           </div>
         </div>
         {/* link to login view */}
-        <a href="#loginSection">Have an account with us already?</a>
+        <Link to="/login">Have an account with us already?</Link>
       </div>
     </section>
   )
