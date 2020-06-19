@@ -1,29 +1,31 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
-import {addProductThunk, removeProductThunk} from '../store/order'
+import {getCartThunk, addProductThunk, removeProductThunk} from '../store/order'
 
 const CartSingleProduct = props => {
-  const {product, addToCart, removeFromCart} = props
+  const {product, getCart, addToCart, removeFromCart} = props
   const [quant, setQuant] = useState(product.cart.quantity)
-
-  let oldQuant
+  const [oldQuant, setOldQuant] = useState(product.cart.quantity)
 
   const handleChange = event => {
-    oldQuant = quant
-    console.log('oldQuant: ', oldQuant)
+    setOldQuant(quant)
     setQuant(Number(event.target.value))
   }
-  console.log('new quant: ', quant)
 
-  if (quant > oldQuant) {
-    console.log('added ', product.name)
-    addToCart(product)
-  } else if (quant < oldQuant) {
-    console.log('removed ', product)
-    removeFromCart(product)
-  } else {
-    console.log('did nothing')
-  }
+  useEffect(
+    () => {
+      if (quant > oldQuant) {
+        addToCart(product)
+        console.log('added ', product.name)
+      } else if (quant < oldQuant) {
+        removeFromCart(product)
+        console.log('removed ', product)
+      } else {
+        console.log('did nothing')
+      }
+    },
+    [quant]
+  )
 
   return (
     <div className="slimProd">
@@ -57,6 +59,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
+    getCart: () => dispatch(getCartThunk()),
     addToCart: product => dispatch(addProductThunk(product)),
     removeFromCart: product => dispatch(removeProductThunk(product))
   }

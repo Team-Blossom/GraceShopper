@@ -31,7 +31,8 @@ router.post('/', async (req, res, next) => {
     const product = await Product.findOne({where: {id: req.body.id}})
 
     let order = await Orders.findOne({
-      where: {userId: req.user.id, status: 'cart'}
+      where: {userId: req.user.id, status: 'cart'},
+      include: {model: Product}
     })
     if (!order) {
       order = await Orders.create({userId: req.user.id, status: 'cart'})
@@ -53,17 +54,19 @@ router.post('/', async (req, res, next) => {
 router.delete('/', async (req, res, next) => {
   try {
     const product = await Product.findOne({where: {id: req.body.id}})
-
-    let order = await Orders.findOne({
-      where: {userId: req.user.id, status: 'cart'}
+    console.log('product: ', product.dataValues)
+    const order = await Orders.findOne({
+      where: {userId: req.user.id, status: 'cart'},
+      include: {model: Product}
     })
+    console.log('order: ', order.dataValues)
     if (!order) {
       res.status(500).send('Cart is already empty')
     }
-    let cartItem = await Cart.findOne({
+    const cartItem = await Cart.findOne({
       where: {orderId: order.id, productId: product.id}
     })
-
+    console.log('cart item: ', cartItem.dataValues)
     if (cartItem) {
       await cartItem.increment({quantity: -1})
     }
@@ -71,7 +74,7 @@ router.delete('/', async (req, res, next) => {
       await order.removeProduct(product)
     }
     await order.increment({quantity: -1, price: -product.price})
-    res.json(order)
+    res.sendStatus(204)
   } catch (error) {
     next(error)
   }
