@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {SlimProduct} from './cartSingleItem'
 import {getCartThunk, addProductThunk, removeProductThunk} from '../store/order'
 
 const CartComponent = props => {
@@ -10,27 +11,18 @@ const CartComponent = props => {
     getCart()
   }
 
-  const listItem = product => (
-    <div className="slimProd">
-      {/* PRODUCT PICTURE HERE */}
-      <img src />
-      <h3>{product.name}</h3>
-      <p>Quantity:</p>
-      <form>
-        <input type="number" max={10} min={1} defaultValue={1} />
-      </form>
-      <p>
-        Price: <span>{product.price}*Quantity ¤</span>
-      </p>
-      <a className="btn">Delete</a>
-    </div>
-  )
   return (
     <section id="cartSection">
       <div id="theCart">
         <h1>Welcome To Your Cart</h1>
         {cart.id !== undefined &&
-          cart.products.map(product => listItem(product))}
+          cart.products.map((product, index) => {
+            if (product === cart.products[index + 1]) {
+              console.log(index)
+            } else {
+              return <SlimProduct product={product} />
+            }
+          })}
         <p>
           Subtotal <span>MONEY ¤</span>
         </p>
@@ -39,7 +31,7 @@ const CartComponent = props => {
         <div>
           <h2>Order Summary</h2>
           <p>
-            Subtotal: <span>MONEY ¤</span>
+            Subtotal: <span>{cart.price} ¤</span>
           </p>
           <p>
             Estimated Taxes: <span>MONEY ¤</span>

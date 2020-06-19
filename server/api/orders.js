@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Orders, Product} = require('../db/models')
+const {Orders, Product, Cart} = require('../db/models')
 module.exports = router
 
 //get a users order where status = cart
@@ -36,6 +36,12 @@ router.post('/', async (req, res, next) => {
     if (!order) {
       order = await Orders.create({userId: req.user.id, status: 'cart'})
     }
+    let cartItem = await Cart.findOne({
+      where: {orderId: order.id, productId: product.id}
+    })
+    if (cartItem) {
+      await cartItem.increment({quantity: 1})
+    }
     await order.addProduct(product)
     await order.increment({quantity: 1, price: product.price})
     res.json(order)
@@ -54,7 +60,16 @@ router.delete('/', async (req, res, next) => {
     if (!order) {
       res.status(500).send('Cart is already empty')
     }
-    await order.removeProduct(product)
+    let cartItem = await Cart.findOne({
+      where: {orderId: order.id, productId: product.id}
+    })
+
+    if (cartItem) {
+      await cartItem.increment({quantity: -1})
+    }
+    if (cartItem.quantity === 0) {
+      await order.removeProduct(product)
+    }
     await order.increment({quantity: -1, price: -product.price})
     res.json(order)
   } catch (error) {

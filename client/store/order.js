@@ -1,5 +1,4 @@
 import axios from 'axios'
-import store from './index'
 
 //ACTION TYPES
 const GET_CART = 'GET_CART'
