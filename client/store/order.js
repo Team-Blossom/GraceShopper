@@ -28,7 +28,7 @@ export const addProductThunk = product => async dispatch => {
 
 export const removeProductThunk = product => async dispatch => {
   try {
-    await axios.delete(`/api/orders/`, product)
+    await axios.delete(`/api/orders/` + product.id)
     const cartWithoutOldItem = await axios.get(`/api/orders`)
     await dispatch(getCart(cartWithoutOldItem.data))
   } catch (error) {

@@ -51,22 +51,22 @@ router.post('/', async (req, res, next) => {
   }
 })
 //user can remove products from cart
-router.delete('/', async (req, res, next) => {
+router.delete('/:productId', async (req, res, next) => {
   try {
-    const product = await Product.findOne({where: {id: req.body.id}})
-    console.log('product: ', product.dataValues)
+    const product = await Product.findOne({where: {id: req.params.productId}})
+
     const order = await Orders.findOne({
       where: {userId: req.user.id, status: 'cart'},
       include: {model: Product}
     })
-    console.log('order: ', order.dataValues)
+
     if (!order) {
       res.status(500).send('Cart is already empty')
     }
     const cartItem = await Cart.findOne({
       where: {orderId: order.id, productId: product.id}
     })
-    console.log('cart item: ', cartItem.dataValues)
+
     if (cartItem) {
       await cartItem.increment({quantity: -1})
     }

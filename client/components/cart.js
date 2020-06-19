@@ -9,7 +9,6 @@ class CartComponent extends React.Component {
   }
   render() {
     const cart = this.props.cart
-    console.log('cart products: ', cart.products)
     return (
       <section id="cartSection">
         <div id="theCart">

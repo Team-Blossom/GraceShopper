@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {getCartThunk, addProductThunk, removeProductThunk} from '../store/order'
 
 const CartSingleProduct = props => {
-  const {product, getCart, addToCart, removeFromCart} = props
+  const {product, addToCart, removeFromCart} = props
   const [quant, setQuant] = useState(product.cart.quantity)
   const [oldQuant, setOldQuant] = useState(product.cart.quantity)
 
@@ -30,7 +30,7 @@ const CartSingleProduct = props => {
   return (
     <div className="slimProd">
       {/* PRODUCT PICTURE HERE */}
-      <img src />
+      <img src="" />
       <h3>{product.name}</h3>
       <p>Quantity:</p>
       <form>
