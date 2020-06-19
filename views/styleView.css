@@ -527,3 +527,40 @@ nav#mainNav i {
   text-align: center;
   color: white;
 }
+
+/* CART VIEW */
+#cartSection {
+  height: auto;
+  width: 100%;
+  background-color: wheat;
+
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+#theCart {
+  background-color: GREEN;
+  width: 70%;
+}
+
+.slimProd {
+  background-color: #61210f;
+  margin: 10px;
+}
+
+.slimProd input {
+  background-color: #f77f00;
+  color: white;
+}
+
+#theSummary {
+  height: 100vh;
+  width: 30%;
+  background-color: #61210f;
+}
+
+#theSummary > div {
+  margin: 10px;
+  background-color: antiquewhite;
+}
