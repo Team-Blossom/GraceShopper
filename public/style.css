@@ -218,6 +218,9 @@ nav#mainNav i {
   align-items: center;
 }
 #signupSection {
+  z-index: 50;
+  position: absolute;
+  top: 0;
   background-image: linear-gradient(
       rgba(247, 127, 0, 0.3),
       rgba(247, 127, 0, 0.3)
@@ -226,6 +229,9 @@ nav#mainNav i {
   background-size: cover;
 }
 #loginSection {
+  z-index: 50;
+  position: absolute;
+  top: 0;
   background-color: orange;
   color: white;
   background-image: linear-gradient(
