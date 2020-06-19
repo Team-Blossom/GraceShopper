@@ -33,7 +33,7 @@ export default class ProductsView extends React.Component {
               return (
                 <div className="prodBox" key={product.id}>
                   <link
-                    to="{`/allproducts/${product.id}`}"
+                    to={`/allproducts/${product.id}`}
                     className="linklink"
                   />
                   <img src={product.pictures[0]} />
