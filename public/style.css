@@ -454,7 +454,7 @@ nav#mainNav i {
   width: 100%;
   border-radius: 20px 20px 0 0;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('.//imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg');
+    url('./pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
