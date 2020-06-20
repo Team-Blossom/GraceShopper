@@ -369,7 +369,7 @@ nav#mainNav i {
   justify-content: center;
   align-items: center;
   /* background-color: none; */
-  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+  background-image: url('./pictures/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
   background-size: cover;
   /* background-repeat: repeat; */
   padding-top: 30px;
@@ -454,7 +454,7 @@ nav#mainNav i {
   width: 100%;
   border-radius: 20px 20px 0 0;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('.//imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg');
+    url('./pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -505,7 +505,7 @@ nav#mainNav i {
 /* SINGLE PRODUCT */
 #singleProdSection {
   /* height: auto; */
-  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+  background-image: url('./pictures/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
 }
 #theProd {
   height: 100%;
