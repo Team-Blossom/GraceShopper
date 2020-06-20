@@ -2,11 +2,13 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchProduct} from '../store/product'
+import {addProductThunk} from '../store/order'
 
 class SingleProduct extends React.Component {
   componentDidMount() {
     this.props.getProduct(this.props.match.params.productId)
   }
+
   render() {
     const {product} = this.props
     return (
@@ -46,7 +48,12 @@ class SingleProduct extends React.Component {
                   <input type="number" max={10} min={1} defaultValue={1} />
                 </li>
                 <li>
-                  <a className="btn">ADD TO CART</a>
+                  <a
+                    className="btn"
+                    onClick={() => this.props.addToCart(product)}
+                  >
+                    ADD TO CART
+                  </a>
                 </li>
               </ul>
             </form>
@@ -66,7 +73,8 @@ const mapProduct = state => {
 
 const mapDispatch = dispatch => {
   return {
-    getProduct: id => dispatch(fetchProduct(id))
+    getProduct: id => dispatch(fetchProduct(id)),
+    addToCart: product => dispatch(addProductThunk(product))
   }
 }
 

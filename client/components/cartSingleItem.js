@@ -8,7 +8,7 @@ import {
 } from '../store/order'
 
 const CartSingleProduct = props => {
-  const {product, addToCart, removeFromCart, deleteFromCart} = props
+  const {product, getCart, addToCart, removeFromCart, deleteFromCart} = props
   const [quant, setQuant] = useState(product.cart.quantity)
   const [oldQuant, setOldQuant] = useState(product.cart.quantity)
 
@@ -33,8 +33,8 @@ const CartSingleProduct = props => {
   )
 
   const deleteAll = () => {
-    console.log('clicked')
     deleteFromCart(product)
+    getCart()
   }
 
   return (
