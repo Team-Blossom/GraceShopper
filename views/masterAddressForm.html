@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADDRESS FORM</title>
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="./styleView.css">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Merienda:wght@400;700&family=Metal+Mania&family=Piedra&display=swap" rel="stylesheet">
+  <!-- ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <!-- favicon/logo -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+  <!-- THIS IS A WHOLE 'NOTHER COMPONENT, FORM INPUTS SHOULD BE PASSED THE SPECIFIC USER ADDRESS OBJ VALUES UPON MOUNT, IF OBJ IS EMPTY (FORM WOULD ADD A NEW ADDRESS) USE PLACEHOLDERS AND CHANGE SUBMIT BUTTON TEXT' -->
+  <section style="z-index:50" id="masterAddrForm">
+    <div id="">
+      <!-- IF COMP PASSED NO ADDRESS OBJECT, CHANGE TEXT TO "ADD ADDRESS"  -->
+      <h1>Update Address</h1>
+      <form id="">
+        <ul>
+          <ul>
+            <li>
+              <input required type="text" placeholder="First Name">
+              <input required type="Last Name" placeholder="Last Name">
+            </li>
+            <li>
+              <input required type="text" placeholder="Address">
+            </li>
+            <li>
+              <input type="text" placeholder="Apt, etc...">
+            </li>
+            <li>
+              <input type="text" placeholder="City">
+              <input type="text" maxlength="2" placeholder="State">
+               <!-- //how do we check if its not a string though, how do we force numbers without giving a selection... -->
+              <input type="text" minlength="5" maxlength="5" placeholder="Zip Code">
+            </li>
+            <li>
+              <select>
+                <option disabled selected>Select Nation</option>
+                <option>Fire</option>
+                <option>Water</option>
+                <option>Earth</option>
+                <option>Air</option>
+              </select>
+            </li>
+            <li>
+              <!-- IF PASSED NO ADDRESS OBJECT, CHANGE TEXT TO "ADD"  -->
+              <button  class="btn btn-gold btnToWhite" type="submit">SAVE</button>
+              <!-- LINK TO MASTER DASHBOARD -->
+              <a href="./masterView.html" style="margin-left: 10px;" class="btn btnToWhite">Cancel</a>
+            </li>
+          </ul>
+        </ul>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

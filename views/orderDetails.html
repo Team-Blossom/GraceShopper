@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORDER DETAILS</title>
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="./styleView.css">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Merienda:wght@400;700&family=Metal+Mania&family=Piedra&display=swap" rel="stylesheet">
+  <!-- ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <!-- favicon/logo -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+  <!-- THIS SHOULD BE USABLE FOR BOTH ALCHEMISTS AND MASTERS -->
+  <nav id="mainNav">
+    <ul>
+      <li>
+        <!-- GOES TO HOME PAGE -->
+        <a id="logoMainNav" href="">
+          <img src="./imagesViews/gslogopic.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="">Who We Are</a>
+      </li>
+      <li>
+        <a href="productsView.html">Products</a>
+      </li>
+      <li>
+        <a class="activeMainNav"href="./signUpView.html">
+          <i style="font-size: 36px"class="material-icons">face</i>
+          Login
+        </a>
+      </li>
+      <li>
+        <a id="shopBag" href="">
+          <i style="font-size: 48px" class="material-icons">shopping_bag</i>
+          <!-- SHOULD REFLECT CART QTY -->
+          <p>0</p>
+        </a>
+      </li>
+    </ul>
+  </nav>
+<section id="orderDetailsSection">
+  <div id="orderSpecs">
+    <ul>
+      <li>
+        <h3>Placed: </h3>
+        <span>DATE</span>
+      </li>
+      <li>
+        <h3>Total Price: </h3>
+        <span>PRICE&#164;</span>
+      </li>
+      <li>
+        <h3>Total Items: </h3>
+        <span>ITEM QTY</span>
+      </li>
+      <li>
+        <h3>Order Status: </h3>
+        <span>STATUS</span>
+      </li>
+      <li>
+        <h3>Order ID: </h3>
+        <span>ORDER ID</span>
+      </li>
+    </ul>
+  </div>
+  <div id="moreSpecs">
+    <div>
+      <h3>Customer:</h3>
+      <p>CUSTOMER NAME</p>
+    </div>
+    <div>
+      <h3>Shipped To:</h3>
+      <p>ADDRESSEE NAME</p>
+      <p>STREET NAME</p>
+      <p>ADDRESS 2</p>
+      <p>City State Zip</p>
+      <p>Nation Choice</p>
+    </div>
+    <div>
+      <img src="./imagesViews/gslogopic.jpg">
+    </div>
+  </div>
+  <div id="orderedProdsCont">
+      <div class="orderedProd">
+        <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg"">
+        <p style="font-size: .8rem;">PRODUCT NAME</p>
+        <p>PRODUCT QTY: <span>QTY in cart</span></p>
+        <p>PRODUCT PRICE: <span>PRICE</span></p>
+        <p>TOTAL PRICE: <span>PRICE*QTY</span></p>
+      </div>
+      <div class="orderedProd">
+        <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg"">
+        <p style="font-size: .8rem;">PRODUCT NAME</p>
+        <p>PRODUCT QTY: <span>QTY in cart</span></p>
+        <p>PRODUCT PRICE: <span>PRICE</span></p>
+        <p>TOTAL PRICE: <span>PRICE*QTY</span></p>
+      </div>
+      <div class="orderedProd">
+        <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg"">
+        <p style="font-size: .8rem;">PRODUCT NAME</p>
+        <p>PRODUCT QTY: <span>QTY in cart</span></p>
+        <p>PRODUCT PRICE: <span>PRICE</span></p>
+        <p>TOTAL PRICE: <span>PRICE*QTY</span></p>
+      </div>
+      <div class="orderedProd">
+        <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg"">
+        <p style="font-size: .8rem;">PRODUCT NAME</p>
+        <p>PRODUCT QTY: <span>QTY in cart</span></p>
+        <p>PRODUCT PRICE: <span>PRICE</span></p>
+        <p>TOTAL PRICE: <span>PRICE*QTY</span></p>
+      </div>
+      <div class="orderedProd">
+        <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg"">
+        <p style="font-size: .8rem;">PRODUCT NAME</p>
+        <p>PRODUCT QTY: <span>QTY in cart</span></p>
+        <p>PRODUCT PRICE: <span>PRICE</span></p>
+        <p>TOTAL PRICE: <span>PRICE*QTY</span></p>
+      </div>
+  </div>
+  <a href="./masterView.html">
+    <i class="material-icons">keyboard_backspace</i>
+    Back to DashBoard
+  </a>
+</section>
+</body>
+</html>

@@ -826,11 +826,16 @@ MASTERVIEW
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  border: solid white 3px;
+  border: solid #f77f00 5px;
   margin: auto 50px 25px auto;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#salve #logo > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
 }
 #salve a {
   /* margin: auto 25px 25px auto; */
@@ -942,16 +947,196 @@ MASTERVIEW
   justify-content: center;
   align-items: center;
 }
-.masterOrder > * {
+.masterOrder ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.masterOrder ul li {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+.masterOrder ul li > * {
   margin: 0 5px;
   font-size: 0.8rem;
   color: white;
 }
-.masterOrder span {
+.masterOrder ul li > span {
   font-size: 0.8rem;
   color: #61210f;
 }
 .btnToWhite:hover {
   background-color: white;
   color: #f77f00;
+}
+
+/* --------------
+MASTER ADDRESS FORM
+----------------- */
+
+#masterAddrForm,
+#masterBillForm {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#masterAddrForm > div,
+#masterBillForm > div {
+  /* background-color: aquamarine; */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./imagesViews/zahrin-lukman-VSNoQdimlQQ-unsplash.jpg');
+  background-size: cover;
+  height: 90%;
+  width: 80%;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#masterAddrForm > div h1,
+#masterBillForm > div h1 {
+  color: #f77f00;
+  margin-bottom: 10px;
+}
+#masterAddrForm > div form,
+#masterBillForm > div form {
+  height: 70%;
+  width: 70%;
+  border-radius: 10px;
+  background-color: rgba(234, 226, 183, 0.7);
+  padding: 20px;
+}
+
+#masterBillForm > div form {
+  height: 50%;
+}
+
+#masterAddrForm form input,
+#masterAddrForm form select,
+#masterBillForm form input,
+#masterBillForm form select {
+  margin-top: 10px;
+}
+#masterAddrForm form ul li input,
+#masterAddrForm form ul li select,
+#masterBillForm form ul li input {
+  width: 100%;
+}
+#masterAddrForm form ul li:first-child,
+#masterAddrForm form ul li:nth-child(4),
+#masterBillForm form ul li:nth-child(3) {
+  justify-content: space-between;
+}
+#masterAddrForm form ul li:first-child input,
+#masterBillForm form ul li:nth-child(3) select {
+  width: 47%;
+}
+#masterAddrForm form ul li:nth-child(4) input {
+  width: 30%;
+}
+
+/* ORDER DETAILS PAGE*/
+
+#orderDetailsSection {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#orderDetailsSection > div {
+  width: 80%;
+  padding: 10px;
+}
+#orderSpecs {
+  margin-top: 20px;
+  background-color: #f77f00;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px 10px 0 0;
+}
+#orderSpecs ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#orderSpecs ul li {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+#orderSpecs h3 {
+  color: white;
+}
+#orderSpecs span {
+  font-size: 0.6rem;
+  color: #61210f;
+}
+#moreSpecs {
+  background-color: wheat;
+  display: flex;
+  /* flex-grow: 1; */
+  justify-content: center;
+  /* align-items: center; */
+}
+#moreSpecs h3 {
+  color: #61210f;
+}
+#moreSpecs div {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+#moreSpecs div:last-child {
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+#moreSpecs div:last-child > img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid #61210f;
+}
+
+#orderedProdsCont {
+  background-color: blanchedalmond;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#orderedProdsCont .orderedProd {
+  width: 30%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: wheat;
+}
+
+.orderedProd img {
+  width: 100%;
+}
+.orderedProd span {
+  font-size: 0.5rem;
+  color: #f77f00;
+}
+
+#orderDetailsSection > a {
+  margin: 10px 0;
+}
+#orderDetailsSection > a,
+#orderDetailsSection > a > i {
+  color: white;
+}
+
+#orderDetailsSection > a:hover,
+#orderDetailsSection > a:hover > i {
+  color: orange;
 }

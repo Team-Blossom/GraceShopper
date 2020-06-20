@@ -71,12 +71,14 @@
         </ul>
       </div>
       <div id="masterSide">
-        <div id="salve" style="display:none; z-index: 1" >
+        <div id="salve" style="display:flex; z-index: 1" >
           <h1 style="color: #61210F">Hi, MASTER NAME</h1>
           <h3>Welcome to Your Dashboard</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quod nam distinctio adipisci, at error autem. Sint eveniet pariatur cupiditate blanditiis tempora, doloremque ipsam inventore minus! Culpa, amet voluptatem? Nulla voluptatibus maiores ipsum eum omnis at quo cupiditate iste odio, voluptatem eos a nostrum necessitatibus. Tenetur ea pariatur quibusdam odio.</p>
           <!-- LINK BACK TO HOME OR PRODUCTS -->
-          <div id="logo">LOGO</div>
+          <div id="logo">
+            <img src="./imagesViews/gslogopic.jpg">
+          </div>
           <a class="btn">Continue Shopping</a>
         </div>
         <div id="personalDetails" style="display:none; z-index: 2;">
@@ -116,7 +118,7 @@
             <p>Nation Choice</p>
             <!-- LINKS TO PRE-FILLED ADDRESS FORM VIEW -->
             <div>
-              <a class="btn">Edit</a>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
               <a class="btn">Delete</a>
             </div>
           </div>
@@ -128,7 +130,7 @@
             <p>City State Zip</p>
             <p>Nation Choice</p>
             <div>
-              <a class="btn">Edit</a>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
               <a class="btn">Delete</a>
             </div>
           </div>
@@ -140,7 +142,7 @@
             <p>City State Zip</p>
             <p>Nation Choice</p>
             <div>
-              <a class="btn">Edit</a>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
               <a class="btn">Delete</a>
             </div>
           </div>
@@ -152,7 +154,7 @@
             <p>City State Zip</p>
             <p>Nation Choice</p>
             <div>
-              <a class="btn">Edit</a>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
               <a class="btn">Delete</a>
             </div>
           </div>
@@ -164,7 +166,7 @@
             <p>City State Zip</p>
             <p>Nation Choice</p>
             <div>
-              <a class="btn">Edit</a>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
               <a class="btn">Delete</a>
             </div>
           </div>
@@ -176,7 +178,7 @@
             <p>City State Zip</p>
             <p>Nation Choice</p>
             <div>
-              <a class="btn">Edit</a>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
               <a class="btn">Delete</a>
             </div>
           </div>
@@ -188,7 +190,7 @@
             <p>City State Zip</p>
             <p>Nation Choice</p>
             <div>
-              <a class="btn">Edit</a>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
               <a class="btn">Delete</a>
             </div>
           </div>
@@ -223,36 +225,103 @@
             <a class="btn">DELETE</a>
           </div>
         </div>
-        <div id="masterOrders" style="display:flex; z-index: 5;">
+        <div id="masterOrders" style="display:none; z-index: 5;">
           <h2>Your Orders</h2>
           <div class="masterOrder">
-            <h3>Order Placed: <span>DATE</span></h3>
-            <h3>Total Price: <span>PRICE</span> &#164;</h3>
-            <h3>Total Items: <span>ITEM QTY</span></h3>
-            <h3>Order Status: <span>STATUS</span></h3>
-            <!-- LINKS TO SPECIFIC ORDER DETAILS -->
-            <a class="btn btnToWhite">Order Details</a>
+            <ul>
+              <li>
+                <h3>Order Placed: </h3>
+                <span>DATE</span>
+              </li>
+              <li>
+                <h3>Total Price: </h3>
+                <span>PRICE &#164;</span>
+              </li>
+              <li>
+                <h3>Total Items: </h3>
+                <span>ITEM QTY</span>
+              </li>
+              <li>
+                <h3>Order Status: </h3>
+                <span>STATUS</span>
+              </li>
+              <li>
+                <!-- LINKS TO SPECIFIC ORDER DETAILS -->
+                <a href="./orderDetails.html" class="btn btnToWhite">Order Details</a>
+              </li>
+            </ul>
           </div>
           <div class="masterOrder">
-            <h3>Order Placed: <span>DATE</span></h3>
-            <h3>Total Price: <span>PRICE</span> &#164;</h3>
-            <h3>Total Items: <span>ITEM QTY</span></h3>
-            <h3>Order Status: <span>STATUS</span></h3>
-            <a class="btn btnToWhite">Order Details</a>
+            <ul>
+              <li>
+                <h3>Order Placed: </h3>
+                <span>DATE</span>
+              </li>
+              <li>
+                <h3>Total Price: </h3>
+                <span>PRICE &#164;</span>
+              </li>
+              <li>
+                <h3>Total Items: </h3>
+                <span>ITEM QTY</span>
+              </li>
+              <li>
+                <h3>Order Status: </h3>
+                <span>STATUS</span>
+              </li>
+              <li>
+                <!-- LINKS TO SPECIFIC ORDER DETAILS -->
+                <a href="./orderDetails.html" class="btn btnToWhite">Order Details</a>
+              </li>
+            </ul>
           </div>
           <div class="masterOrder">
-            <h3>Order Placed: <span>DATE</span></h3>
-            <h3>Total Price: <span>PRICE</span> &#164;</h3>
-            <h3>Total Items: <span>ITEM QTY</span></h3>
-            <h3>Order Status: <span>STATUS</span></h3>
-            <a class="btn btnToWhite">Order Details</a>
+            <ul>
+              <li>
+                <h3>Order Placed: </h3>
+                <span>DATE</span>
+              </li>
+              <li>
+                <h3>Total Price: </h3>
+                <span>PRICE &#164;</span>
+              </li>
+              <li>
+                <h3>Total Items: </h3>
+                <span>ITEM QTY</span>
+              </li>
+              <li>
+                <h3>Order Status: </h3>
+                <span>STATUS</span>
+              </li>
+              <li>
+                <!-- LINKS TO SPECIFIC ORDER DETAILS -->
+                <a href="./orderDetails.html" class="btn btnToWhite">Order Details</a>
+              </li>
+            </ul>
           </div>
           <div class="masterOrder">
-            <h3>Order Placed: <span>DATE</span></h3>
-            <h3>Total Price: <span>PRICE</span> &#164;</h3>
-            <h3>Total Items: <span>ITEM QTY</span></h3>
-            <h3>Order Status: <span>STATUS</span></h3>
-            <a class="btn btnToWhite">Order Details</a>
+            <ul>
+              <li>
+                <h3>Order Placed: </h3>
+                <span>DATE</span>
+              </li>
+              <li>
+                <h3>Total Price: </h3>
+                <span>PRICE &#164;</span>
+              </li>
+              <li>
+                <h3>Total Items: </h3>
+                <span>ITEM QTY</span>
+              </li>
+              <li>
+                <h3>Order Status: </h3>
+                <span>STATUS</span>
+              </li>
+              <li>
+                <!-- LINKS TO SPECIFIC ORDER DETAILS -->
+                <a href="./orderDetails.html" class="btn btnToWhite">Order Details</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
