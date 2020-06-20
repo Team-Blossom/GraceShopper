@@ -3,31 +3,30 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchProduct} from '../store/product'
 
-export class SingleProduct extends React.Component {
+class SingleProduct extends React.Component {
   componentDidMount() {
     this.props.getProduct(this.props.match.params.productId)
   }
   render() {
-    const product = this.props.product
-    console.log(product.pictures)
+    const {product} = this.props
     return (
       <section id="singleProdSection">
         <div id="theProd">
           <div id="imageCont">
             <img
               id="mainImage"
-              src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg"
+              src="/pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg"
             />
             <div id="prodImgNav">
               {/* NEEDS ONCLICK FUNCTION THAT CHANGES MAINIMAGE SRC AND PLACES CLASSNAME */}
               <a href>
                 <img
                   className="activeProdImg"
-                  src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg"
+                  src="/pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg"
                 />
               </a>
               <a href>
-                <img src="./imagesViews/annie-spratt-xt79nQxc9Q0-unsplash.jpg" />
+                <img src="/pictures/annie-spratt-xt79nQxc9Q0-unsplash.jpg" />
               </a>
             </div>
           </div>
@@ -36,7 +35,7 @@ export class SingleProduct extends React.Component {
             <h2>Description: </h2>
             <p>{product.description}</p>
             <h2>
-              Price: <span style={{color: '#F77F00'}}>PRODUCT PRICE</span> ¤
+              Price: <span style={{color: '#F77F00'}}>{product.price}</span> ¤
             </h2>
             <form>
               <ul>
@@ -54,13 +53,6 @@ export class SingleProduct extends React.Component {
           </div>
           {/* Recommended Items */}
         </div>
-        <footer>
-          <p>
-            UTONIUM <span style={{color: '#F77F00'}}>©</span> 2020
-          </p>
-          <p>Low Skrull Prices. High Quality Standards. Forever.</p>
-          <a href>Admin Login</a>
-        </footer>
       </section>
     )
   }
@@ -74,9 +66,7 @@ const mapProduct = state => {
 
 const mapDispatch = dispatch => {
   return {
-    getProduct: id => {
-      dispatch(fetchProduct(id))
-    }
+    getProduct: id => dispatch(fetchProduct(id))
   }
 }
 

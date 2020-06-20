@@ -369,7 +369,7 @@ nav#mainNav i {
   justify-content: center;
   align-items: center;
   /* background-color: none; */
-  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+  background-image: url('./pictures/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
   background-size: cover;
   /* background-repeat: repeat; */
   padding-top: 30px;
@@ -505,7 +505,7 @@ nav#mainNav i {
 /* SINGLE PRODUCT */
 #singleProdSection {
   /* height: auto; */
-  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+  background-image: url('./pictures/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
 }
 #theProd {
   height: 100%;
