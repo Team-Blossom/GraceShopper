@@ -26,9 +26,9 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Register} />
+        <Route path="/allproducts/:productId" component={SingleProduct} />
         <Route exact path="/allproducts" component={AllProducts} />
         <Route path="/cart" component={Cart} />
-        <Route path="/allproducts/:productId" component={SingleProduct} />
         <Route path="/categories/:categoryId" component={ProductsView} />
 
         {isLoggedIn && (
