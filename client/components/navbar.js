@@ -24,11 +24,18 @@ const Navbar = ({handleClick, isLoggedIn, cart}) => (
         </NavLink>
       </li>
       {isLoggedIn ? (
-        <li>
-          <NavLink activeClassName="activeMainNav" to="/dashboard">
-            Dashboard
-          </NavLink>
-        </li>
+        <>
+          <li>
+            <NavLink activeClassName="activeMainNav" to="/dashboard">
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <a onClick={() => handleClick()} href="/">
+              Logout
+            </a>
+          </li>
+        </>
       ) : (
         <li>
           <NavLink activeClassName="activeMainNav" to="/signup">

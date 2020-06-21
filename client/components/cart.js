@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {SlimProduct} from './cartSingleItem'
 import {getCartThunk} from '../store/order'
@@ -16,7 +17,7 @@ class CartComponent extends React.Component {
       <section id="cartSection">
         <div id="theCart">
           <h1>Welcome To Your Cart</h1>
-          {cart.id !== undefined &&
+          {cart.products &&
             cart.products.map(product => {
               return <SlimProduct key={product.id} product={product} />
             })}
@@ -38,7 +39,9 @@ class CartComponent extends React.Component {
             <p>
               Total: <span>{cart.price * 1.05}¤</span>
             </p>
-            <a className="btn btn-gold">Proceed To Checkout</a>
+            <Link to="/checkout" className="btn btn-gold">
+              Proceed To Checkout
+            </Link>
           </div>
         </div>
       </section>
