@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BILLING FORM</title>
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="./styleView.css">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Merienda:wght@400;700&family=Metal+Mania&family=Piedra&display=swap" rel="stylesheet">
+  <!-- ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <!-- favicon/logo -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+  <section style="z-index:50;" id="masterBillForm">
+    <div>
+      <h1>Add Card</h1>
+      <form>
+        <ul>
+          <li>
+            <input required type="text" minlength="16" maxlength="16" placeholder="Card Number">
+          </li>
+          <li>
+            <input required type="text" placeholder="Name On Card">
+          </li>
+          <li>
+            <select required>
+              <option disabled selected>Exp. MONTH</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+            </select>
+            <select required>
+              <option disabled selected>Exp. YEAR</option>
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+              <option>2025</option>
+              <option>2026</option>
+              <option>2027</option>
+              <option>2028</option>
+              <option>2029</option>
+              <option>2030</option>
+            </select>
+          </li>
+          <li>
+            <button type="submit" class="btn btn-gold btnToWhite">SAVE</button>
+            <!-- EITHER GOES BACK TO GENERAL DASH OR USE SAME DISPLAY NONE METHOD  -->
+            <a style="margin-left: 10px;" class="btn btnToWhite">CANCEL</a>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

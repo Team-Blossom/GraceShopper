@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master View</title>
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="./styleView.css">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Merienda:wght@400;700&family=Metal+Mania&family=Piedra&display=swap" rel="stylesheet">
+  <!-- ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <!-- favicon/logo -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+  <!-- <i class="material-icons">shopping_bag</i> -->
+  <nav id="mainNav">
+    <ul>
+      <li>
+        <!-- GOES TO HOME PAGE -->
+        <a id="logoMainNav" href="">
+          <img src="./imagesViews/gslogopic.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="">Who We Are</a>
+      </li>
+      <li>
+        <a href="productsView.html">Products</a>
+      </li>
+      <li>
+        <a class="activeMainNav"href="./signUpView.html">
+          <i style="font-size: 36px"class="material-icons">face</i>
+          Login
+        </a>
+      </li>
+      <li>
+        <a id="shopBag" href="">
+          <i style="font-size: 48px" class="material-icons">shopping_bag</i>
+          <!-- SHOULD REFLECT CART QTY -->
+          <p>0</p>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <section id="masterSection">
+    <a href="" style="z-index: 10" id="logout">Logout</a>
+    <div id="masterPanel">
+      <div id="masterNav">
+        <ul>
+          <li>
+            <a class="activeMasterNav">Personal</a>
+          </li>
+          <li>
+            <a>Addresses</a>
+          </li>
+          <li>
+            <a>Billing Info</a>
+          </li>
+          <li>
+            <a>Orders</a>
+          </li>
+          <!-- <li>
+            <a></a>
+          </li> -->
+        </ul>
+      </div>
+      <div id="masterSide">
+        <div id="salve" style="display:none; z-index: 1" >
+          <h1 style="color: #61210F">Hi, MASTER NAME</h1>
+          <h3>Welcome to Your Dashboard</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quod nam distinctio adipisci, at error autem. Sint eveniet pariatur cupiditate blanditiis tempora, doloremque ipsam inventore minus! Culpa, amet voluptatem? Nulla voluptatibus maiores ipsum eum omnis at quo cupiditate iste odio, voluptatem eos a nostrum necessitatibus. Tenetur ea pariatur quibusdam odio.</p>
+          <!-- LINK BACK TO HOME OR PRODUCTS -->
+          <div id="logo">
+            <img src="./imagesViews/gslogopic.jpg">
+          </div>
+          <a class="btn">Continue Shopping</a>
+        </div>
+        <div id="personalDetails" style="display:flex; z-index: 2;">
+          <!-- <h2>Account Settings</h2> -->
+          <h2>Personal Details</h2>
+          <div id="masterName">
+            <h4>Name: <span style="color: #f77f00">MASTER NAME</span></h4>
+            <form>
+              <!-- PLACEHOLDER SHOULD BE WHAT ALREADY EXISTS IN DATA BASE -->
+              <input required type="text" placeholder="First Name">
+              <input required type="text" placeholder="Last Name">
+              <button type="submit" class="btn">Change</button>
+            </form>
+          </div>
+          <div id="masterEmail">
+            <h4>Email: <span style="color: #f77f00">MASTER EMAIL</span></h4>
+            <form>
+              <input required type="email" placeholder="Email">
+              <button type="submit" class="btn">Change</button>
+            </form>
+          </div>
+          <div id="masterPassword">
+            <!-- HASH THE PASSWORD HERE, JUST SHOW FIRST CHAR? -->
+            <h4>Password: <span style="color: #f77f00">Hashed Password</span></h4>
+            <form>
+              <input required type="password" placeholder="Previous Password">
+              <input required type="text" placeholder="New Password">
+              <button type="submit" class="btn">Change</button>
+            </form>
+          </div>
+        </div>
+        <div id="addressesCont" style="display:none; z-index: 3;">
+          <div id="newAddress">
+            <!-- LINKS TO EDIT ADDRESS FORM VIEW -->
+            <a href="">
+              <i class="material-icons">add</i>
+              <h4>New Address</h4>
+            </a>
+          </div>
+          <div class="masterAddress">
+            <!-- I BELIEVE WE INCLUDED THE ADDRESSEE NAME? -->
+            <h4>ADDRESSEE NAME</h4>
+            <p>STREET NAME</p>
+            <p>ADDRESS 2</p>
+            <p>City State Zip</p>
+            <p>Nation Choice</p>
+            <!-- LINKS TO PRE-FILLED ADDRESS FORM VIEW -->
+            <div>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
+              <a class="btn">Delete</a>
+            </div>
+          </div>
+          <div class="masterAddress">
+            <!-- I BELIEVE WE INCLUDED THE ADDRESSEE NAME? -->
+            <h4>ADDRESSEE NAME</h4>
+            <p>STREET NAME</p>
+            <p>ADDRESS 2</p>
+            <p>City State Zip</p>
+            <p>Nation Choice</p>
+            <div>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
+              <a class="btn">Delete</a>
+            </div>
+          </div>
+          <div class="masterAddress">
+            <!-- I BELIEVE WE INCLUDED THE ADDRESSEE NAME? -->
+            <h4>ADDRESSEE NAME</h4>
+            <p>STREET NAME</p>
+            <p>ADDRESS 2</p>
+            <p>City State Zip</p>
+            <p>Nation Choice</p>
+            <div>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
+              <a class="btn">Delete</a>
+            </div>
+          </div>
+          <div class="masterAddress">
+            <!-- I BELIEVE WE INCLUDED THE ADDRESSEE NAME? -->
+            <h4>ADDRESSEE NAME</h4>
+            <p>STREET NAME</p>
+            <p>ADDRESS 2</p>
+            <p>City State Zip</p>
+            <p>Nation Choice</p>
+            <div>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
+              <a class="btn">Delete</a>
+            </div>
+          </div>
+          <div class="masterAddress">
+            <!-- I BELIEVE WE INCLUDED THE ADDRESSEE NAME? -->
+            <h4>ADDRESSEE NAME</h4>
+            <p>STREET NAME</p>
+            <p>ADDRESS 2</p>
+            <p>City State Zip</p>
+            <p>Nation Choice</p>
+            <div>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
+              <a class="btn">Delete</a>
+            </div>
+          </div>
+          <div class="masterAddress">
+            <!-- I BELIEVE WE INCLUDED THE ADDRESSEE NAME? -->
+            <h4>ADDRESSEE NAME</h4>
+            <p>STREET NAME</p>
+            <p>ADDRESS 2</p>
+            <p>City State Zip</p>
+            <p>Nation Choice</p>
+            <div>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
+              <a class="btn">Delete</a>
+            </div>
+          </div>
+          <div class="masterAddress">
+            <!-- I BELIEVE WE INCLUDED THE ADDRESSEE NAME? -->
+            <h4>ADDRESSEE NAME</h4>
+            <p>STREET NAME</p>
+            <p>ADDRESS 2</p>
+            <p>City State Zip</p>
+            <p>Nation Choice</p>
+            <div>
+              <a href="./masterAddressForm.html" class="btn">Edit</a>
+              <a class="btn">Delete</a>
+            </div>
+          </div>
+        </div>
+        <div id="billingCont" style="display:none; z-index: 4;">
+          <div id="newBilling">
+            <!-- LINKS TO NEW BILLING FORM -->
+            <a href="">
+              <i class="material-icons">add</i>
+              <h4>New Billing</h4>
+            </a>
+          </div>
+          <div class="masterBilling">
+            <!-- I BELIEVE WE INCLUDED THE BILLEE NAME? -->
+            <h4>NAME ON CARD</h4>
+            <p>CARD NUMBER</p>
+            <p>EXP MONTH AND YEAR</p>
+            <a class="btn">DELETE</a>
+          </div>
+          <div class="masterBilling">
+            <!-- I BELIEVE WE INCLUDED THE BILLEE NAME? -->
+            <h4>NAME ON CARD</h4>
+            <p>CARD NUMBER</p>
+            <p>EXP MONTH AND YEAR</p>
+            <a class="btn">DELETE</a>
+          </div>
+          <div class="masterBilling">
+            <!-- I BELIEVE WE INCLUDED THE BILLEE NAME? -->
+            <h4>NAME ON CARD</h4>
+            <p>CARD NUMBER</p>
+            <p>EXP MONTH AND YEAR</p>
+            <a class="btn">DELETE</a>
+          </div>
+        </div>
+        <div id="masterOrders" style="display:none; z-index: 5;">
+          <h2>Your Orders</h2>
+          <div class="masterOrder">
+            <ul>
+              <li>
+                <h3>Order Placed: </h3>
+                <span>DATE</span>
+              </li>
+              <li>
+                <h3>Total Price: </h3>
+                <span>PRICE &#164;</span>
+              </li>
+              <li>
+                <h3>Total Items: </h3>
+                <span>ITEM QTY</span>
+              </li>
+              <li>
+                <h3>Order Status: </h3>
+                <span>STATUS</span>
+              </li>
+              <li>
+                <!-- LINKS TO SPECIFIC ORDER DETAILS -->
+                <a href="./orderDetails.html" class="btn btnToWhite">Order Details</a>
+              </li>
+            </ul>
+          </div>
+          <div class="masterOrder">
+            <ul>
+              <li>
+                <h3>Order Placed: </h3>
+                <span>DATE</span>
+              </li>
+              <li>
+                <h3>Total Price: </h3>
+                <span>PRICE &#164;</span>
+              </li>
+              <li>
+                <h3>Total Items: </h3>
+                <span>ITEM QTY</span>
+              </li>
+              <li>
+                <h3>Order Status: </h3>
+                <span>STATUS</span>
+              </li>
+              <li>
+                <!-- LINKS TO SPECIFIC ORDER DETAILS -->
+                <a href="./orderDetails.html" class="btn btnToWhite">Order Details</a>
+              </li>
+            </ul>
+          </div>
+          <div class="masterOrder">
+            <ul>
+              <li>
+                <h3>Order Placed: </h3>
+                <span>DATE</span>
+              </li>
+              <li>
+                <h3>Total Price: </h3>
+                <span>PRICE &#164;</span>
+              </li>
+              <li>
+                <h3>Total Items: </h3>
+                <span>ITEM QTY</span>
+              </li>
+              <li>
+                <h3>Order Status: </h3>
+                <span>STATUS</span>
+              </li>
+              <li>
+                <!-- LINKS TO SPECIFIC ORDER DETAILS -->
+                <a href="./orderDetails.html" class="btn btnToWhite">Order Details</a>
+              </li>
+            </ul>
+          </div>
+          <div class="masterOrder">
+            <ul>
+              <li>
+                <h3>Order Placed: </h3>
+                <span>DATE</span>
+              </li>
+              <li>
+                <h3>Total Price: </h3>
+                <span>PRICE &#164;</span>
+              </li>
+              <li>
+                <h3>Total Items: </h3>
+                <span>ITEM QTY</span>
+              </li>
+              <li>
+                <h3>Order Status: </h3>
+                <span>STATUS</span>
+              </li>
+              <li>
+                <!-- LINKS TO SPECIFIC ORDER DETAILS -->
+                <a href="./orderDetails.html" class="btn btnToWhite">Order Details</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
