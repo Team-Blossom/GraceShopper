@@ -71,7 +71,7 @@
         </ul>
       </div>
       <div id="masterSide">
-        <div id="salve" style="display:flex; z-index: 1" >
+        <div id="salve" style="display:none; z-index: 1" >
           <h1 style="color: #61210F">Hi, MASTER NAME</h1>
           <h3>Welcome to Your Dashboard</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quod nam distinctio adipisci, at error autem. Sint eveniet pariatur cupiditate blanditiis tempora, doloremque ipsam inventore minus! Culpa, amet voluptatem? Nulla voluptatibus maiores ipsum eum omnis at quo cupiditate iste odio, voluptatem eos a nostrum necessitatibus. Tenetur ea pariatur quibusdam odio.</p>
@@ -81,7 +81,7 @@
           </div>
           <a class="btn">Continue Shopping</a>
         </div>
-        <div id="personalDetails" style="display:none; z-index: 2;">
+        <div id="personalDetails" style="display:flex; z-index: 2;">
           <!-- <h2>Account Settings</h2> -->
           <h2>Personal Details</h2>
           <div id="masterName">
@@ -97,6 +97,15 @@
             <h4>Email: <span style="color: #f77f00">MASTER EMAIL</span></h4>
             <form>
               <input required type="email" placeholder="Email">
+              <button type="submit" class="btn">Change</button>
+            </form>
+          </div>
+          <div id="masterPassword">
+            <!-- HASH THE PASSWORD HERE, JUST SHOW FIRST CHAR? -->
+            <h4>Password: <span style="color: #f77f00">Hashed Password</span></h4>
+            <form>
+              <input required type="password" placeholder="Previous Password">
+              <input required type="text" placeholder="New Password">
               <button type="submit" class="btn">Change</button>
             </form>
           </div>
