@@ -54,7 +54,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    getCart: () => dispatch(getCartThunk())
+    getCart: async () => dispatch(await getCartThunk())
   }
 }
 
