@@ -20,12 +20,6 @@ router.get('/', async (req, res, next) => {
 })
 
 //user can add products to cart
-// '/api/orders/'
-//To do
-//add quantity
-//add to price
-//check if cart exists
-
 router.post('/', async (req, res, next) => {
   try {
     const product = await Product.findOne({where: {id: req.body.id}})
@@ -64,6 +58,7 @@ router.delete('/:productId', async (req, res, next) => {
     if (!order) {
       res.status(500).send('Cart is already empty')
     }
+
     const cartItem = await Cart.findOne({
       where: {orderId: order.id, productId: product.id}
     })
@@ -82,7 +77,6 @@ router.delete('/:productId', async (req, res, next) => {
 })
 
 //user can remove all of one type of product from cart (row from cart table)
-
 router.delete('/:productId/all', async (req, res, next) => {
   try {
     const product = await Product.findOne({where: {id: req.params.productId}})
@@ -95,11 +89,20 @@ router.delete('/:productId/all', async (req, res, next) => {
     if (!order) {
       res.status(500).send('Cart is already empty')
     }
+
+    const cartItem = await Cart.findOne({
+      where: {orderId: order.id, productId: product.id}
+    })
+
+    await order.increment({
+      quantity: -cartItem.quantity,
+      price: -(product.price * cartItem.quantity)
+    })
+
     await Cart.destroy({
       where: {orderId: order.id, productId: product.id}
     })
 
-    await order.increment({quantity: -1, price: -product.price})
     res.sendStatus(204)
   } catch (error) {
     next(error)
@@ -107,7 +110,6 @@ router.delete('/:productId/all', async (req, res, next) => {
 })
 
 //user can checkout (set status of order to processing)
-
 router.put('/', async (req, res, next) => {
   try {
     const order = await Orders.findOne({
