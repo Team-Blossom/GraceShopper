@@ -92,7 +92,7 @@ hr {
   width: 80%;
 }
 
-/* footer */
+/* updated footer */
 footer {
   background-color: #61210f;
   height: 80px;
@@ -103,6 +103,12 @@ footer {
 footer > * {
   color: white;
   font-size: 0.5rem;
+}
+footer > p:first-child {
+  /* background-color: orange; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 footer > a:hover {
   color: #f77f00;
@@ -180,8 +186,17 @@ select:focus {
   background-color: #f77f00;
   color: white;
 }
-/* navigation */
+/* updated */
+.activeProdNav,
+.activeMasterNav,
+#prodNav ul li a.activeProdNav:hover,
+#masterNav ul li a.activeMasterNav:hover {
+  background-color: #f77f00;
+  color: white;
+}
+/* updated navigation */
 nav#mainNav {
+  /* margin-top: 20px; */
   height: 60px;
   background-color: #f77f00;
   display: flex;
@@ -190,17 +205,33 @@ nav#mainNav {
   align-items: center;
 }
 nav#mainNav ul {
+  /* background-color: aqua; */
+  height: 100%;
+  width: 90%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   margin-right: 20px;
 }
 
 nav#mainNav ul li {
+  height: 100%;
   margin: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 nav#mainNav ul li > * {
   color: white;
+}
+nav#mainNav a {
+  height: 100%;
+  padding: 0 10px;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
 }
 nav#mainNav a:hover {
   border-bottom: solid 3px white;
@@ -209,7 +240,46 @@ nav#mainNav a.activeMainNav {
   background-color: #61210f;
 }
 nav#mainNav i {
-  color: wheat;
+  margin: 3px;
+  color: white;
+}
+nav#mainNav ul li:first-child {
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+}
+nav#mainNav a#logoMainNav {
+  height: 80px;
+  width: 80px;
+  /* position: absolute; */
+  /* top:0; */
+  /* margin-right: auto; */
+}
+nav#mainNav a#logoMainNav img {
+  border-radius: 50%;
+  /* position: absolute; */
+  height: 100%;
+}
+nav#mainNav ul li:first-child > p {
+  margin-left: 5px;
+  font-size: 0.7rem;
+}
+nav#mainNav ul li:first-child:hover {
+  cursor: pointer;
+}
+nav#mainNav ul li:first-child:hover a#logoMainNav {
+  border-radius: 50%;
+  border: 3px solid #61210f;
+}
+nav#mainNav ul li:first-child:hover > p {
+  color: #61210f;
+}
+
+nav#mainNav a#shopBag > p {
+  font-size: 0.7rem;
+  margin-top: 5px;
+  color: #f77f00;
+  position: absolute;
 }
 
 /* SIGN UP  */
