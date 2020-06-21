@@ -1448,3 +1448,244 @@ textarea {
 #successAddProd > div > a:last-child {
   margin-bottom: auto;
 }
+
+/* ------------
+EDIT PROD VIEW
+-------------- */
+#editProdSection {
+  min-height: 100vh;
+}
+
+#editProdSection > div {
+  /* margin:0; */
+  padding: 0;
+  background-color: green;
+  min-height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+#currentProd {
+  padding: 10px;
+  background-color: wheat;
+  width: 40%;
+  border: solid white 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#currentProd > * {
+  margin-bottom: 10px;
+}
+#currentProd img {
+  width: 80%;
+  border: solid white 5px;
+}
+#currentProd h3 {
+  color: #61210f;
+}
+#currentProd:hover,
+#currentProd:hover img {
+  cursor: pointer;
+  background-color: bisque;
+  border: solid #f77f00 5px;
+}
+form#editProdForm {
+  width: 60%;
+  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+  display: flex;
+  flex-direction: column;
+}
+form#editProdForm h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+form#editProdForm ul {
+  background-color: wheat;
+  width: calc(100% - 40px);
+  border-radius: 10px;
+  padding: 10px;
+}
+form#editProdForm ul li {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* background-color: #f77f00; */
+}
+form#editProdForm ul li input,
+form#editProdForm ul li textarea {
+  width: 80%;
+}
+form#editProdForm ul li textarea {
+  max-width: 80%;
+}
+
+form#editProdForm a {
+  margin-top: 10px;
+  color: #61210f;
+}
+form#editProdForm a:hover {
+  cursor: pointer;
+  color: white;
+}
+
+/* ------------
+PASSRESET SECTION
+-------------- */
+#passResetSection {
+  height: 100vh;
+  background-color: #f77f00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#passResetSection > div#passResetCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  height: 80%;
+  width: 70%;
+  background-color: wheat;
+}
+#passResetCont > h1 {
+  color: #f77f00;
+  margin-top: 10px;
+}
+#passResetCont > p {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+  width: 90%;
+}
+#passResetCont > form {
+  background-color: #61210f;
+  border-radius: 10px;
+  height: 50%;
+  width: 60%;
+}
+#passResetCont > form ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+#passResetCont > form#passResetForm > ul > li {
+  display: flex;
+  /* flex-direction: column; */
+  /* background-color: #f77f00; */
+}
+#passResetCont > form#passResetForm > ul > li input,
+#passResetCont > form#passResetForm > ul > li button {
+  width: 80%;
+}
+
+#passResetCont > a {
+  margin-top: 10px;
+}
+
+/* --------
+ALCHEM LOGIN
+---------- */
+
+#alchemLoginSection {
+  /* background-color: white; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  color: white;
+  background-image: linear-gradient(
+      rgba(97, 33, 15, 0.3),
+      rgba(97, 33, 15, 0.3)
+    ),
+    url('./imagesViews/ula-kuzma-19vkG-Devqg-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  /* opacity: 0.7; */
+}
+
+#alchemLogin {
+  /* border: solid red 3px; */
+  height: 100%;
+  width: 90%;
+  /* display: none; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+#alchemLogin > h1 {
+  margin-top: 40px;
+  text-align: center;
+  color: white;
+}
+
+#alchemLogin > p {
+  text-align: center;
+  color: orange;
+  font-size: 0.8rem;
+}
+
+#alchemLogin div.panel {
+  display: flex;
+  height: 65%;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#alchemLogin div.panel > * {
+  height: 70%;
+  width: 30%;
+}
+
+#alchemLogin div.panel > div.sideline {
+  width: 0;
+  border-color: #f77f00;
+}
+#alchemLogin div.panel > form {
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: rgba(234, 226, 183, 0.7);
+}
+
+#alchemLogin div.panel > form li:last-child button {
+  font-size: 0.8rem;
+}
+
+#alchemLogin div.panel > form li input {
+  width: 80%;
+  background-color: white;
+}
+
+#alchemLogin div.panel > form li input:hover,
+#alchemLogin div.panel > form li input:focus {
+  background-color: white;
+  /* border: yellow 2px solid; */
+}
+
+#alchemLogin div.panel > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#alchemLogin div.panel > div:last-child button {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+#alchemLogin a:last-child {
+  text-align: center;
+  font-size: 0.8rem;
+  width: auto;
+  color: white;
+}
+
+#alchemLogin a:last-child:hover {
+  color: orange;
+}

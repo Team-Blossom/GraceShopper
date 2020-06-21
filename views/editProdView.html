@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDIT PROD</title>
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="./styleView.css">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Merienda:wght@400;700&family=Metal+Mania&family=Piedra&display=swap" rel="stylesheet">
+  <!-- ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <!-- favicon/logo -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+  <section id="editProdSection">
+    <div>
+      <!-- LINKS TO PRODUCT SINGLE PAGE -->
+      <a id="currentProd">
+        <img src="./imagesViews/pratiksha-mohanty-V0xp-dTS3z0-unsplash.jpg">
+        <h3>Product Name: </h3>
+        <p>NAME</p>
+        <h3>Stock QTY: </h3>
+        <p>QTY</p>
+        <h3>Product Description:</h3>
+        <p>DESCRIPTION</p>
+      </a>
+      <form id="editProdForm">
+        <h2>UPDATE PRODUCT</h2>
+        <ul>
+          <li>
+            <label>Product Name:</label>
+            <input type="text" placeholder="Name" value="">
+          </li>
+          <li>
+            <label>Stock QTY:</label>
+            <input type="number" placeholder="QTY" value="">
+          </li>
+          <li>
+            <label>Product Pictures</label>
+            <input type="text" placeholder="Separate by ', ' " value="">
+          </li>
+          <li>
+            <label>Product Description:</label>
+            <textarea placeholder="Generally Brief"></textarea>
+          </li>
+          <li>
+            <button class="btn">UPDATE</button>
+          </li>
+        </ul>
+        <a>Back to Cabinet</a>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

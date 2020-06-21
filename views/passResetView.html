@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PASS RESET</title>
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="./styleView.css">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Merienda:wght@400;700&family=Metal+Mania&family=Piedra&display=swap" rel="stylesheet">
+  <!-- ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <!-- favicon/logo -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+  <!-- THIS SECTION IS ONLY SEEN UPON SUCCESSFUL LOGIN IF THE USER PASSRESET BOOLEAN IS TRUE -->
+  <section id="passResetSection" style="z-index: 50; position: absolute; top: 0;">
+    <div id="passResetCont">
+      <h1>PASSWORD RESET</h1>
+      <p>You must reset your password for best security practices. If you decide to do this later, you will be logged out immediately.</p>
+      <form id="passResetForm">
+        <!-- <label></label> -->
+        <ul>
+          <li>
+            <input required type="password" value="" placeholder="New Password">
+          </li>
+          <li>
+            <!-- THIS VALUE MUST MATCH THE VALUE GIVEN ABOVE -->
+            <input required type="password" value="" placeholder="Confirm New Password">
+          </li>
+          <li>
+            <!-- ON SUBMIT SHOULD TOGGLE THE PASSWORD RESET BOOLEAN ON USER TO FALSE -->
+            <button class="btn btn-gold" type="submit">SUBMIT</button>
+          </li>
+        </ul>
+      </form>
+      <!-- THIS SHOULD LOG OUT THE USER  -->
+      <a class="btn btn-gold btnToWhite">UPDATE LATER</a>
+    </div>
+
+  </section>
+</body>
+</html>
