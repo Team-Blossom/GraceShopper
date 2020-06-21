@@ -9,6 +9,7 @@ import SingleProduct from './components/SingleProduct'
 import ProductsView from './components/ProductsView'
 
 import {me} from './store'
+import MasterDash from './components/MasterDash'
 
 /**
  * COMPONENT
@@ -30,7 +31,7 @@ class Routes extends Component {
         <Route path="/cart" component={Cart} />
         <Route path="/allproducts/:productId" component={SingleProduct} />
         <Route path="/categories/:categoryId" component={ProductsView} />
-
+        <Route path="/masterDashboard" component={MasterDash} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
