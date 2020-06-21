@@ -76,7 +76,10 @@ export class AllProducts extends React.Component {
                     <div>
                       <p>{product.name}</p>
                       <p>{product.price}&#164;</p>
-                      <a className="btn btn-gold" href="">
+                      <a
+                        className="btn btn-gold"
+                        onClick={() => this.props.addProduct(product)}
+                      >
                         ADD TO CART
                       </a>
                     </div>

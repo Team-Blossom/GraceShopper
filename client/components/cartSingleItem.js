@@ -8,7 +8,7 @@ import {
 } from '../store/order'
 
 const CartSingleProduct = props => {
-  const {product, addToCart, removeFromCart, deleteFromCart} = props
+  const {product, getCart, addToCart, removeFromCart, deleteFromCart} = props
   const [quant, setQuant] = useState(product.cart.quantity)
   const [oldQuant, setOldQuant] = useState(product.cart.quantity)
 
@@ -24,7 +24,7 @@ const CartSingleProduct = props => {
         console.log('added ', product.name)
       } else if (quant < oldQuant) {
         removeFromCart(product)
-        console.log('removed ', product)
+        console.log('removed ', product.name)
       } else {
         console.log('did nothing')
       }
@@ -33,8 +33,8 @@ const CartSingleProduct = props => {
   )
 
   const deleteAll = () => {
-    console.log('clicked')
     deleteFromCart(product)
+    getCart()
   }
 
   return (
@@ -50,7 +50,7 @@ const CartSingleProduct = props => {
             type="number"
             max={10}
             min={1}
-            defaultValue={product.cart.quantity}
+            defaultValue={quant}
             onChange={handleChange}
           />
         </form>
