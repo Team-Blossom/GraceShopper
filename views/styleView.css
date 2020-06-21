@@ -73,7 +73,7 @@ hr {
   width: 80%;
 }
 
-/* footer */
+/* updated footer */
 footer {
   background-color: #61210f;
   height: 80px;
@@ -84,6 +84,12 @@ footer {
 footer > * {
   color: white;
   font-size: 0.5rem;
+}
+footer > p:first-child {
+  /* background-color: orange; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 footer > a:hover {
   color: #f77f00;
@@ -209,11 +215,13 @@ nav#mainNav i {
 }
 nav#mainNav ul li:first-child {
   margin-right: auto;
+  display: flex;
+  flex-direction: row;
 }
 nav#mainNav a#logoMainNav {
   height: 80px;
   width: 80px;
-  position: absolute;
+  /* position: absolute; */
   /* top:0; */
   /* margin-right: auto; */
 }
@@ -222,10 +230,21 @@ nav#mainNav a#logoMainNav img {
   /* position: absolute; */
   height: 100%;
 }
-nav#mainNav a#logoMainNav:hover {
+nav#mainNav ul li:first-child > p {
+  margin-left: 5px;
+  font-size: 0.7rem;
+}
+nav#mainNav ul li:first-child:hover {
+  cursor: pointer;
+}
+nav#mainNav ul li:first-child:hover a#logoMainNav {
   border-radius: 50%;
   border: 3px solid #61210f;
 }
+nav#mainNav ul li:first-child:hover > p {
+  color: #61210f;
+}
+
 nav#mainNav a#shopBag > p {
   font-size: 0.7rem;
   margin-top: 5px;
@@ -674,56 +693,109 @@ nav#mainNav a#shopBag > p {
   align-items: center;
 }
 
-/* CHECKOUT VIEW */
+/* updated CHECKOUT VIEW */
 
-#checkoutSection {
+#checkoutSection,
+#masterCheckoutSection {
   background-color: #f77f00;
   height: auto;
   display: flex;
-  flex-grow: 1;
-  justify-content: center;
+  /* flex-grow: 1; */
+  justify-content: flex-start;
 }
-#checkoutSection form#ckotForms {
+#masterCheckoutSection {
+  background-image: url('./imagesViews/zahrin-lukman-FYc-qfATAk4-unsplash.jpg');
+  background-size: cover;
+}
+#checkoutSection form#ckotForms,
+#masterCheckoutSection form#master-ckotForms {
   /* height: 100vh; */
-  background: grey;
+  /* background: grey; */
   display: flex;
   flex-direction: column;
+  width: 60%;
 }
 
-form#ckotForms > div {
+form#ckotForms > div,
+form#master-ckotForms > div {
   background-color: wheat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 80%;
   margin: 10px;
   padding: 25px;
   border-radius: 10px;
 }
-form#ckotForms > div > * {
+form#ckotForms > div > *,
+form#master-ckotForms > div > * {
   width: 70%;
 }
 form#ckotForms input,
-form#ckotForms select {
+form#ckotForms select,
+form#master-ckotForms input,
+form#master-ckotForms select {
   margin-top: 10px;
 }
 form#ckotForms ul li input,
-form#ckotForms ul li select {
+form#ckotForms ul li select,
+form#master-ckotForms ul li input,
+form#master-ckotForms ul li select {
   width: 100%;
 }
-form#ckotForms #shippingAddress li {
+form#ckotForms #shippingAddress li,
+form#master-ckotForms #masterShippingAddress li {
   margin: 0;
 }
 form#ckotForms ul li:first-child,
-form#ckotForms ul li:nth-child(4) {
+form#ckotForms ul li:nth-child(4),
+form#master-ckotForms ul li:first-child,
+form#master-ckotForms ul li:nth-child(4) {
   justify-content: space-between;
 }
-form#ckotForms ul li:first-child input {
+form#ckotForms ul li:first-child input,
+form#master-ckotForms ul li:first-child input {
   width: 47%;
 }
-form#ckotForms ul li:nth-child(4) input {
+form#ckotForms ul li:nth-child(4) input,
+form#master-ckotForms ul li:nth-child(4) input {
   width: 30%;
+}
+form#ckotForms > button,
+form#master-ckotForms > button {
+  width: 80%;
+}
+
+.cartSummary {
+  flex-grow: 1;
+  /* background-color: #61210f; */
+}
+.cartSummary > div {
+  margin-top: 10px;
+  background-color: #eae2b7;
+  border-radius: 10px;
+  padding: 10px;
+}
+.cartSummary > div > h2,
+.cartSummary > div > h2 > span {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+.cartSummary > div > h2 a {
+  font-size: 0.5rem;
+}
+.checkProd {
+  background-color: beige;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+.cartSummary hr {
+  width: 100%;
 }
 
 /* -----------
