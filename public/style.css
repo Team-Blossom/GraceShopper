@@ -731,3 +731,1071 @@ nav#mainNav a#shopBag > p {
   justify-content: center;
   align-items: center;
 }
+/* updated CHECKOUT VIEW */
+
+#checkoutSection,
+#masterCheckoutSection {
+  background-color: #f77f00;
+  height: auto;
+  display: flex;
+  /* flex-grow: 1; */
+  justify-content: flex-start;
+}
+#masterCheckoutSection {
+  background-image: url('./imagesViews/zahrin-lukman-FYc-qfATAk4-unsplash.jpg');
+  background-size: cover;
+}
+#checkoutSection form#ckotForms,
+#masterCheckoutSection form#master-ckotForms {
+  /* height: 100vh; */
+  /* background: grey; */
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+form#ckotForms > div,
+form#master-ckotForms > div {
+  background-color: wheat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 10px;
+}
+form#ckotForms > div > *,
+form#master-ckotForms > div > * {
+  width: 70%;
+}
+form#ckotForms input,
+form#ckotForms select,
+form#master-ckotForms input,
+form#master-ckotForms select {
+  margin-top: 10px;
+}
+form#ckotForms ul li input,
+form#ckotForms ul li select,
+form#master-ckotForms ul li input,
+form#master-ckotForms ul li select {
+  width: 100%;
+}
+form#ckotForms #shippingAddress li,
+form#master-ckotForms #masterShippingAddress li {
+  margin: 0;
+}
+form#ckotForms ul li:first-child,
+form#ckotForms ul li:nth-child(4),
+form#master-ckotForms ul li:first-child,
+form#master-ckotForms ul li:nth-child(4) {
+  justify-content: space-between;
+}
+form#ckotForms ul li:first-child input,
+form#master-ckotForms ul li:first-child input {
+  width: 47%;
+}
+form#ckotForms ul li:nth-child(4) input,
+form#master-ckotForms ul li:nth-child(4) input {
+  width: 30%;
+}
+form#ckotForms > button,
+form#master-ckotForms > button {
+  width: 80%;
+}
+
+.cartSummary {
+  flex-grow: 1;
+  /* background-color: #61210f; */
+}
+.cartSummary > div {
+  margin-top: 10px;
+  background-color: #eae2b7;
+  border-radius: 10px;
+  padding: 10px;
+}
+.cartSummary > div > h2,
+.cartSummary > div > h2 > span {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+.cartSummary > div > h2 a {
+  font-size: 0.5rem;
+}
+.checkProd {
+  background-color: beige;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+.cartSummary hr {
+  width: 100%;
+}
+
+/* -----------
+MASTERVIEW
+-----------*/
+
+#masterSection {
+  height: auto;
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* background-color: blue; */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./imagesViews/zahrin-lukman-VSNoQdimlQQ-unsplash.jpg');
+  background-size: cover;
+}
+#logout {
+  color: white;
+  background-color: #f77f00;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 80px;
+  right: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+#logout:hover {
+  background-color: white;
+  color: #f77f00;
+}
+#masterPanel {
+  width: 90%;
+  margin-top: 50px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+  background-size: cover;
+}
+#masterPanel > #masterNav {
+  width: 175px;
+  /* height:100vh; */
+  background-color: #61210f;
+}
+/* same ast prod navigation consolidate later */
+#masterNav ul {
+  height: 100vh;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+#masterNav ul li {
+  /* background-color: grey; */
+  /* height:  */
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#masterNav ul li a {
+  color: white;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#masterNav ul li a:hover {
+  background-color: wheat;
+  color: #f77f00;
+  cursor: pointer;
+}
+#masterSide {
+  width: calc(100% - 175px);
+  padding: 20px;
+}
+
+#masterSide #salve {
+  height: 100%;
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#salve p {
+  margin-top: 30px;
+  font-size: 0.8rem;
+}
+#salve #logo {
+  background-color: #61210f;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: solid #f77f00 5px;
+  margin: auto 50px 25px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#salve #logo > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+#salve a {
+  /* margin: auto 25px 25px auto; */
+  margin-left: auto;
+}
+#masterSide #personalDetails {
+  display: flex;
+  flex-direction: column;
+}
+#personalDetails > h2 {
+  margin-bottom: 20px;
+  color: #61210f;
+}
+#personalDetails #masterName,
+#personalDetails #masterEmail,
+#personalDetails #masterPassword {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: wheat;
+  margin-bottom: 20px;
+}
+#personalDetails h4 + form {
+  margin: 10px 0;
+}
+#personalDetails form {
+  justify-content: flex-start;
+}
+#personalDetails input + input,
+#personalDetails input + button {
+  margin-left: 10px;
+}
+#personalDetails button {
+  font-size: 0.8rem;
+}
+
+#masterSide #addressesCont,
+#masterSide #billingCont {
+  /* background-color: gray; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#newAddress,
+.masterAddress,
+#newBilling,
+.masterBilling {
+  width: 30%;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+#newAddress,
+#newBilling {
+  border: dashed black 3px;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+#newAddress > a,
+#newBilling > a {
+  width: 100%;
+  height: 100%;
+  /* background-color: greenyellow; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#newAddress > a > i,
+#newBilling > a > i {
+  font-size: 48px;
+}
+.masterAddress,
+.masterBilling {
+  background-color: wheat;
+  padding: 10px;
+}
+.masterAddress p,
+.masterBilling p {
+  font-size: 0.6rem;
+}
+.masterAddress a,
+.masterBilling a {
+  /* align-self: center; */
+  font-size: 0.5rem;
+}
+
+.masterBilling {
+  justify-content: center;
+}
+.masterBilling a {
+  align-self: flex-start;
+}
+
+#masterSide #masterOrders {
+  display: flex;
+  flex-direction: column;
+}
+#masterOrders h2 {
+  color: #61210f;
+  margin-bottom: 10px;
+}
+.masterOrder {
+  background-color: #f77f00;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.masterOrder ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.masterOrder ul li {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+.masterOrder ul li > * {
+  margin: 0 5px;
+  font-size: 0.8rem;
+  color: white;
+}
+.masterOrder ul li > span {
+  font-size: 0.8rem;
+  color: #61210f;
+}
+.btnToWhite:hover {
+  background-color: white;
+  color: #f77f00;
+}
+
+/* --------------
+MASTER ADDRESS/BILLING FORM
+----------------- */
+
+#masterAddrForm,
+#masterBillForm {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#masterAddrForm > div,
+#masterBillForm > div {
+  /* background-color: aquamarine; */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./imagesViews/zahrin-lukman-VSNoQdimlQQ-unsplash.jpg');
+  background-size: cover;
+  height: 90%;
+  width: 80%;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#masterAddrForm > div h1,
+#masterBillForm > div h1 {
+  color: #f77f00;
+  margin-bottom: 10px;
+}
+#masterAddrForm > div form,
+#masterBillForm > div form {
+  height: 70%;
+  width: 70%;
+  border-radius: 10px;
+  background-color: rgba(234, 226, 183, 0.7);
+  padding: 20px;
+}
+
+#masterBillForm > div form {
+  height: 50%;
+}
+
+#masterAddrForm form input,
+#masterAddrForm form select,
+#masterBillForm form input,
+#masterBillForm form select {
+  margin-top: 10px;
+}
+#masterAddrForm form ul li input,
+#masterAddrForm form ul li select,
+#masterBillForm form ul li input {
+  width: 100%;
+}
+#masterAddrForm form ul li:first-child,
+#masterAddrForm form ul li:nth-child(4),
+#masterBillForm form ul li:nth-child(3) {
+  justify-content: space-between;
+}
+#masterAddrForm form ul li:first-child input,
+#masterBillForm form ul li:nth-child(3) select {
+  width: 47%;
+}
+#masterAddrForm form ul li:nth-child(4) input {
+  width: 30%;
+}
+
+/* ORDER DETAILS PAGE*/
+
+#orderDetailsSection {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#orderDetailsSection > div {
+  width: 80%;
+  padding: 10px;
+}
+#orderSpecs {
+  margin-top: 20px;
+  background-color: #f77f00;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px 10px 0 0;
+}
+#orderSpecs ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#orderSpecs ul li {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+#orderSpecs h3 {
+  color: white;
+}
+#orderSpecs span {
+  font-size: 0.6rem;
+  color: #61210f;
+}
+#moreSpecs {
+  background-color: wheat;
+  display: flex;
+  /* flex-grow: 1; */
+  justify-content: center;
+  /* align-items: center; */
+}
+#moreSpecs h3 {
+  color: #61210f;
+}
+#moreSpecs div {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+#moreSpecs div:last-child {
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+#moreSpecs div:last-child > img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid #61210f;
+}
+
+#orderedProdsCont {
+  background-color: blanchedalmond;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#orderedProdsCont .orderedProd {
+  width: 30%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: wheat;
+}
+
+.orderedProd img {
+  width: 100%;
+}
+.orderedProd span {
+  font-size: 0.5rem;
+  color: #f77f00;
+}
+
+#orderDetailsSection > a {
+  margin: 10px 0;
+}
+#orderDetailsSection > a,
+#orderDetailsSection > a > i {
+  color: white;
+}
+
+#orderDetailsSection > a:hover,
+#orderDetailsSection > a:hover > i {
+  color: orange;
+}
+
+/* --------------------
+ ALCHEMIST DASH VIEW
+ ---------------------- */
+#alchemistDashSection {
+  height: auto;
+  /* width: 100vw; */
+  display: flex;
+  justify-content: center;
+  background-image: url('./imagesViews/aditya-joshi-wG923J9naFQ-unsplash.jpg');
+  background-size: cover;
+}
+
+#alchemCabinet {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(247, 127, 0, 0.7);
+  width: 80%;
+  min-height: 100vh;
+  margin: 20px;
+  border-radius: 10px 10px 0 0;
+}
+#alchemCabinet h1 {
+  color: white;
+  margin-top: 10px;
+}
+#alchemOptions {
+  /* background-color: gray; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* width: 80% */
+  height: calc(100vh - 150px);
+}
+#alchemOptions > a {
+  background-color: aqua;
+  width: 40%;
+  height: 40%;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  filter: grayscale(100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#alchemOptions > a:first-child {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('./imagesViews/jorge-zapata-ca7YfP8eUj0-unsplash.jpg');
+  background-size: cover;
+}
+#alchemOptions > a:nth-child(2) {
+  background-image: url('./imagesViews/joanna-kosinska-MnKWt1W1GDg-unsplash.jpg');
+  background-size: cover;
+}
+#alchemOptions > a:nth-child(3) {
+  background-image: url('./imagesViews/ula-kuzma-19vkG-Devqg-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+}
+#alchemOptions > a:last-child {
+  background-image: url('./imagesViews/freestocks-uqzIUz9NczE-unsplash.jpg');
+  background-size: cover;
+}
+#alchemOptions > a:hover {
+  filter: none;
+  /* background-blend-mode: saturation; */
+}
+#alchemOptions > a:hover > h2 {
+  color: #f77f00;
+}
+
+#alchemOptions > a > img {
+  height: 100%;
+  width: 100%;
+  background-color: wheat;
+}
+#alchemOptions > a > h2 {
+  /* z-index: 53; */
+  /* position: absolute; */
+  color: white;
+}
+#alchemProdPanel,
+#alchemOrderPanel,
+#alchemMastersPanel {
+  /* background-color: rgba(247, 127, 0, 0.7); */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+#alchemProdHeader,
+#alchemOrderHeader,
+#alchemMastersHeader {
+  background-color: wheat;
+  display: flex;
+  justify-content: center;
+}
+#alchemProdHeader h2,
+#alchemMastersHeader h2 {
+  color: #61210f;
+}
+
+#alchemProdCont,
+#alchemOrderCont,
+#alchemMastersCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  /* align-items: center; */
+}
+.alchemProd,
+.alchemMaster {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: wheat;
+}
+.alchemProd ul,
+.alchemMaster ul {
+  background-color: #61210f;
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  padding: 0 10px;
+  background-color: wheat;
+  display: flex;
+  justify-content: center;
+}
+
+.alchemProd ul li,
+.alchemMaster ul li {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 5px;
+}
+.alchemProd ul li img {
+  height: 120px;
+  border-radius: 10px 0 0 10px;
+  /* width: auto; */
+  /* width: 50px; */
+}
+.alchemProd ul li:last-child,
+.alchemMaster ul li:last-child {
+  margin-left: auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.alchemProd ul li:last-child a > i {
+  font-size: 0.8rem;
+  color: white;
+}
+.alchemMaster ul li span,
+.alchemMaster ul li select {
+  font-size: 0.7rem;
+  color: #61210f;
+}
+.alchemMaster ul li:first-child span {
+  font-size: 0.6rem;
+}
+.alchemMaster ul li:nth-child(5) {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.alchemMaster ul li:nth-child(5) > * {
+  font-size: 0.7rem;
+  margin-right: 10px;
+}
+.alchemMaster ul li:last-child > a {
+  font-size: 0.7rem;
+}
+
+#alchemOrderHeader {
+  background-color: #61210f;
+}
+#alchemOrderHeader h2 {
+  color: wheat;
+}
+.alchemOrder {
+  background-color: wheat;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.alchemOrder ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.alchemOrder ul li {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+.alchemOrder ul li > * {
+  margin: 0 5px;
+  font-size: 0.8rem;
+  color: white;
+}
+.alchemOrder ul li > h3 {
+  color: #f77f00;
+}
+.alchemOrder ul li > span,
+.alchemOrder ul li > select {
+  font-size: 0.7rem;
+  color: #61210f;
+}
+/* ADD PRODUCT SECTION */
+#addProdSection {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#addProdSection > div {
+  /* background-color: aquamarine; */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./imagesViews/matt-briney-0tfz7ZoXaWc-unsplash.jpg');
+  background-size: cover;
+  height: 90%;
+  width: 80%;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#addProdSection > div h1 {
+  color: #f77f00;
+  margin-bottom: 10px;
+}
+
+#addProdSection > div form {
+  height: 70%;
+  width: 70%;
+  border-radius: 10px;
+  background-color: rgba(234, 226, 183, 0.7);
+  padding: 20px;
+}
+/* #addProdSection form input {
+  margin-top: 10px;
+} */
+#addProdSection form ul li input,
+#addProdSection form ul li textarea {
+  width: 100%;
+}
+textarea {
+  height: 3rem;
+  max-height: 5rem;
+}
+
+#successAddProd {
+  display: flex;
+}
+#successAddProd > div {
+  height: 60%;
+  width: 60%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: wheat;
+}
+#successAddProd h2 {
+  color: #f77f00;
+  margin-top: 20px;
+}
+#successAddProd h3 {
+  margin-bottom: auto;
+  color: #61210f;
+}
+#successAddProd img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid #f77f00;
+  margin-bottom: 5px;
+}
+#successAddProd a {
+  width: 70%;
+  text-align: center;
+}
+#successAddProd > div > a:last-child {
+  margin-bottom: auto;
+}
+
+/* ------------
+EDIT PROD VIEW
+-------------- */
+#editProdSection {
+  min-height: 100vh;
+}
+
+#editProdSection > div {
+  /* margin:0; */
+  padding: 0;
+  background-color: green;
+  min-height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+#currentProd {
+  padding: 10px;
+  background-color: wheat;
+  width: 40%;
+  border: solid white 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#currentProd > * {
+  margin-bottom: 10px;
+}
+#currentProd img {
+  width: 80%;
+  border: solid white 5px;
+}
+#currentProd h3 {
+  color: #61210f;
+}
+#currentProd:hover,
+#currentProd:hover img {
+  cursor: pointer;
+  background-color: bisque;
+  border: solid #f77f00 5px;
+}
+form#editProdForm {
+  width: 60%;
+  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+  display: flex;
+  flex-direction: column;
+}
+form#editProdForm h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+form#editProdForm ul {
+  background-color: wheat;
+  width: calc(100% - 40px);
+  border-radius: 10px;
+  padding: 10px;
+}
+form#editProdForm ul li {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* background-color: #f77f00; */
+}
+form#editProdForm ul li input,
+form#editProdForm ul li textarea {
+  width: 80%;
+}
+form#editProdForm ul li textarea {
+  max-width: 80%;
+}
+
+form#editProdForm a {
+  margin-top: 10px;
+  color: #61210f;
+}
+form#editProdForm a:hover {
+  cursor: pointer;
+  color: white;
+}
+
+/* ------------
+PASSRESET SECTION
+-------------- */
+#passResetSection {
+  height: 100vh;
+  background-color: #f77f00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#passResetSection > div#passResetCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  height: 80%;
+  width: 70%;
+  background-color: wheat;
+}
+#passResetCont > h1 {
+  color: #f77f00;
+  margin-top: 10px;
+}
+#passResetCont > p {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+  width: 90%;
+}
+#passResetCont > form {
+  background-color: #61210f;
+  border-radius: 10px;
+  height: 50%;
+  width: 60%;
+}
+#passResetCont > form ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+#passResetCont > form#passResetForm > ul > li {
+  display: flex;
+  /* flex-direction: column; */
+  /* background-color: #f77f00; */
+}
+#passResetCont > form#passResetForm > ul > li input,
+#passResetCont > form#passResetForm > ul > li button {
+  width: 80%;
+}
+
+#passResetCont > a {
+  margin-top: 10px;
+}
+
+/* --------
+ALCHEM LOGIN
+---------- */
+
+#alchemLoginSection {
+  /* background-color: white; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  color: white;
+  background-image: linear-gradient(
+      rgba(97, 33, 15, 0.3),
+      rgba(97, 33, 15, 0.3)
+    ),
+    url('./imagesViews/ula-kuzma-19vkG-Devqg-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  /* opacity: 0.7; */
+}
+
+#alchemLogin {
+  /* border: solid red 3px; */
+  height: 100%;
+  width: 90%;
+  /* display: none; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+#alchemLogin > h1 {
+  margin-top: 40px;
+  text-align: center;
+  color: white;
+}
+
+#alchemLogin > p {
+  text-align: center;
+  color: orange;
+  font-size: 0.8rem;
+}
+
+#alchemLogin div.panel {
+  display: flex;
+  height: 65%;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#alchemLogin div.panel > * {
+  height: 70%;
+  width: 30%;
+}
+
+#alchemLogin div.panel > div.sideline {
+  width: 0;
+  border-color: #f77f00;
+}
+#alchemLogin div.panel > form {
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: rgba(234, 226, 183, 0.7);
+}
+
+#alchemLogin div.panel > form li:last-child button {
+  font-size: 0.8rem;
+}
+
+#alchemLogin div.panel > form li input {
+  width: 80%;
+  background-color: white;
+}
+
+#alchemLogin div.panel > form li input:hover,
+#alchemLogin div.panel > form li input:focus {
+  background-color: white;
+  /* border: yellow 2px solid; */
+}
+
+#alchemLogin div.panel > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#alchemLogin div.panel > div:last-child button {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+#alchemLogin a:last-child {
+  text-align: center;
+  font-size: 0.8rem;
+  width: auto;
+  color: white;
+}
+
+#alchemLogin a:last-child:hover {
+  color: orange;
+}
