@@ -24,7 +24,7 @@ const CartSingleProduct = props => {
         console.log('added ', product.name)
       } else if (quant < oldQuant) {
         removeFromCart(product)
-        console.log('removed ', product)
+        console.log('removed ', product.name)
       } else {
         console.log('did nothing')
       }
@@ -50,7 +50,7 @@ const CartSingleProduct = props => {
             type="number"
             max={10}
             min={1}
-            defaultValue={product.cart.quantity}
+            defaultValue={quant}
             onChange={handleChange}
           />
         </form>

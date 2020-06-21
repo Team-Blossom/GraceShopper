@@ -25,8 +25,9 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   if (req.user.id) {
     try {
-      const product = await Product.findOne({where: {id: req.body.id}})
-
+      const product = await Product.findOne({
+        where: {id: req.body.id}
+      })
       let order = await Orders.findOne({
         where: {userId: req.user.id, status: 'cart'},
         include: {model: Product}
@@ -39,10 +40,11 @@ router.post('/', async (req, res, next) => {
       })
       if (cartItem) {
         await cartItem.increment({quantity: 1})
+        console.log(cartItem)
       }
       await order.addProduct(product)
       await order.increment({quantity: 1, price: product.price})
-      res.json(order)
+      res.sendStatus(201)
     } catch (error) {
       next(error)
     }
