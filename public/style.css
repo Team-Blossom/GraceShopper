@@ -92,7 +92,7 @@ hr {
   width: 80%;
 }
 
-/* footer */
+/* updated footer */
 footer {
   background-color: #61210f;
   height: 80px;
@@ -103,6 +103,12 @@ footer {
 footer > * {
   color: white;
   font-size: 0.5rem;
+}
+footer > p:first-child {
+  /* background-color: orange; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 footer > a:hover {
   color: #f77f00;
