@@ -1,35 +1,53 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn, cart}) => (
   <nav id="mainNav">
-    <h1>UTONIUM</h1>
     <ul>
       <li>
-        <Link to="/home">Home</Link>
+        <NavLink id="logoMainNav" to="/home">
+          <img src="./pictures/gslogopic.jpg" />
+        </NavLink>
+        <p>UTONIUM</p>
+      </li>
+      <li>
+        <NavLink activeClassName="activeMainNav" to="/aboutus">
+          Who We Are
+        </NavLink>
+      </li>
+      <li>
+        <NavLink activeClassName="activeMainNav" to="/allproducts">
+          Products
+        </NavLink>
       </li>
       {isLoggedIn ? (
         <li>
-          <a href="/#" onClick={handleClick}>
-            Logout
-          </a>
+          <NavLink activeClassName="activeMainNav" to="/dashboard">
+            Dashboard
+          </NavLink>
         </li>
       ) : (
         <li>
-          <Link to="/login">Login</Link>
+          <NavLink activeClassName="activeMainNav" to="/signup">
+            <i style={{fontSize: '36px'}} className="material-icons">
+              face
+            </i>
+            Login
+          </NavLink>
         </li>
       )}
       <li>
-        <Link to="/allproducts">Products</Link>
-      </li>
-      <li>
-        <Link to="/cart">Cart</Link>
+        <NavLink activeClassName="activeMainNav" id="shopBag" to="/cart">
+          <i style={{fontSize: '48px'}} className="material-icons">
+            shopping_bag
+          </i>
+          <p>{cart.quantity ? cart.quantity : 0}</p>
+        </NavLink>
       </li>
     </ul>
-    <hr />
   </nav>
 )
 
@@ -38,7 +56,8 @@ const Navbar = ({handleClick, isLoggedIn, cart}) => (
  */
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    cart: state.order
   }
 }
 
