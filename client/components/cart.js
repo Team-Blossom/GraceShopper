@@ -17,7 +17,7 @@ class CartComponent extends React.Component {
       <section id="cartSection">
         <div id="theCart">
           <h1>Welcome To Your Cart</h1>
-          {cart.id !== undefined &&
+          {cart.products &&
             cart.products.map(product => {
               return <SlimProduct key={product.id} product={product} />
             })}

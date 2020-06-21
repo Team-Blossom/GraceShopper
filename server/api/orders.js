@@ -69,8 +69,14 @@ router.post('/', async (req, res, next) => {
       const product = await Product.findOne({
         where: {id: req.body.id}
       })
-
-      let order = await Orders.findOne({where: {id: req.session.cart.id}})
+      let order
+      if (!req.session.cart) {
+        order = await Orders.create({userId: 10, status: 'cart'})
+        req.session.cart = order
+      } else {
+        order = await Orders.findOne({where: {id: req.session.cart.id}})
+        req.session.cart = order
+      }
 
       let cartItem = await Cart.findOne({
         where: {orderId: order.id, productId: product.id}
@@ -153,11 +159,41 @@ router.delete('/:productId', async (req, res, next) => {
 
 //user can remove all of one type of product from cart (row from cart table)
 router.delete('/:productId/all', async (req, res, next) => {
-  try {
+  if (req.user) {
+    try {
+      const product = await Product.findOne({where: {id: req.params.productId}})
+
+      const order = await Orders.findOne({
+        where: {userId: req.user.id, status: 'cart'},
+        include: {model: Product}
+      })
+
+      if (!order) {
+        res.status(500).send('Cart is already empty')
+      }
+
+      const cartItem = await Cart.findOne({
+        where: {orderId: order.id, productId: product.id}
+      })
+
+      await order.increment({
+        quantity: -cartItem.quantity,
+        price: -(product.price * cartItem.quantity)
+      })
+
+      await Cart.destroy({
+        where: {orderId: order.id, productId: product.id}
+      })
+
+      res.sendStatus(204)
+    } catch (error) {
+      next(error)
+    }
+  } else {
     const product = await Product.findOne({where: {id: req.params.productId}})
 
     const order = await Orders.findOne({
-      where: {userId: req.user.id, status: 'cart'},
+      where: {id: req.session.cart.id},
       include: {model: Product}
     })
 
@@ -179,8 +215,6 @@ router.delete('/:productId/all', async (req, res, next) => {
     })
 
     res.sendStatus(204)
-  } catch (error) {
-    next(error)
   }
 })
 
