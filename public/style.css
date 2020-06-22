@@ -732,6 +732,11 @@ nav#mainNav a#shopBag > p {
   align-items: center;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6b3a459e366686d2afee9f69181fce49fc17c101
 /* updated CHECKOUT VIEW */
 
 #checkoutSection,
@@ -1321,6 +1326,7 @@ MASTER ADDRESS/BILLING FORM
 }
 #alchemOptions > a:last-child {
   background-image: url('./pictures/freestocks-uqzIUz9NczE-unsplash.jpg');
+
   background-size: cover;
 }
 #alchemOptions > a:hover {
@@ -1490,6 +1496,7 @@ MASTER ADDRESS/BILLING FORM
   /* background-color: aquamarine; */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('./pictures/matt-briney-0tfz7ZoXaWc-unsplash.jpg');
+
   background-size: cover;
   height: 90%;
   width: 80%;
@@ -1603,6 +1610,7 @@ EDIT PROD VIEW
 }
 form#editProdForm {
   width: 60%;
+
   background-image: url('./pictures/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
   display: flex;
   flex-direction: column;
