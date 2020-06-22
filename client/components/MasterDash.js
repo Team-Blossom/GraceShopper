@@ -1,7 +1,8 @@
 import React from 'react'
 import MasterAddrForm from './MasterAddrForm'
-
-export default class MasterDash extends React.Component {
+import me from '../store/user'
+import {connect} from 'react-redux'
+export class MasterDash extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -62,6 +63,9 @@ export default class MasterDash extends React.Component {
     }
   }
   render() {
+    console.log('user', this.props.user)
+    const user = this.props.user
+    console.log(user.firstname)
     return (
       <section id="masterSection">
         {/* LOG OUT SHENANIGANS */}
@@ -130,7 +134,7 @@ export default class MasterDash extends React.Component {
               id="salve"
               style={{display: `${this.state.salveDisplay}`, zIndex: '1'}}
             >
-              <h1 style={{color: '#61210F'}}>Hi, MASTER NAME</h1>
+              <h1 style={{color: '#61210F'}}>Hi, {user.firstname}</h1>
               <h3>Welcome to Your Dashboard</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
@@ -143,7 +147,7 @@ export default class MasterDash extends React.Component {
               </p>
               {/* <!-- LINK BACK TO HOME OR PRODUCTS --> */}
               <div id="logo">
-                <img src="./imagesViews/gslogopic.jpg" />
+                <img src="./pictures/gslogopic.jpg" />
               </div>
               <a className="btn">Continue Shopping</a>
             </div>
@@ -156,7 +160,7 @@ export default class MasterDash extends React.Component {
               <h2>Personal Details</h2>
               <div id="masterName">
                 <h4>
-                  Name: <span style={{color: '#f77f00'}}>MASTER NAME</span>
+                  Name: <span style={{color: '#f77f00'}}>{user.firstname}</span>
                 </h4>
                 <form>
                   {/* <!-- PLACEHOLDER SHOULD BE WHAT ALREADY EXISTS IN DATA BASE --> */}
@@ -169,7 +173,7 @@ export default class MasterDash extends React.Component {
               </div>
               <div id="masterEmail">
                 <h4>
-                  Email: <span style={{color: '#f77f00'}}>MASTER EMAIL</span>
+                  Email: <span style={{color: '#f77f00'}}>{user.email}</span>
                 </h4>
                 <form>
                   <input required type="email" placeholder="Email" />
@@ -217,18 +221,20 @@ export default class MasterDash extends React.Component {
               </div>
               <div className="masterAddress" name="addressForm">
                 {/* <!-- I BELIEVE WE INCLUDED THE ADDRESSEE NAME? --> */}
-                <h4>ADDRESSEE NAME</h4>
-                <p>STREET NAME</p>
-                <p>ADDRESS 2</p>
-                <p>City State Zip</p>
-                <p>Nation Choice</p>
+                <h4>{user.firstname}'s adresses</h4>
+                {user.addresses.map(address => {
+                  return (
+                    <div key={user.id}>
+                      <p>{address}</p>
+                      <a href="./masterAddressForm.html" className="btn">
+                        Edit
+                      </a>
+                      <a className="btn">Delete</a>
+                    </div>
+                  )
+                })}
+
                 {/* <!-- LINKS TO PRE-FILLED ADDRESS FORM VIEW --> */}
-                <div>
-                  <a href="./masterAddressForm.html" className="btn">
-                    Edit
-                  </a>
-                  <a className="btn">Delete</a>
-                </div>
               </div>
             </div>
 
@@ -245,7 +251,9 @@ export default class MasterDash extends React.Component {
               </div>
               <div className="masterBilling">
                 {/* <!-- I BELIEVE WE INCLUDED THE BILLEE NAME? --> */}
-                <h4>NAME ON CARD</h4>
+                <h4>
+                  {user.firstname} {user.lastname}
+                </h4>
                 <p>CARD NUMBER</p>
                 <p>EXP MONTH AND YEAR</p>
                 <a className="btn">DELETE</a>
@@ -293,3 +301,17 @@ export default class MasterDash extends React.Component {
     )
   }
 }
+
+const mapUser = state => {
+  return {
+    user: state.user
+  }
+}
+
+const mapDispatch = dispatch => {
+  return {
+    fetchUser: () => dispatch(me())
+  }
+}
+
+export default connect(mapUser, mapDispatch)(MasterDash)
