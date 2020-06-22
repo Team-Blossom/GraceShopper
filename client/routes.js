@@ -11,7 +11,7 @@ import MasterDash from './components/MasterDash'
 import AlchemDash from './components/AlchemDash'
 import orderDetails from './components/orderDetails'
 import Home from './components/Home'
-import ThankYou from './components/thankYouCart'
+import {ThankYou} from './components/thankYouCart'
 
 /**
  * COMPONENT

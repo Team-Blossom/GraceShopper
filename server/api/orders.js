@@ -261,7 +261,7 @@ router.put('/', async (req, res, next) => {
 
       order.status = req.body.status
       order.save()
-      req.session.cart = {}
+      req.session.cart = null
 
       res.json(order)
     } catch (error) {
