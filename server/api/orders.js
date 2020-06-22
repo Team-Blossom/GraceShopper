@@ -21,7 +21,7 @@ router.get('/', async (req, res, next) => {
   } else {
     try {
       if (!req.session.cart) {
-        let order = await Orders.create({userId: 10, status: 'cart'})
+        let order = await Orders.create({userId: 1, status: 'cart'})
         req.session.cart = order
       } else {
         let order = await Orders.findOne({

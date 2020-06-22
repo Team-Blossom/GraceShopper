@@ -58,7 +58,9 @@ export class AllProducts extends React.Component {
             {categories.map(category => {
               return (
                 <li key={category.id}>
-                  <NavLink name={category.id}>{category.name}</NavLink>
+                  <NavLink name={category.id} to="/allproducts">
+                    {category.name}
+                  </NavLink>
                 </li>
               )
             })}
