@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
-import ThankYou from '../components/thankYouCart'
+import {ThankYou} from '../components/thankYouCart'
 
 const CheckoutComponent = ({cart}) => {
   const [checkedOut, setcheckedOut] = useState(false)
