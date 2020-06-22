@@ -10,6 +10,7 @@ import {me} from './store'
 import MasterDash from './components/MasterDash'
 import AlchemDash from './components/AlchemDash'
 import orderDetails from './components/orderDetails'
+import Home from './components/Home'
 
 /**
  * COMPONENT
@@ -25,6 +26,7 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route path="/home" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Register} />
         <Route path="/allproducts/:productId" component={SingleProduct} />

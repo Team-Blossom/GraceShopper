@@ -9,12 +9,12 @@ const Navbar = ({handleClick, isLoggedIn, cart}) => (
     <ul>
       <li>
         <NavLink id="logoMainNav" to="/home">
-          <img src="./pictures/gslogopic.jpg" />
+          <img src="/pictures/gslogopic.jpg" />
         </NavLink>
         <p>UTONIUM</p>
       </li>
       <li>
-        <NavLink activeClassName="activeMainNav" to="/aboutus">
+        <NavLink activeClassName="activeMainNav" to="/home#quality">
           Who We Are
         </NavLink>
       </li>
