@@ -9,6 +9,7 @@ import ProductsView from './components/ProductsView'
 import {me} from './store'
 import MasterDash from './components/MasterDash'
 import AlchemDash from './components/AlchemDash'
+import Home from './components/Home'
 
 /**
  * COMPONENT
@@ -24,6 +25,7 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route path="/home" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Register} />
         <Route path="/allproducts/:productId" component={SingleProduct} />
@@ -31,9 +33,6 @@ class Routes extends Component {
         <Route path="/checkout" component={Checkout} />
         <Route path="/cart" component={Cart} />
         <Route path="/categories/:categoryId" component={ProductsView} />
-
-
-       
 
         <Route path="/masterdashboard" component={MasterDash} />
 
