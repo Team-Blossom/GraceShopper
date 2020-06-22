@@ -71,7 +71,7 @@ router.post('/', async (req, res, next) => {
       })
       let order
       if (!req.session.cart) {
-        order = await Orders.create({userId: 10, status: 'cart'})
+        order = await Orders.create({userId: 1, status: 'cart'})
         req.session.cart = order
       } else {
         order = await Orders.findOne({where: {id: req.session.cart.id}})
