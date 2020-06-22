@@ -1,17 +1,16 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
-import {ThankYou} from '../components/thankYouCart'
+import {ThankYou} from './thankYouCart'
 import {Link} from 'react-router-dom'
 
-const CheckoutComponent = ({cart}) => {
+const MasterCheckoutComponent = ({cart}) => {
+  console.log(cart)
   const [checkedOut, setcheckedOut] = useState(false)
   const handleSubmit = async e => {
     e.preventDefault()
-    const order = await axios.put('/api/orders', {status: 'processing'})
-    console.log(order.data)
+    await axios.put('/api/orders', {status: 'processing'})
     setcheckedOut(true)
-    console.log(checkedOut)
   }
 
   return checkedOut ? (
@@ -160,4 +159,4 @@ const mapState = state => {
   }
 }
 
-export const Checkout = connect(mapState)(CheckoutComponent)
+export const MasterCheckout = connect(mapState)(MasterCheckoutComponent)

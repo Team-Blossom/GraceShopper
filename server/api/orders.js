@@ -71,7 +71,6 @@ router.post('/', async (req, res, next) => {
       })
       if (cartItem) {
         await cartItem.increment({quantity: 1})
-        console.log(cartItem)
       }
       await order.addProduct(product)
       await order.increment({quantity: 1, price: product.price})
@@ -261,7 +260,7 @@ router.put('/', async (req, res, next) => {
 
       order.status = req.body.status
       order.save()
-      req.session.cart = null
+      req.session.destroy()
 
       res.json(order)
     } catch (error) {
