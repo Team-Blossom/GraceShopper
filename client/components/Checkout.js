@@ -1,10 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {connect} from 'react-redux'
+import axios from 'axios'
+import ThankYou from '../components/thankYouCart'
 
 const CheckoutComponent = ({cart}) => {
-  return (
+  const [checkedOut, setcheckedOut] = useState(false)
+  const handleSubmit = async e => {
+    e.preventDefault()
+    const order = await axios.put('/api/orders', {status: 'processing'})
+    console.log(order.data)
+    setcheckedOut(true)
+    console.log(checkedOut)
+  }
+
+  return checkedOut ? (
+    <ThankYou />
+  ) : (
     <section id="masterCheckoutSection">
-      <form id="master-ckotForms">
+      <form
+        id="master-ckotForms"
+        onSubmit={e => {
+          handleSubmit(e)
+        }}
+      >
         <div id="masterShippingAddress">
           <h3>Shipping Address</h3>
           <select defaultValue="1">

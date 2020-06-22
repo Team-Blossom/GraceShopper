@@ -38,6 +38,19 @@ router.get('/', async (req, res, next) => {
     }
   }
 })
+//user can get their order history
+router.get('/myorders', async (req, res, next) => {
+  try {
+    let order = await Orders.findAll({
+      where: {userId: req.user.id},
+      include: {model: Product}
+    })
+    res.json(order)
+  } catch (error) {
+    console.error(error)
+    next(error)
+  }
+})
 
 //user can add products to cart
 router.post('/', async (req, res, next) => {
@@ -222,18 +235,38 @@ router.delete('/:productId/all', async (req, res, next) => {
 
 //user can checkout (set status of order to processing)
 router.put('/', async (req, res, next) => {
-  try {
-    const order = await Orders.findOne({
-      where: {userId: req.user.id, status: 'cart'}
-    })
-    if (!order) {
-      res.status(500).send('Cart is empty!')
+  if (req.user) {
+    try {
+      const order = await Orders.findOne({
+        where: {userId: req.user.id, status: 'cart'}
+      })
+      if (!order) {
+        res.status(500).send('Cart is empty!')
+      }
+      console.log(req.body.status)
+      order.status = req.body.status
+      order.save()
+      res.json(order)
+    } catch (error) {
+      next(error)
     }
-    order.status = 'processing'
-    await order.save()
-    res.json(order)
-  } catch (error) {
-    next(error)
+  } else {
+    try {
+      const order = await Orders.findOne({
+        where: {id: req.session.cart.id}
+      })
+      if (!order) {
+        res.status(500).send('Cart is empty!')
+      }
+
+      order.status = req.body.status
+      order.save()
+      req.session.cart = {}
+
+      res.json(order)
+    } catch (error) {
+      next(error)
+    }
   }
 })
 
