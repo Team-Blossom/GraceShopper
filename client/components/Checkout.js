@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import {ThankYou} from '../components/thankYouCart'
+import {Link} from 'react-router-dom'
 
 const CheckoutComponent = ({cart}) => {
   const [checkedOut, setcheckedOut] = useState(false)
@@ -129,7 +130,9 @@ const CheckoutComponent = ({cart}) => {
           <h2>
             Cart Summary
             <span>
-              <a className="btn">(edit)</a>
+              <Link to="/cart" className="btn">
+                (edit)
+              </Link>
             </span>
           </h2>
           {cart.id !== undefined &&
