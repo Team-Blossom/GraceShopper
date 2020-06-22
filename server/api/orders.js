@@ -36,6 +36,19 @@ router.get('/', async (req, res, next) => {
     }
   }
 })
+//user can get their order history
+router.get('/myorders', async (req, res, next) => {
+  try {
+    let order = await Orders.findAll({
+      where: {userId: req.user.id},
+      include: {model: Product}
+    })
+    res.json(order)
+  } catch (error) {
+    console.error(error)
+    next(error)
+  }
+})
 
 //user can add products to cart
 router.post('/', async (req, res, next) => {
@@ -234,15 +247,3 @@ router.put('/', async (req, res, next) => {
     next(error)
   }
 })
-
-// //get one order
-// router.get('/:id', async (req, res, next) => {
-//   try {
-//     const order = await Orders.findOne({where: {orderId: req.params.id}})
-//     console.log(order.data)
-//     res.json(order.data)
-//   } catch (error) {
-//     console.error(error)
-//     next(error)
-//   }
-// })

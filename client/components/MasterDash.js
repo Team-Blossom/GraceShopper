@@ -26,11 +26,11 @@ export class MasterDash extends React.Component {
   }
 
   async componentDidMount() {
-    const orders = await axios.get(`/api/users/${this.props.user.id}`)
+    const orders = await axios.get(`/api/orders/myorders`)
 
     this.setState({
       salveDisplay: 'flex',
-      orders: orders.data.orders
+      orders: orders.data
     })
   }
   handlePanelDisplay(evt) {

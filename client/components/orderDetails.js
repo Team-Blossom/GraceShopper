@@ -1,11 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import axios from 'axios'
 
 export class OrderDetails extends React.Component {
   render() {
     const order = this.props.location.state.order
     const user = this.props.user
     console.log(order)
+    console.log(this.props)
     return (
       <section id="orderDetailsSection">
         <div id="orderSpecs">
@@ -48,71 +50,23 @@ export class OrderDetails extends React.Component {
           </div>
         </div>
         <div id="orderedProdsCont">
-          <div className="orderedProd">
-            <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-            <p style={{fontSize: '.8rem'}}>PRODUCT NAME</p>
-            <p>
-              PRODUCT QTY: <span>QTY in cart</span>
-            </p>
-            <p>
-              PRODUCT PRICE: <span>PRICE</span>
-            </p>
-            <p>
-              TOTAL PRICE: <span>PRICE*QTY</span>
-            </p>
-          </div>
-          <div className="orderedProd">
-            <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-            <p style={{fontSize: '.8rem'}}>PRODUCT NAME</p>
-            <p>
-              PRODUCT QTY: <span>QTY in cart</span>
-            </p>
-            <p>
-              PRODUCT PRICE: <span>PRICE</span>
-            </p>
-            <p>
-              TOTAL PRICE: <span>PRICE*QTY</span>
-            </p>
-          </div>
-          <div className="orderedProd">
-            <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-            <p style={{fontSize: '.8rem'}}>PRODUCT NAME</p>
-            <p>
-              PRODUCT QTY: <span>QTY in cart</span>
-            </p>
-            <p>
-              PRODUCT PRICE: <span>PRICE</span>
-            </p>
-            <p>
-              TOTAL PRICE: <span>PRICE*QTY</span>
-            </p>
-          </div>
-          <div className="orderedProd">
-            <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-            <p style={{fontSize: '.8rem'}}>PRODUCT NAME</p>
-            <p>
-              PRODUCT QTY: <span>QTY in cart</span>
-            </p>
-            <p>
-              PRODUCT PRICE: <span>PRICE</span>
-            </p>
-            <p>
-              TOTAL PRICE: <span>PRICE*QTY</span>
-            </p>
-          </div>
-          <div className="orderedProd">
-            <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-            <p style={{fontSize: '.8rem'}}>PRODUCT NAME</p>
-            <p>
-              PRODUCT QTY: <span>QTY in cart</span>
-            </p>
-            <p>
-              PRODUCT PRICE: <span>PRICE</span>
-            </p>
-            <p>
-              TOTAL PRICE: <span>PRICE*QTY</span>
-            </p>
-          </div>
+          {order.products.map(product => {
+            return (
+              <div className="orderedProd" key={product.id}>
+                <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
+                <p style={{fontSize: '.8rem'}}>PRODUCT NAME</p>
+                <p>
+                  PRODUCT QTY: <span>QTY in cart</span>
+                </p>
+                <p>
+                  PRODUCT PRICE: <span>PRICE</span>
+                </p>
+                <p>
+                  TOTAL PRICE: <span>PRICE*QTY</span>
+                </p>
+              </div>
+            )
+          })}
         </div>
         <a href="./masterView.html">
           <i className="material-icons">keyboard_backspace</i>
