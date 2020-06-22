@@ -9,7 +9,9 @@ import ProductsView from './components/ProductsView'
 import {me} from './store'
 import MasterDash from './components/MasterDash'
 import AlchemDash from './components/AlchemDash'
+import orderDetails from './components/orderDetails'
 import Home from './components/Home'
+import ThankYou from './components/thankYouCart'
 
 /**
  * COMPONENT
@@ -35,6 +37,7 @@ class Routes extends Component {
         <Route path="/categories/:categoryId" component={ProductsView} />
 
         <Route path="/masterdashboard" component={MasterDash} />
+        <Route path="/thankyou" component={ThankYou} />
 
         {isAlchemist && <Route path="/alchemDash" component={AlchemDash} />}
 
@@ -42,6 +45,8 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/masterdashboard" component={MasterDash} />
+            <Route path="/orderDetails" component={orderDetails} />
+
             {/* <Route path="/masterdashboard/orderview" component={orderView}></Route> */}
           </Switch>
         )}

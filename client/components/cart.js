@@ -8,6 +8,7 @@ class CartComponent extends React.Component {
   componentDidMount() {
     this.props.getCart()
   }
+
   render() {
     let cart = this.props.cart
     if (!cart.id) {

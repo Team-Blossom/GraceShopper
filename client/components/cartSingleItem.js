@@ -43,7 +43,7 @@ const CartSingleProduct = props => {
       <img src={product.pictures[0]} />
       <div>
         <h3>{product.name.toUpperCase()}</h3>
-        <form>
+        <form onSubmit={e => e.preventDefault()}>
           <label>Quantity:</label>
           <input
             name="quantity"
@@ -52,6 +52,7 @@ const CartSingleProduct = props => {
             min={1}
             defaultValue={quant}
             onChange={handleChange}
+            onKeyDown={e => e.preventDefault()}
           />
         </form>
         <p>
