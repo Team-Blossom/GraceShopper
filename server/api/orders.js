@@ -234,3 +234,15 @@ router.put('/', async (req, res, next) => {
     next(error)
   }
 })
+
+// //get one order
+// router.get('/:id', async (req, res, next) => {
+//   try {
+//     const order = await Orders.findOne({where: {orderId: req.params.id}})
+//     console.log(order.data)
+//     res.json(order.data)
+//   } catch (error) {
+//     console.error(error)
+//     next(error)
+//   }
+// })

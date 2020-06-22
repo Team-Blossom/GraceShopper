@@ -4,6 +4,7 @@ import me from '../store/user'
 import {connect} from 'react-redux'
 import {logout} from '../store'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 export class MasterDash extends React.Component {
   constructor() {
     super()
@@ -13,7 +14,8 @@ export class MasterDash extends React.Component {
       addressDisplay: 'none',
       billingDisplay: 'none',
       orderDisplay: 'none',
-      navClass: ''
+      navClass: '',
+      orders: []
 
       // addressForm: "none",
       // addressObj: {}
@@ -23,9 +25,12 @@ export class MasterDash extends React.Component {
     // this.handleFormDisplay = this.handleFormDisplay.bind(this)
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const orders = await axios.get(`/api/users/${this.props.user.id}`)
+
     this.setState({
-      salveDisplay: 'flex'
+      salveDisplay: 'flex',
+      orders: orders.data.orders
     })
   }
   handlePanelDisplay(evt) {
@@ -65,9 +70,9 @@ export class MasterDash extends React.Component {
     }
   }
   render() {
-    console.log('user', this.props.user)
     const user = this.props.user
-    console.log(user.firstname)
+    const orders = this.state.orders
+    console.log(orders)
     return (
       <section id="masterSection">
         <div id="masterPanel">
@@ -263,32 +268,41 @@ export class MasterDash extends React.Component {
               style={{display: `${this.state.orderDisplay}`, zIndex: '5'}}
             >
               <h2>Your Orders</h2>
-              <div className="masterOrder">
-                <ul>
-                  <li>
-                    <h3>Order Placed: </h3>
-                    <span>DATE</span>
-                  </li>
-                  <li>
-                    <h3>Total Price: </h3>
-                    <span>PRICE &#164;</span>
-                  </li>
-                  <li>
-                    <h3>Total Items: </h3>
-                    <span>ITEM QTY</span>
-                  </li>
-                  <li>
-                    <h3>Order Status: </h3>
-                    <span>STATUS</span>
-                  </li>
-                  <li>
-                    {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
-                    <Link to="./orderDetails" className="btn btnToWhite">
-                      Order Details
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+              {orders.map(order => {
+                return (
+                  // eslint-disable-next-line react/jsx-key
+                  <div className="masterOrder" key={user.id}>
+                    <ul>
+                      <li key={order.date}>
+                        <h3>Order Placed: </h3>
+                        <span>{order.date}</span>
+                      </li>
+                      <li>
+                        <h3>Total Price: </h3>
+                        <span>{order.price} &#164;</span>
+                      </li>
+                      <li>
+                        <h3>Total Items: </h3>
+                        <span>{order.quantity}</span>
+                      </li>
+                      <li>
+                        <h3>Order Status: </h3>
+                        <span>{order.status}</span>
+                      </li>
+                      <li>
+                        {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
+                        <Link
+                          to={{pathname: './orderDetails', state: {order}}}
+                          className="btn btnToWhite"
+                        >
+                          Order Details
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )
+              })}
+
               {/* master orders */}
             </div>
 

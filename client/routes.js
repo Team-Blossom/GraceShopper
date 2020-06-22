@@ -9,6 +9,7 @@ import ProductsView from './components/ProductsView'
 import {me} from './store'
 import MasterDash from './components/MasterDash'
 import AlchemDash from './components/AlchemDash'
+import orderDetails from './components/orderDetails'
 
 /**
  * COMPONENT
@@ -32,9 +33,6 @@ class Routes extends Component {
         <Route path="/cart" component={Cart} />
         <Route path="/categories/:categoryId" component={ProductsView} />
 
-
-       
-
         <Route path="/masterdashboard" component={MasterDash} />
 
         {isAlchemist && <Route path="/alchemDash" component={AlchemDash} />}
@@ -43,6 +41,7 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/masterdashboard" component={MasterDash} />
+            <Route path="/orderDetails" component={orderDetails} />
             {/* <Route path="/masterdashboard/orderview" component={orderView}></Route> */}
           </Switch>
         )}
