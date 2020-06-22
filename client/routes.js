@@ -5,11 +5,10 @@ import PropTypes from 'prop-types'
 import {Login, Register, UserHome, Cart, Checkout} from './components'
 import AllProducts from './components/AllProducts'
 import SingleProduct from './components/SingleProduct'
-
 import ProductsView from './components/ProductsView'
-
 import {me} from './store'
 import MasterDash from './components/MasterDash'
+import AlchemDash from './components/AlchemDash'
 
 /**
  * COMPONENT
@@ -20,7 +19,7 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn, isAlchemist} = this.props
 
     return (
       <Switch>
@@ -33,7 +32,13 @@ class Routes extends Component {
         <Route path="/cart" component={Cart} />
         <Route path="/categories/:categoryId" component={ProductsView} />
 
-        {/* <Route path="/masterdashboard" component={MasterDash} /> */}
+
+       
+
+        <Route path="/masterdashboard" component={MasterDash} />
+
+        {isAlchemist && <Route path="/alchemDash" component={AlchemDash} />}
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -54,7 +59,8 @@ const mapState = state => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    isAlchemist: state.user.role === 'Alchemist'
   }
 }
 
