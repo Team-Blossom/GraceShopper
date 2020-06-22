@@ -145,7 +145,7 @@ export class MasterDash extends React.Component {
               </p>
               {/* <!-- LINK BACK TO HOME OR PRODUCTS --> */}
               <div id="logo">
-                <img src="./pictures/gslogopic.jpg" />
+                <img src="/pictures/gslogopic.jpg" />
               </div>
               <a className="btn">Continue Shopping</a>
             </div>
