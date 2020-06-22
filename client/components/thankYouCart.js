@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const ThankYou = () => {
   return (
@@ -6,7 +7,9 @@ const ThankYou = () => {
       <div>
         <h1>Thank You!</h1>
         <h2>Your Order is on the way!</h2>
-        <a className="btn btn-gold btnToWhite">Continue Shopping</a>
+        <Link to="/allproducts" className="btn btn-gold btnToWhite">
+          Continue Shopping
+        </Link>
       </div>
     </section>
   )
