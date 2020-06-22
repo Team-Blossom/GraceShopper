@@ -20,10 +20,7 @@ export default class AlchemAllOrders extends React.Component {
 
   render() {
     return (
-      <div
-        id="alchemOrderPanel"
-        style={{display: `${this.props.ordersDisplay}`}}
-      >
+      <div id="alchemOrderPanel" style={{display: 'flex'}}>
         <div id="alchemOrderHeader">
           <Link
             className="btn"

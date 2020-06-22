@@ -20,10 +20,7 @@ export default class AlchemAllProd extends React.Component {
 
   render() {
     return (
-      <div
-        id="alchemProdPanel"
-        style={{display: `${this.props.productsDisplay}`, zIndex: '53'}}
-      >
+      <div id="alchemProdPanel" style={{display: 'flex', zIndex: '53'}}>
         <div id="alchemProdHeader">
           <Link
             to="/alchemdash/"

@@ -20,10 +20,7 @@ export default class AlchemAllUsers extends React.Component {
 
   render() {
     return (
-      <div
-        id="alchemMastersPanel"
-        style={{display: `${this.props.mastersDisplay}`}}
-      >
+      <div id="alchemMastersPanel" style={{display: 'flex'}}>
         <div id="alchemMastersHeader">
           <Link
             className="btn"
