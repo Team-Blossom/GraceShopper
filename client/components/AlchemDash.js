@@ -9,15 +9,22 @@ export default class AlchemDash extends React.Component {
       productsDisplay: 'none',
       ordersDisplay: 'none',
       mastersDisplay: 'none',
-      masters: []
+      masters: [],
+      products: [],
+      orders: []
     }
     this.handlePanelDisplay = this.handlePanelDisplay.bind(this)
   }
   async componentDidMount() {
     const masters = await axios.get('/api/users')
+    const products = await axios.get('/api/products')
+    const orders = await axios.get('/api/orders/all')
+
     this.setState({
       alchemOptions: 'flex',
-      masters: masters.data
+      masters: masters.data,
+      products: products.data,
+      orders: orders.data
     })
   }
   handlePanelDisplay(evt) {
@@ -82,165 +89,50 @@ export default class AlchemDash extends React.Component {
               <h2>PRODUCT LOGGER</h2>
             </div>
             <div id="alchemProdCont">
-              <select>
+              {/* <select>
                 <option selected>All Products</option>
                 <option>Emotes</option>
                 <option>Elixirs</option>
                 <option>Relics</option>
                 <option>Conduits</option>
                 <option>Literature</option>
-              </select>
+              </select> */}
               <div>
-                <div className="alchemProd">
-                  <ul>
-                    <li>
-                      <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-                    </li>
-                    <li>
-                      <p>Product Name:</p>
-                      <span>NAME</span>
-                    </li>
-                    <li>
-                      <p>Prod QTY:</p>
-                      <span>QTY</span>
-                    </li>
-                    <li>
-                      <p>Prod Price:</p>
-                      <span>PRICE &#164;</span>
-                    </li>
-                    <li>
-                      <p>Prod ID:</p>
-                      <span>ID</span>
-                    </li>
-                    <li>
-                      <a className="btn">edit</a>
-                      <a className="btn">
-                        <i className="material-icons">delete</i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="alchemProd">
-                  <ul>
-                    <li>
-                      <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-                    </li>
-                    <li>
-                      <p>Product Name:</p>
-                      <span>NAME</span>
-                    </li>
-                    <li>
-                      <p>Prod QTY:</p>
-                      <span>QTY</span>
-                    </li>
-                    <li>
-                      <p>Prod Price:</p>
-                      <span>PRICE &#164;</span>
-                    </li>
-                    <li>
-                      <p>Prod ID:</p>
-                      <span>ID</span>
-                    </li>
-                    <li>
-                      <a className="btn">edit</a>
-                      <a className="btn">
-                        <i className="material-icons">delete</i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="alchemProd">
-                  <ul>
-                    <li>
-                      <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-                    </li>
-                    <li>
-                      <p>Product Name:</p>
-                      <span>NAME</span>
-                    </li>
-                    <li>
-                      <p>Prod QTY:</p>
-                      <span>QTY</span>
-                    </li>
-                    <li>
-                      <p>Prod Price:</p>
-                      <span>PRICE &#164;</span>
-                    </li>
-                    <li>
-                      <p>Prod ID:</p>
-                      <span>ID</span>
-                    </li>
-                    <li>
-                      <a className="btn">edit</a>
-                      <a className="btn">
-                        <i className="material-icons">delete</i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="alchemProd">
-                  <ul>
-                    <li>
-                      <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-                    </li>
-                    <li>
-                      <p>Product Name:</p>
-                      <span>NAME</span>
-                    </li>
-                    <li>
-                      <p>Prod QTY:</p>
-                      <span>QTY</span>
-                    </li>
-                    <li>
-                      <p>Prod Price:</p>
-                      <span>PRICE &#164;</span>
-                    </li>
-                    <li>
-                      <p>Prod ID:</p>
-                      <span>ID</span>
-                    </li>
-                    <li>
-                      <a className="btn">edit</a>
-                      <a className="btn">
-                        <i className="material-icons">delete</i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="alchemProd">
-                  <ul>
-                    <li>
-                      <img src="./imagesViews/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-                    </li>
-                    <li>
-                      <p>Product Name:</p>
-                      <span>NAME</span>
-                    </li>
-                    <li>
-                      <p>Prod QTY:</p>
-                      {/* <!-- MAY BE A SELECT? --> */}
-                      <span>QTY</span>
-                    </li>
-                    <li>
-                      <p>Prod Price:</p>
-                      <span>PRICE &#164;</span>
-                    </li>
-                    <li>
-                      <p>Prod ID:</p>
-                      <span>ID</span>
-                    </li>
-                    <li>
-                      <a className="btn">edit</a>
-                      <a className="btn">
-                        <i className="material-icons">delete</i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                {this.state.products.length &&
+                  this.state.products.map(product => (
+                    <div key={product.id} className="alchemProd">
+                      <ul>
+                        <li>
+                          <img src="./pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
+                        </li>
+                        <li>
+                          <p>Product Name:</p>
+                          <span>{product.name}</span>
+                        </li>
+                        {/* <li>
+                          <p>Prod Rating:</p>
+                          <span>{product.rating}</span>
+                        </li> */}
+                        <li>
+                          <p>Prod Price:</p>
+                          <span>{product.price} &#164;</span>
+                        </li>
+                        <li>
+                          <p>Prod ID:</p>
+                          <span>{product.id}</span>
+                        </li>
+                        <li>
+                          <a className="btn">edit</a>
+                          <a className="btn">
+                            <i className="material-icons">delete</i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
-
           <div
             id="alchemOrderPanel"
             style={{display: `${this.state.ordersDisplay}`}}
@@ -259,171 +151,49 @@ export default class AlchemDash extends React.Component {
             </div>
             <div id="alchemOrderCont">
               {/* <!-- ONLY THE ORDERS THAT AREN'T CARTS! --> */}
-              <div className="alchemOrder">
-                <ul>
-                  <li>
-                    <h3>Order Placed: </h3>
-                    <span>DATE</span>
-                  </li>
-                  <li>
-                    <h3>Total Price: </h3>
-                    <span>PRICE &#164;</span>
-                  </li>
-                  <li>
-                    <h3>Total Items: </h3>
-                    <span>ITEM QTY</span>
-                  </li>
-                  <li>
-                    <h3>Order Status: </h3>
-                    {/* <!-- ONRENDER THE VALUE SHOULD BE SET TO THE VALUE OF THE STATUS --> */}
-                    {/* <!-- ONCHANGE UPDATE THE VALUE OF THE ORDER STATUS --> */}
+              {this.state.orders.length &&
+                this.state.orders.map(order => (
+                  <div key={order.id} className="alchemOrder">
+                    <ul>
+                      <li>
+                        <h3>Order ID: </h3>
+                        <span>{order.id}</span>
+                      </li>
+                      <li>
+                        <h3>Order Placed: </h3>
+                        <span>{new Date(order.date).toLocaleString()}</span>
+                      </li>
+                      <li>
+                        <h3>Total Price: </h3>
+                        <span>{order.price} &#164;</span>
+                      </li>
+                      <li>
+                        <h3>Total Items: </h3>
+                        <span>{order.quantity}</span>
+                      </li>
+                      <li>
+                        <h3>Order Status: </h3>
+                        {/* <!-- ONRENDER THE VALUE SHOULD BE SET TO THE VALUE OF THE STATUS -->
+                    <!-- ONCHANGE UPDATE THE VALUE OF THE ORDER STATUS -->
                     <select value="processing">
                       <option value="processing">PROCESSING</option>
                       <option value="canceled">CANCELED</option>
                       <option value="completed">COMPLETED</option>
-                    </select>
-                    {/* <!-- <span>STATUS</span> --> */}
-                  </li>
-                  <li>
-                    {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
-                    <a href="./orderDetails.html" className="btn btnToWhite">
-                      Order Details
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="alchemOrder">
-                <ul>
-                  <li>
-                    <h3>Order Placed: </h3>
-                    <span>DATE</span>
-                  </li>
-                  <li>
-                    <h3>Total Price: </h3>
-                    <span>PRICE &#164;</span>
-                  </li>
-                  <li>
-                    <h3>Total Items: </h3>
-                    <span>ITEM QTY</span>
-                  </li>
-                  <li>
-                    <h3>Order Status: </h3>
-                    {/* <!-- ONRENDER THE VALUE SHOULD BE SET TO THE VALUE OF THE STATUS --> */}
-                    {/* <!-- ONCHANGE UPDATE THE VALUE OF THE ORDER STATUS --> */}
-                    <select value="processing">
-                      <option value="processing">PROCESSING</option>
-                      <option value="canceled">CANCELED</option>
-                      <option value="completed">COMPLETED</option>
-                    </select>
-                    {/* <!-- <span>STATUS</span> --> */}
-                  </li>
-                  <li>
-                    {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
-                    <a href="./orderDetails.html" className="btn btnToWhite">
-                      Order Details
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="alchemOrder">
-                <ul>
-                  <li>
-                    <h3>Order Placed: </h3>
-                    <span>DATE</span>
-                  </li>
-                  <li>
-                    <h3>Total Price: </h3>
-                    <span>PRICE &#164;</span>
-                  </li>
-                  <li>
-                    <h3>Total Items: </h3>
-                    <span>ITEM QTY</span>
-                  </li>
-                  <li>
-                    <h3>Order Status: </h3>
-                    {/* <!-- ONRENDER THE VALUE SHOULD BE SET TO THE VALUE OF THE STATUS --> */}
-                    {/* <!-- ONCHANGE UPDATE THE VALUE OF THE ORDER STATUS --> */}
-                    <select value="processing">
-                      <option value="processing">PROCESSING</option>
-                      <option value="canceled">CANCELED</option>
-                      <option value="completed">COMPLETED</option>
-                    </select>
-                    {/* <!-- <span>STATUS</span> --> */}
-                  </li>
-                  <li>
-                    {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
-                    <a href="./orderDetails.html" className="btn btnToWhite">
-                      Order Details
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="alchemOrder">
-                <ul>
-                  <li>
-                    <h3>Order Placed: </h3>
-                    <span>DATE</span>
-                  </li>
-                  <li>
-                    <h3>Total Price: </h3>
-                    <span>PRICE &#164;</span>
-                  </li>
-                  <li>
-                    <h3>Total Items: </h3>
-                    <span>ITEM QTY</span>
-                  </li>
-                  <li>
-                    <h3>Order Status: </h3>
-                    {/* <!-- ONRENDER THE VALUE SHOULD BE SET TO THE VALUE OF THE STATUS --> */}
-                    {/* <!-- ONCHANGE UPDATE THE VALUE OF THE ORDER STATUS --> */}
-                    <select value="processing">
-                      <option value="processing">PROCESSING</option>
-                      <option value="canceled">CANCELED</option>
-                      <option value="completed">COMPLETED</option>
-                    </select>
-                    {/* <!-- <span>STATUS</span> --> */}
-                  </li>
-                  <li>
-                    {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
-                    <a href="./orderDetails.html" className="btn btnToWhite">
-                      Order Details
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="alchemOrder">
-                <ul>
-                  <li>
-                    <h3>Order Placed: </h3>
-                    <span>DATE</span>
-                  </li>
-                  <li>
-                    <h3>Total Price: </h3>
-                    <span>PRICE &#164;</span>
-                  </li>
-                  <li>
-                    <h3>Total Items: </h3>
-                    <span>ITEM QTY</span>
-                  </li>
-                  <li>
-                    <h3>Order Status: </h3>
-                    {/* <!-- ONRENDER THE VALUE SHOULD BE SET TO THE VALUE OF THE STATUS --> */}
-                    {/* <!-- ONCHANGE UPDATE THE VALUE OF THE ORDER STATUS --> */}
-                    <select value="processing">
-                      <option value="processing">PROCESSING</option>
-                      <option value="canceled">CANCELED</option>
-                      <option value="completed">COMPLETED</option>
-                    </select>
-                    {/* <!-- <span>STATUS</span> --> */}
-                  </li>
-                  <li>
-                    {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
-                    <a href="./orderDetails.html" className="btn btnToWhite">
-                      Order Details
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                    </select> */}
+                        <span>{order.status}</span>
+                      </li>
+                      <li>
+                        {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
+                        <a
+                          href="./orderDetails.html"
+                          className="btn btnToWhite"
+                        >
+                          Order Details
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                ))}
             </div>
           </div>
 
@@ -454,15 +224,19 @@ export default class AlchemDash extends React.Component {
                     <ul>
                       <li>
                         <p>Master Name:</p>
-                        <span>{master.firstname + '' + master.lastname}</span>
+                        <span>{master.firstname + ' ' + master.lastname}</span>
                       </li>
                       <li>
                         <p>Master Id:</p>
                         <span>{master.id}</span>
                       </li>
-                      <li>
+                      {/* <li>
                         <p>Order Qty:</p>
                         <span>QTY</span>
+                      </li> */}
+                      <li>
+                        <p>Email</p>
+                        <span>{master.email}</span>
                       </li>
                       <li>
                         {/* <!-- ONCHANGE UPDATE USER TYPE VALUE --> */}

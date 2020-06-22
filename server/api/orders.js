@@ -2,6 +2,8 @@ const router = require('express').Router()
 const {Orders, Product, Cart} = require('../db/models')
 module.exports = router
 
+// MASTER ROUTES
+
 //get a users order where status = cart
 // '/api/orders/'
 router.get('/', async (req, res, next) => {
@@ -230,6 +232,28 @@ router.put('/', async (req, res, next) => {
     order.status = 'processing'
     await order.save()
     res.json(order)
+  } catch (error) {
+    next(error)
+  }
+})
+
+//ALCHEMIST ROUTES
+
+//get all orders from '/api/orders/all'
+router.get('/all', async (req, res, next) => {
+  try {
+    const allOrders = await Orders.findAll()
+    res.json(allOrders)
+  } catch (error) {
+    next(error)
+  }
+})
+
+//delete an order from '/api/orders/all/:orderId'
+router.delete('/all/:orderId', async (req, res, next) => {
+  try {
+    await Orders.destroy({where: {id: req.params.orderId}})
+    res.sendStatus('204')
   } catch (error) {
     next(error)
   }
