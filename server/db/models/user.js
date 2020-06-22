@@ -31,6 +31,9 @@ const User = db.define('user', {
       isIn: [['Master', 'Alchemist']]
     }
   },
+  addresses: {
+    type: Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.STRING))
+  },
   salt: {
     type: Sequelize.STRING,
     // Making `.salt` act like a function hides it when serializing to JSON.
