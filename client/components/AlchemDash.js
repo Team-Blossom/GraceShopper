@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 export default class AlchemDash extends React.Component {
   constructor() {
@@ -7,13 +8,16 @@ export default class AlchemDash extends React.Component {
       alchemOptions: 'none',
       productsDisplay: 'none',
       ordersDisplay: 'none',
-      mastersDisplay: 'none'
+      mastersDisplay: 'none',
+      masters: []
     }
     this.handlePanelDisplay = this.handlePanelDisplay.bind(this)
   }
-  componentDidMount() {
+  async componentDidMount() {
+    const masters = await axios.get('/api/users')
     this.setState({
-      alchemOptions: 'flex'
+      alchemOptions: 'flex',
+      masters: masters.data
     })
   }
   handlePanelDisplay(evt) {
@@ -440,165 +444,44 @@ export default class AlchemDash extends React.Component {
               <h2>MASTER LIST</h2>
             </div>
             <div id="alchemMastersCont">
-              <select>
+              {/* <select>
                 <option selected>Masters</option>
                 <option>Alchemists</option>
-              </select>
-              <div className="alchemMaster">
-                <ul>
-                  <li>
-                    <p>Master Name:</p>
-                    <span>NAME</span>
-                  </li>
-                  <li>
-                    <p>Master Id:</p>
-                    <span>ID</span>
-                  </li>
-                  <li>
-                    <p>Order Qty:</p>
-                    <span>QTY</span>
-                  </li>
-                  <li>
-                    {/* <!-- ONCHANGE UPDATE USER TYPE VALUE --> */}
-                    <p>Type:</p>
-                    <select value="Master">
-                      <option value="Master">Master</option>
-                      <option value="Alchemist">Alchemist</option>
-                    </select>
-                  </li>
-                  <li>
-                    <p>Pass Reset?</p>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <a className="btn">Delete</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="alchemMaster">
-                <ul>
-                  <li>
-                    <p>Master Name:</p>
-                    <span>NAME</span>
-                  </li>
-                  <li>
-                    <p>Master Id:</p>
-                    <span>ID</span>
-                  </li>
-                  <li>
-                    <p>Order Qty:</p>
-                    <span>QTY</span>
-                  </li>
-                  <li>
-                    {/* <!-- ONCHANGE UPDATE USER TYPE VALUE --> */}
-                    <p>Type:</p>
-                    <select value="Master">
-                      <option value="Master">Master</option>
-                      <option value="Alchemist">Alchemist</option>
-                    </select>
-                  </li>
-                  <li>
-                    <p>Pass Reset?</p>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <a className="btn">Delete</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="alchemMaster">
-                <ul>
-                  <li>
-                    <p>Master Name:</p>
-                    <span>NAME</span>
-                  </li>
-                  <li>
-                    <p>Master Id:</p>
-                    <span>ID</span>
-                  </li>
-                  <li>
-                    <p>Order Qty:</p>
-                    <span>QTY</span>
-                  </li>
-                  <li>
-                    {/* <!-- ONCHANGE UPDATE USER TYPE VALUE --> */}
-                    <p>Type:</p>
-                    <select value="Master">
-                      <option value="Master">Master</option>
-                      <option value="Alchemist">Alchemist</option>
-                    </select>
-                  </li>
-                  <li>
-                    <p>Pass Reset?</p>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <a className="btn">Delete</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="alchemMaster">
-                <ul>
-                  <li>
-                    <p>Master Name:</p>
-                    <span>NAME</span>
-                  </li>
-                  <li>
-                    <p>Master Id:</p>
-                    <span>ID</span>
-                  </li>
-                  <li>
-                    <p>Order Qty:</p>
-                    <span>QTY</span>
-                  </li>
-                  <li>
-                    {/* <!-- ONCHANGE UPDATE USER TYPE VALUE --> */}
-                    <p>Type:</p>
-                    <select value="Master">
-                      <option value="Master">Master</option>
-                      <option value="Alchemist">Alchemist</option>
-                    </select>
-                  </li>
-                  <li>
-                    <p>Pass Reset?</p>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <a className="btn">Delete</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="alchemMaster">
-                <ul>
-                  <li>
-                    <p>Master Name:</p>
-                    <span>NAME</span>
-                  </li>
-                  <li>
-                    <p>Master Id:</p>
-                    <span>ID</span>
-                  </li>
-                  <li>
-                    <p>Order Qty:</p>
-                    <span>QTY</span>
-                  </li>
-                  <li>
-                    {/* <!-- ONCHANGE UPDATE USER TYPE VALUE --> */}
-                    <p>Type:</p>
-                    <select value="Master">
-                      <option value="Master">Master</option>
-                      <option value="Alchemist">Alchemist</option>
-                    </select>
-                  </li>
-                  <li>
-                    <p>Pass Reset?</p>
-                    <input type="checkbox" />
-                  </li>
-                  <li>
-                    <a className="btn">Delete</a>
-                  </li>
-                </ul>
-              </div>
+              </select> */}
+              {this.state.masters.length &&
+                this.state.masters.map(master => (
+                  <div key={master.id} className="alchemMaster">
+                    <ul>
+                      <li>
+                        <p>Master Name:</p>
+                        <span>{master.firstname + '' + master.lastname}</span>
+                      </li>
+                      <li>
+                        <p>Master Id:</p>
+                        <span>{master.id}</span>
+                      </li>
+                      <li>
+                        <p>Order Qty:</p>
+                        <span>QTY</span>
+                      </li>
+                      <li>
+                        {/* <!-- ONCHANGE UPDATE USER TYPE VALUE --> */}
+                        <p>Type:</p>
+                        <select defaultValue={master.role}>
+                          <option value="Master">Master</option>
+                          <option value="Alchemist">Alchemist</option>
+                        </select>
+                      </li>
+                      <li>
+                        <p>Pass Reset?</p>
+                        <input type="checkbox" />
+                      </li>
+                      <li>
+                        <a className="btn">Delete</a>
+                      </li>
+                    </ul>
+                  </div>
+                ))}
             </div>
           </div>
         </div>

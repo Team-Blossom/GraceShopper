@@ -38,7 +38,7 @@ const Navbar = ({handleClick, isLoggedIn, cart}) => (
         </>
       ) : (
         <li>
-          <NavLink activeClassName="activeMainNav" to="/signup">
+          <NavLink activeClassName="activeMainNav" to="/login">
             <i style={{fontSize: '36px'}} className="material-icons">
               face
             </i>

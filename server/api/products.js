@@ -24,4 +24,39 @@ router.get('/:productId', async (req, res, next) => {
   }
 })
 
+router.delete('/:productId', async (req, res, next) => {
+  try {
+    await Product.destroy({where: {id: req.params.productId}})
+    res.sendStatus(204)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.post('/', async (req, res, next) => {
+  try {
+    const newProduct = await Product.create({
+      name: req.body.name,
+      price: req.body.price,
+      description: req.body.description
+    })
+    res.json(newProduct)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.put('/:productId', async (req, res, next) => {
+  try {
+    const prod = await Product.findOne({
+      where: {
+        id: req.params.productId
+      }
+    })
+    res.json(prod)
+  } catch (error) {
+    next(error)
+  }
+})
+
 module.exports = router
