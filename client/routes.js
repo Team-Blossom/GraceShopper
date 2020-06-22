@@ -10,6 +10,7 @@ import ProductsView from './components/ProductsView'
 
 import {me} from './store'
 import MasterDash from './components/MasterDash'
+import AlchemDash from './components/AlchemDash'
 
 /**
  * COMPONENT
@@ -33,6 +34,9 @@ class Routes extends Component {
         <Route path="/cart" component={Cart} />
         <Route path="/categories/:categoryId" component={ProductsView} />
         <Route path="/masterDashboard" component={MasterDash} />
+
+        {/* SHOULD ONLY BE SEEN BY ALCHEM USERS */}
+        <Route path="/alchemDash" component={AlchemDash} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
