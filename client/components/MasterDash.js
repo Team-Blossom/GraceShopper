@@ -2,6 +2,8 @@ import React from 'react'
 import MasterAddrForm from './MasterAddrForm'
 import me from '../store/user'
 import {connect} from 'react-redux'
+import {logout} from '../store'
+import {Link} from 'react-router-dom'
 export class MasterDash extends React.Component {
   constructor() {
     super()
@@ -68,10 +70,6 @@ export class MasterDash extends React.Component {
     console.log(user.firstname)
     return (
       <section id="masterSection">
-        {/* LOG OUT SHENANIGANS */}
-        <a href="" style={{zIndex: '10'}} id="logout">
-          Logout
-        </a>
         <div id="masterPanel">
           <div id="masterNav">
             <ul>
@@ -285,9 +283,9 @@ export class MasterDash extends React.Component {
                   </li>
                   <li>
                     {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
-                    <a href="./orderDetails.html" className="btn btnToWhite">
+                    <Link to="./orderDetails" className="btn btnToWhite">
                       Order Details
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -310,7 +308,7 @@ const mapUser = state => {
 
 const mapDispatch = dispatch => {
   return {
-    fetchUser: () => dispatch(me())
+    logout: () => dispatch(logout())
   }
 }
 

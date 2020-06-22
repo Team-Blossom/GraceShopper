@@ -32,11 +32,13 @@ class Routes extends Component {
         <Route path="/checkout" component={Checkout} />
         <Route path="/cart" component={Cart} />
         <Route path="/categories/:categoryId" component={ProductsView} />
+
         {/* <Route path="/masterdashboard" component={MasterDash} /> */}
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/masterdashboard" component={MasterDash} />
+            {/* <Route path="/masterdashboard/orderview" component={orderView}></Route> */}
           </Switch>
         )}
         <Route path="/" component={AllProducts} />

@@ -26,7 +26,7 @@ const Navbar = ({handleClick, isLoggedIn, cart}) => (
       {isLoggedIn ? (
         <>
           <li>
-            <NavLink activeClassName="activeMainNav" to="/dashboard">
+            <NavLink activeClassName="activeMainNav" to="/masterdashboard">
               Dashboard
             </NavLink>
           </li>
