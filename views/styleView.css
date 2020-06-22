@@ -1761,3 +1761,268 @@ ALCHEM LOGIN
 #alchemLogin a:last-child:hover {
   color: orange;
 }
+
+/* ----------
+THANK YOU
+----------- */
+
+#thankYouSection {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('./imagesViews/nynne-schroder-4iOcciwDzRw-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+}
+#thankYouSection > div {
+  margin-left: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+#thankYouSection h1 {
+  font-size: 4rem;
+  color: #f77f00;
+}
+#thankYouSection h2 {
+  color: white;
+}
+#thankYouSection > div a {
+  margin-top: 50px;
+}
+
+/* --------
+LOADING
+---------- */
+
+#loading {
+  background-image: url('./imagesViews/IMG_4357.GIF');
+  /* background-image:url('./imagesViews/IMG_4358.GIF'); */
+  /* background-size: cover; */
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+#loading h1 {
+  font-size: 4rem;
+  color: whitesmoke;
+  /* color: purple; */
+}
+
+/* --------
+HOME
+---------- */
+
+#homePageSection {
+  height: auto;
+}
+
+#homeFirst {
+  height: calc(100vh - 80px);
+  background-image: url('./imagesViews/joanna-kosinska-MnKWt1W1GDg-unsplash.jpg');
+  background-size: cover;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#homeFirst > div {
+  background: linear-gradient(
+    rgba(245, 222, 179, 0.7),
+    rgba(245, 222, 179, 0.7)
+  );
+  border-radius: 10px;
+  width: 50%;
+  min-height: 50%;
+  margin-bottom: 20px;
+  /* padding: 10px; */
+}
+#homeFirst > div > * {
+  margin-bottom: 20px;
+}
+#homeFirst > div > p {
+  font-size: 0.8rem;
+  padding: 0 20px;
+  color: #61210f;
+}
+#homeFirst > div > div:nth-child(3) {
+  /* background-color: #f77f00; */
+  height: 50px;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+#homeFirst > div > div:nth-child(3) > a {
+  margin-top: 50px;
+}
+#showLogo {
+  background: linear-gradient(rgba(97, 33, 15, 0.9), rgba(97, 33, 15, 0.9));
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 5px 0;
+}
+#showLogo > h1 {
+  color: white;
+  margin-right: 10px;
+  font-size: 3rem;
+}
+#showLogo img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: solid 5px #f77f00;
+}
+
+#quality,
+#membership,
+#appSoon {
+  /* background-color: antiquewhite; */
+  height: 70vh;
+  padding: 20px;
+}
+
+#quality h2,
+#membership h2,
+#appSoon h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #f77f00;
+  padding-bottom: 10px;
+}
+
+#quality {
+  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#quality > * {
+  margin-bottom: 10px;
+}
+#quality h2 {
+  color: #61210f;
+}
+#quality #prodIcons ul {
+  /* width: 100vh; */
+  /* background-color: grey; */
+  display: flex;
+  justify-content: space-evenly;
+}
+#prodIcons ul li {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#prodIcons ul li i {
+  color: #f77f00;
+}
+#prodIcons ul li label {
+  color: white;
+  text-align: center;
+}
+
+#quality p {
+  font-size: 1rem;
+  color: #61210f;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+#quality a {
+  margin-top: 20px;
+  align-self: center;
+}
+
+#membership {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+/* #membership h2 {
+
+} */
+#membership p {
+  color: white;
+  font-size: 0.8rem;
+}
+#membership > * {
+  margin-bottom: 20px;
+}
+#membership > div {
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+#membership > div > * {
+  /* flex-grow: 1; */
+  width: 40%;
+}
+#membership > div > ul {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  align-items: flex-end;
+  height: 250px;
+}
+#membership > div > ul li {
+  /* background-color: burlywood; */
+  width: 60%;
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: auto;
+}
+#membership > div > ul li > i {
+  color: orange;
+}
+#membership > div > ul li > label {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+#membership > div > div.sidebar {
+  border-left: solid 5px #f77f00;
+  width: 0;
+  margin: 0 20px;
+}
+#membership > div > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#membership > div > div:nth-child(3) a {
+  align-self: center;
+}
+
+#appSoon {
+  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+  background-size: cover;
+}
+#appSoon h2 {
+  color: #61210f;
+}
