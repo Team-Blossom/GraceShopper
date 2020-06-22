@@ -228,7 +228,7 @@ router.put('/', async (req, res, next) => {
       res.status(500).send('Cart is empty!')
     }
     order.status = 'processing'
-    order.save()
+    await order.save()
     res.json(order)
   } catch (error) {
     next(error)
