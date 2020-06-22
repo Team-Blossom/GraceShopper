@@ -242,7 +242,6 @@ router.put('/', async (req, res, next) => {
       if (!order) {
         res.status(500).send('Cart is empty!')
       }
-      console.log(req.body.status)
       order.status = req.body.status
       order.save()
       res.json(order)

@@ -5,7 +5,6 @@ import {ThankYou} from './thankYouCart'
 import {Link} from 'react-router-dom'
 
 const MasterCheckoutComponent = ({cart}) => {
-  console.log(cart)
   const [checkedOut, setcheckedOut] = useState(false)
   const handleSubmit = async e => {
     e.preventDefault()
