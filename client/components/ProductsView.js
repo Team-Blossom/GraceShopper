@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 export default class ProductsView extends React.Component {
   constructor() {
@@ -22,7 +22,7 @@ export default class ProductsView extends React.Component {
 
     return (
       <div id="prodGroup">
-        <Link to="/allproducts">All Products</Link>
+        <NavLink to="/allproducts">All Products</NavLink>
         {/* /* CATEGORIES NEED BACKGROUND IMAGES */}
         <div id="categoryTitle">
           <h1>{category.name}</h1>

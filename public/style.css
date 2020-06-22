@@ -732,6 +732,11 @@ nav#mainNav a#shopBag > p {
   align-items: center;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6b3a459e366686d2afee9f69181fce49fc17c101
 /* updated CHECKOUT VIEW */
 
 #checkoutSection,
@@ -743,7 +748,7 @@ nav#mainNav a#shopBag > p {
   justify-content: flex-start;
 }
 #masterCheckoutSection {
-  background-image: url('./imagesViews/zahrin-lukman-FYc-qfATAk4-unsplash.jpg');
+  background-image: url('/pictures/zahrin-lukman-FYc-qfATAk4-unsplash.jpg');
   background-size: cover;
 }
 #checkoutSection form#ckotForms,
@@ -849,7 +854,7 @@ MASTERVIEW
   align-items: flex-start;
   /* background-color: blue; */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('./imagesViews/zahrin-lukman-VSNoQdimlQQ-unsplash.jpg');
+    url('/pictures/zahrin-lukman-VSNoQdimlQQ-unsplash.jpg');
   background-size: cover;
 }
 #logout {
@@ -879,7 +884,7 @@ MASTERVIEW
   border-radius: 20px;
   display: flex;
   justify-content: center;
-  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+  background-image: url('/pictures/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
   background-size: cover;
 }
 #masterPanel > #masterNav {
@@ -1103,7 +1108,7 @@ MASTER ADDRESS/BILLING FORM
 #masterBillForm > div {
   /* background-color: aquamarine; */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('./imagesViews/zahrin-lukman-VSNoQdimlQQ-unsplash.jpg');
+    url('/pictures/zahrin-lukman-VSNoQdimlQQ-unsplash.jpg');
   background-size: cover;
   height: 90%;
   width: 80%;
@@ -1265,7 +1270,7 @@ MASTER ADDRESS/BILLING FORM
   /* width: 100vw; */
   display: flex;
   justify-content: center;
-  background-image: url('./imagesViews/aditya-joshi-wG923J9naFQ-unsplash.jpg');
+  background-image: url('/pictures/aditya-joshi-wG923J9naFQ-unsplash.jpg');
   background-size: cover;
 }
 
@@ -1307,20 +1312,21 @@ MASTER ADDRESS/BILLING FORM
 }
 #alchemOptions > a:first-child {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('./imagesViews/jorge-zapata-ca7YfP8eUj0-unsplash.jpg');
+    url('./pictures/jorge-zapata-ca7YfP8eUj0-unsplash.jpg');
   background-size: cover;
 }
 #alchemOptions > a:nth-child(2) {
-  background-image: url('./imagesViews/joanna-kosinska-MnKWt1W1GDg-unsplash.jpg');
+  background-image: url('./pictures/joanna-kosinska-MnKWt1W1GDg-unsplash.jpg');
   background-size: cover;
 }
 #alchemOptions > a:nth-child(3) {
-  background-image: url('./imagesViews/ula-kuzma-19vkG-Devqg-unsplash.jpg');
+  background-image: url('./pictures/ula-kuzma-19vkG-Devqg-unsplash.jpg');
   background-size: cover;
   background-position: center;
 }
 #alchemOptions > a:last-child {
-  background-image: url('./imagesViews/freestocks-uqzIUz9NczE-unsplash.jpg');
+  background-image: url('./pictures/freestocks-uqzIUz9NczE-unsplash.jpg');
+
   background-size: cover;
 }
 #alchemOptions > a:hover {
@@ -1489,7 +1495,8 @@ MASTER ADDRESS/BILLING FORM
 #addProdSection > div {
   /* background-color: aquamarine; */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('./imagesViews/matt-briney-0tfz7ZoXaWc-unsplash.jpg');
+    url('./pictures/matt-briney-0tfz7ZoXaWc-unsplash.jpg');
+
   background-size: cover;
   height: 90%;
   width: 80%;
@@ -1603,7 +1610,8 @@ EDIT PROD VIEW
 }
 form#editProdForm {
   width: 60%;
-  background-image: url('./imagesViews/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
+
+  background-image: url('./pictures/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
   display: flex;
   flex-direction: column;
 }
@@ -1710,7 +1718,7 @@ ALCHEM LOGIN
       rgba(97, 33, 15, 0.3),
       rgba(97, 33, 15, 0.3)
     ),
-    url('./imagesViews/ula-kuzma-19vkG-Devqg-unsplash.jpg');
+    url('./pictures/ula-kuzma-19vkG-Devqg-unsplash.jpg');
   background-size: cover;
   background-position: center;
   /* opacity: 0.7; */

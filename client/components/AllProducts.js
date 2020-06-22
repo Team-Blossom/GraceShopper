@@ -12,6 +12,7 @@ export class AllProducts extends React.Component {
       category: 'All Products',
       categoryNum: '0',
       categories: []
+      //store all category classnames and set active classname (setState) inside of handleClick to activeProdNav
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -50,14 +51,14 @@ export class AllProducts extends React.Component {
             }}
           >
             <li key="0">
-              <a name="0" className="activeProdNav">
+              <NavLink name="0" to="/allproducts">
                 All Products
-              </a>
+              </NavLink>
             </li>
             {categories.map(category => {
               return (
                 <li key={category.id}>
-                  <a name={category.id}>{category.name}</a>
+                  <NavLink name={category.id}>{category.name}</NavLink>
                 </li>
               )
             })}
