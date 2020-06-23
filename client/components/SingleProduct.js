@@ -8,11 +8,25 @@ class SingleProduct extends React.Component {
   constructor() {
     super()
     this.state = {
-      picIndex: 0
+      picIndex: 0,
+      quantity: 1
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentDidMount() {
     this.props.getProduct(this.props.match.params.productId)
+  }
+  handleChange(e) {
+    this.setState({
+      quantity: e.target.value
+    })
+  }
+  handleSubmit(e) {
+    e.preventDefault()
+    let prodToSend = this.props.product
+    prodToSend.quantity = this.state.quantity
+    this.props.addToCart(prodToSend)
   }
 
   render() {
@@ -53,21 +67,25 @@ class SingleProduct extends React.Component {
                   Price: <span style={{color: '#F77F00'}}>{product.price}</span>{' '}
                   ¤
                 </h2>
-                <form>
+                <form onSubmit={e => this.handleSubmit(e)}>
                   <ul>
                     <li>
                       <label>
                         <h2>Quantity:</h2>
                       </label>
-                      <input type="number" max={10} min={1} defaultValue={1} />
+                      <input
+                        required
+                        type="number"
+                        max={10}
+                        min={1}
+                        defaultValue={1}
+                        onChange={e => this.handleChange(e)}
+                      />
                     </li>
                     <li>
-                      <a
-                        className="btn"
-                        onClick={() => this.props.addToCart(product)}
-                      >
+                      <button type="submit" className="btn">
                         ADD TO CART
-                      </a>
+                      </button>
                     </li>
                   </ul>
                 </form>
