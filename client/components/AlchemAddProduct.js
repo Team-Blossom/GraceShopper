@@ -7,10 +7,23 @@ export default class AlchemAddProducts extends React.Component {
     super()
     this.state = {
       name: '',
-      pictures: [],
+      pictures: '',
       price: 0,
       description: ''
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    console.log(this.state)
   }
 
   render() {
@@ -18,13 +31,19 @@ export default class AlchemAddProducts extends React.Component {
       <section id="addProdSection">
         <div style={{display: 'flex', zIndex: '50'}}>
           <h1>Add Product</h1>
-          <form>
+          <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
             <ul>
               <li>
-                <input required type="text" placeholder="Product Name" />
+                <input
+                  required
+                  name="name"
+                  type="text"
+                  placeholder="Product Name"
+                />
               </li>
               <li>
                 <input
+                  name="pictures"
                   required
                   type="text"
                   placeholder="Separate Picture Links: ', '"
@@ -32,6 +51,7 @@ export default class AlchemAddProducts extends React.Component {
               </li>
               <li>
                 <input
+                  name="price"
                   required
                   type="number"
                   placeholder="Price"
@@ -40,7 +60,11 @@ export default class AlchemAddProducts extends React.Component {
                 />
               </li>
               <li>
-                <textarea required placeholder="Description" />
+                <textarea
+                  required
+                  name="description"
+                  placeholder="Description"
+                />
               </li>
               <li>
                 {/* <!-- ONSUBMIT TOGGLE THE DISPLAY OF THE ADDEDPROD DIV BELOW --> */}
