@@ -9,6 +9,7 @@ export default class AlchemAddProducts extends React.Component {
       name: '',
       pictures: '',
       price: 0,
+      categoryId: 0,
       description: ''
     }
     this.handleChange = this.handleChange.bind(this)
@@ -59,6 +60,18 @@ export default class AlchemAddProducts extends React.Component {
                   min="100"
                   max="100000"
                 />
+              </li>
+              <li>
+                <select name="categoryId" defaultValue="0">
+                  <option disabled value="0">
+                    Category
+                  </option>
+                  <option value="1">Emotions</option>
+                  <option value="2">Elixirs</option>
+                  <option value="3">Relics</option>
+                  <option value="4">Conduits</option>
+                  <option value="5">Literature</option>
+                </select>
               </li>
               <li>
                 <textarea
