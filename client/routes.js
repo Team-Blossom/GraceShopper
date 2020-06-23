@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {withRouter, Route, Switch} from 'react-router-dom'
+import {withRouter, Route, Router, Switch, Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {
   Login,
@@ -21,6 +21,8 @@ import Home from './components/Home'
 import {ThankYou} from './components/thankYouCart'
 import {getCartThunk} from './store/order'
 import AlchemEditProduct from './components/AlchemEditProduct'
+import ScrollToTop from './components/ScrollToTop'
+// import { Router } from 'express'
 
 /**
  * COMPONENT
@@ -34,8 +36,11 @@ class Routes extends Component {
     const {isLoggedIn, isAlchemist} = this.props
 
     return (
+      // <Router>
+      // { /* <ScrollToTop/>  */}
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route exact path="/" component={Home} />
         <Route path="/home" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Register} />
@@ -45,6 +50,7 @@ class Routes extends Component {
         <Route path="/categories/:categoryId" component={ProductsView} />
         <Route path="/masterdashboard" component={MasterDash} />
         <Route path="/thankyou" component={ThankYou} />
+        <Redirect to="/home" />
         {/* Routes placed here are only available to Alchemists */}
         {isAlchemist && (
           <Switch>
@@ -65,6 +71,7 @@ class Routes extends Component {
         <Route path="/checkout" component={NoviceCheckout} />
         <Route path="/" component={AllProducts} />
       </Switch>
+      // </Router>
     )
   }
 }

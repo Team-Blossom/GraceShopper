@@ -508,7 +508,7 @@ nav#mainNav a#shopBag > p {
   flex-direction: column;
   justify-content: flex-end;
 }
-.prodBox > a {
+.prodBox > a:first-child {
   width: 100%;
   height: 100%;
   display: flex;
@@ -517,24 +517,37 @@ nav#mainNav a#shopBag > p {
 }
 .prodBox img,
 .prodBox > a > img {
+  max-height: 200px;
   width: 100%;
   border-radius: 5px 5px 0 0;
 }
+
+.prodBox > a:first-child > div#thePic {
+  height: 200px;
+  border-radius: 5px 5px 0 0;
+  /* flex-grow: 1; */
+  width: 100%;
+  background-size: cover;
+}
+
 .prodBox > div,
 .prodBox > a > div {
   background-color: white;
-  border-radius: 0 0 20px 20px;
+  /* border-radius: 0 0 20px 20px; */
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
   /* align-items: stretch; */
 }
 
-.prodBox div > * {
+.prodBox div > *,
+.prodBox a:last-child {
   font-size: 0.5rem;
   text-align: center;
 }
-
+.prodBox a:last-child {
+  border-radius: 0 0 5px 5px;
+}
 /* SINGLE PRODUCT */
 #singleProdSection {
   /* height: auto; */
