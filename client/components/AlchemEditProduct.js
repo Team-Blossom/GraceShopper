@@ -83,7 +83,7 @@ export default class AlchemEditProduct extends React.Component {
                 <input
                   type="text"
                   placeholder={`${pictures[0]}"Separate by ', ' "`}
-                  name="picture"
+                  name="pictures"
                 />
               </li>
               <li>
