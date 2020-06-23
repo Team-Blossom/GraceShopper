@@ -5,6 +5,12 @@ import {fetchProduct} from '../store/product'
 import {addProductThunk} from '../store/order'
 
 class SingleProduct extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      picIndex: 0
+    }
+  }
   componentDidMount() {
     this.props.getProduct(this.props.match.params.productId)
   }
@@ -12,55 +18,65 @@ class SingleProduct extends React.Component {
   render() {
     const {product} = this.props
     return (
-      <section id="singleProdSection">
-        <div id="theProd">
-          <div id="imageCont">
-            <img
-              id="mainImage"
-              src="/pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg"
-            />
-            <div id="prodImgNav">
-              {/* NEEDS ONCLICK FUNCTION THAT CHANGES MAINIMAGE SRC AND PLACES CLASSNAME */}
-              <a href>
+      <>
+        {product.pictures && (
+          <section id="singleProdSection">
+            <div id="theProd">
+              <div id="imageCont">
                 <img
-                  className="activeProdImg"
-                  src="/pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg"
+                  id="mainImage"
+                  src={product.pictures[this.state.picIndex]}
                 />
-              </a>
-              <a href>
-                <img src="/pictures/annie-spratt-xt79nQxc9Q0-unsplash.jpg" />
-              </a>
+                <div id="prodImgNav">
+                  {/* NEEDS ONCLICK FUNCTION THAT CHANGES MAINIMAGE SRC AND PLACES CLASSNAME */}
+                  {product.pictures.length &&
+                    product.pictures.map((pictureURL, index) => (
+                      <a href onClick={() => this.setState({picIndex: index})}>
+                        <img
+                          className={
+                            index === this.state.picIndex ? 'activeProdImg' : ''
+                          }
+                          src={pictureURL}
+                        />
+                      </a>
+                    ))}
+                  {/* <a href>
+                    <img src="/pictures/annie-spratt-xt79nQxc9Q0-unsplash.jpg" />
+                  </a> */}
+                </div>
+              </div>
+              <div id="prodDetails">
+                <h1>{product.name}</h1>
+                <h2>Description: </h2>
+                <p>{product.description}</p>
+                <h2>
+                  Price: <span style={{color: '#F77F00'}}>{product.price}</span>{' '}
+                  ¤
+                </h2>
+                <form>
+                  <ul>
+                    <li>
+                      <label>
+                        <h2>Quantity:</h2>
+                      </label>
+                      <input type="number" max={10} min={1} defaultValue={1} />
+                    </li>
+                    <li>
+                      <a
+                        className="btn"
+                        onClick={() => this.props.addToCart(product)}
+                      >
+                        ADD TO CART
+                      </a>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+              {/* Recommended Items */}
             </div>
-          </div>
-          <div id="prodDetails">
-            <h1>{product.name}</h1>
-            <h2>Description: </h2>
-            <p>{product.description}</p>
-            <h2>
-              Price: <span style={{color: '#F77F00'}}>{product.price}</span> ¤
-            </h2>
-            <form>
-              <ul>
-                <li>
-                  <label>
-                    <h2>Quantity:</h2>
-                  </label>
-                  <input type="number" max={10} min={1} defaultValue={1} />
-                </li>
-                <li>
-                  <a
-                    className="btn"
-                    onClick={() => this.props.addToCart(product)}
-                  >
-                    ADD TO CART
-                  </a>
-                </li>
-              </ul>
-            </form>
-          </div>
-          {/* Recommended Items */}
-        </div>
-      </section>
+          </section>
+        )}
+      </>
     )
   }
 }
