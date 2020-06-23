@@ -225,17 +225,18 @@ export class MasterDash extends React.Component {
               <div className="masterAddress" name="addressForm">
                 {/* <!-- I BELIEVE WE INCLUDED THE ADDRESSEE NAME? --> */}
                 <h4>{user.firstname}'s adresses</h4>
-                {user.addresses.map(address => {
-                  return (
-                    <div key={user.id}>
-                      <p>{address}</p>
-                      <a href="./masterAddressForm.html" className="btn">
-                        Edit
-                      </a>
-                      <a className="btn">Delete</a>
-                    </div>
-                  )
-                })}
+                {user.addresses &&
+                  user.addresses.map(address => {
+                    return (
+                      <div key={user.id}>
+                        <p>{address}</p>
+                        <a href="./masterAddressForm.html" className="btn">
+                          Edit
+                        </a>
+                        <a className="btn">Delete</a>
+                      </div>
+                    )
+                  })}
 
                 {/* <!-- LINKS TO PRE-FILLED ADDRESS FORM VIEW --> */}
               </div>
@@ -269,38 +270,41 @@ export class MasterDash extends React.Component {
             >
               <h2>Your Orders</h2>
               {orders.map(order => {
-                return (
-                  // eslint-disable-next-line react/jsx-key
-                  <div className="masterOrder" key={user.id}>
-                    <ul>
-                      <li key={order.date}>
-                        <h3>Order Placed: </h3>
-                        <span>{order.date}</span>
-                      </li>
-                      <li>
-                        <h3>Total Price: </h3>
-                        <span>{order.price} &#164;</span>
-                      </li>
-                      <li>
-                        <h3>Total Items: </h3>
-                        <span>{order.quantity}</span>
-                      </li>
-                      <li>
-                        <h3>Order Status: </h3>
-                        <span>{order.status}</span>
-                      </li>
-                      <li>
-                        {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
-                        <Link
-                          to={{pathname: './orderDetails', state: {order}}}
-                          className="btn btnToWhite"
-                        >
-                          Order Details
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                )
+                if (order.status !== 'cart') {
+                  return (
+                    // eslint-disable-next-line react/jsx-key
+
+                    <div className="masterOrder" key={user.id}>
+                      <ul>
+                        <li key={order.id}>
+                          <h3>Order Placed: </h3>
+                          <span>{new Date(order.date).toLocaleString()}</span>
+                        </li>
+                        <li>
+                          <h3>Total Price: </h3>
+                          <span>{order.price} &#164;</span>
+                        </li>
+                        <li>
+                          <h3>Total Items: </h3>
+                          <span>{order.quantity}</span>
+                        </li>
+                        <li>
+                          <h3>Order Status: </h3>
+                          <span>{order.status}</span>
+                        </li>
+                        <li>
+                          {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
+                          <Link
+                            to={{pathname: './orderDetails', state: {order}}}
+                            className="btn btnToWhite"
+                          >
+                            Order Details
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  )
+                }
               })}
 
               {/* master orders */}
