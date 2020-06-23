@@ -1,6 +1,14 @@
 const {Sequelize, STRING} = require('sequelize')
 const db = require('../db')
 
+function makeArr(str) {
+  if (typeof str === 'string') {
+    return str.split(', ')
+  } else {
+    return str
+  }
+}
+
 const Product = db.define('products', {
   name: {
     type: Sequelize.STRING
@@ -12,7 +20,10 @@ const Product = db.define('products', {
     type: Sequelize.TEXT
   },
   pictures: {
-    type: Sequelize.ARRAY(STRING)
+    type: Sequelize.ARRAY(STRING),
+    set(value) {
+      this.setDataValue('pictures', makeArr(value))
+    }
   },
   rating: {
     type: Sequelize.INTEGER,
