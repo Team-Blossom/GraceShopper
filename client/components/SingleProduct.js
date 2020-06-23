@@ -14,19 +14,20 @@ class SingleProduct extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-  componentDidMount() {
-    this.props.getProduct(this.props.match.params.productId)
+  async componentDidMount() {
+    await this.props.getProduct(this.props.match.params.productId)
   }
   handleChange(e) {
     this.setState({
       quantity: e.target.value
     })
   }
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault()
     let prodToSend = this.props.product
     prodToSend.quantity = this.state.quantity
-    this.props.addToCart(prodToSend)
+    console.log(prodToSend.quantity)
+    await this.props.addToCart(prodToSend)
   }
 
   render() {
