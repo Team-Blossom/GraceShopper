@@ -2,7 +2,15 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Register, UserHome, Cart, Checkout} from './components'
+import {
+  Login,
+  Register,
+  UserHome,
+  Cart,
+  Checkout,
+  NoviceCheckout,
+  MasterCheckout
+} from './components'
 import AllProducts from './components/AllProducts'
 import SingleProduct from './components/SingleProduct'
 import ProductsView from './components/ProductsView'
@@ -12,6 +20,7 @@ import AlchemDash from './components/AlchemDash'
 import orderDetails from './components/orderDetails'
 import Home from './components/Home'
 import {ThankYou} from './components/thankYouCart'
+import {getCartThunk} from './store/order'
 
 /**
  * COMPONENT
@@ -26,30 +35,29 @@ class Routes extends Component {
 
     return (
       <Switch>
+        {/* Routes placed here are only available to Alchemists */}
+        {isAlchemist && <Route path="/alchemDash" component={AlchemDash} />}
+        {isLoggedIn && (
+          <Switch>
+            {/* Routes placed here are only available after logging in */}
+            <Route path="/masterdashboard" component={MasterDash} />
+            <Route path="/orderDetails" component={orderDetails} />
+            <Route path="/checkout" component={MasterCheckout} />
+
+            {/* <Route path="/masterdashboard/orderview" component={orderView}></Route> */}
+          </Switch>
+        )}
         {/* Routes placed here are available to all visitors */}
         <Route path="/home" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Register} />
         <Route path="/allproducts/:productId" component={SingleProduct} />
         <Route exact path="/allproducts" component={AllProducts} />
-        <Route path="/checkout" component={Checkout} />
         <Route path="/cart" component={Cart} />
         <Route path="/categories/:categoryId" component={ProductsView} />
-
+        <Route path="/checkout" component={NoviceCheckout} />
         <Route path="/masterdashboard" component={MasterDash} />
         <Route path="/thankyou" component={ThankYou} />
-
-        {isAlchemist && <Route path="/alchemDash" component={AlchemDash} />}
-
-        {isLoggedIn && (
-          <Switch>
-            {/* Routes placed here are only available after logging in */}
-            <Route path="/masterdashboard" component={MasterDash} />
-            <Route path="/orderDetails" component={orderDetails} />
-
-            {/* <Route path="/masterdashboard/orderview" component={orderView}></Route> */}
-          </Switch>
-        )}
         <Route path="/" component={AllProducts} />
       </Switch>
     )
@@ -72,6 +80,7 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
+      dispatch(getCartThunk())
     }
   }
 }

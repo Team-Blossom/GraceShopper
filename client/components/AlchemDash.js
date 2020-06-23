@@ -23,6 +23,7 @@ export default class AlchemDash extends React.Component {
     })
   }
   render() {
+    console.log(this.state.selectedComp)
     return (
       <section style={{zIndex: '50'}} id="alchemistDashSection">
         {this.state.selectedComp === '' && (
