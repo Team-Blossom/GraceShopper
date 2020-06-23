@@ -5,6 +5,12 @@ import {fetchProduct} from '../store/product'
 import {addProductThunk} from '../store/order'
 
 class SingleProduct extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      picIndex: 0
+    }
+  }
   componentDidMount() {
     this.props.getProduct(this.props.match.params.productId)
   }
@@ -17,13 +23,21 @@ class SingleProduct extends React.Component {
           <section id="singleProdSection">
             <div id="theProd">
               <div id="imageCont">
-                <img id="mainImage" src={product.pictures[0]} />
+                <img
+                  id="mainImage"
+                  src={product.pictures[this.state.picIndex]}
+                />
                 <div id="prodImgNav">
                   {/* NEEDS ONCLICK FUNCTION THAT CHANGES MAINIMAGE SRC AND PLACES CLASSNAME */}
                   {product.pictures.length &&
-                    product.pictures.map(pictureURL => (
-                      <a href>
-                        <img className="activeProdImg" src={pictureURL} />
+                    product.pictures.map((pictureURL, index) => (
+                      <a href onClick={() => this.setState({picIndex: index})}>
+                        <img
+                          className={
+                            index === this.state.picIndex ? 'activeProdImg' : ''
+                          }
+                          src={pictureURL}
+                        />
                       </a>
                     ))}
                   {/* <a href>
