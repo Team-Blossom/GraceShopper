@@ -73,7 +73,10 @@ export default class AlchemAllProd extends React.Component {
                       <span>{product.id}</span>
                     </li>
                     <li>
-                      <Link to="alchemeditproduct" className="btn">
+                      <Link
+                        to={{pathname: 'alchemeditproduct', state: product}}
+                        className="btn"
+                      >
                         edit
                       </Link>
                       <a className="btn">
