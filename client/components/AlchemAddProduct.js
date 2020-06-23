@@ -7,7 +7,7 @@ export default class AlchemAddProducts extends React.Component {
     super()
     this.state = {
       name: '',
-      pictures: [],
+      pictures: '',
       price: 0,
       description: ''
     }
@@ -16,13 +16,8 @@ export default class AlchemAddProducts extends React.Component {
   }
 
   handleChange(event) {
-    this.setState(state => {
-      if (event.target.name === 'pictures') {
-        const newPics = [...state.pictures, event.target.value]
-        return {pictures: newPics}
-      } else {
-        return {[event.target.name]: event.target.value}
-      }
+    this.setState({
+      [event.target.name]: event.target.value
     })
   }
 
