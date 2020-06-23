@@ -73,7 +73,9 @@ export default class AlchemAllProd extends React.Component {
                       <span>{product.id}</span>
                     </li>
                     <li>
-                      <a className="btn">edit</a>
+                      <Link to="alchemeditproduct" className="btn">
+                        edit
+                      </Link>
                       <a className="btn">
                         <i className="material-icons">delete</i>
                       </a>

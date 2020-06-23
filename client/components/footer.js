@@ -11,6 +11,6 @@ export const Footer = () => (
       2020
     </p>
     <p>Low Skrull Prices. High Quality Standards. Forever.</p>
-    <Link to="/alchemlogin">Alchemists</Link>
+    <Link to="/alchemDash">Alchemists</Link>
   </footer>
 )
