@@ -41,7 +41,12 @@ export const auth = (email, password, method) => async dispatch => {
 
   try {
     dispatch(getUser(res.data))
-    history.push('/masterdashboard')
+    console.log(res.data)
+    if (res.data.role === 'Alchemist') {
+      history.push('/alchemdash')
+    } else {
+      history.push('/masterdashboard')
+    }
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }

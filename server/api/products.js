@@ -54,6 +54,8 @@ router.put('/:productId', async (req, res, next) => {
         id: req.params.productId
       }
     })
+    prod.update(req.body)
+    prod.save()
     res.json(prod)
   } catch (error) {
     next(error)

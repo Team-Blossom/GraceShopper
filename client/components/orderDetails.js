@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 export class OrderDetails extends React.Component {
   render() {
@@ -14,7 +15,7 @@ export class OrderDetails extends React.Component {
           <ul>
             <li>
               <h3>Placed: </h3>
-              <span>{order.date}</span>
+              <span>{new Date(order.date).toLocaleString()}</span>
             </li>
             <li>
               <h3>Total Price: </h3>
@@ -50,28 +51,29 @@ export class OrderDetails extends React.Component {
           </div>
         </div>
         <div id="orderedProdsCont">
-          {order.products.map(product => {
-            return (
-              <div className="orderedProd" key={product.id}>
-                <img src="/pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-                <p style={{fontSize: '.8rem'}}>{product.name}</p>
-                {/* <p>
+          {order.products.length &&
+            order.products.map(product => {
+              return (
+                <div className="orderedProd" key={product.id}>
+                  <img src="/pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
+                  <p style={{fontSize: '.8rem'}}>{product.name}</p>
+                  {/* <p>
                   PRODUCT QTY: <span>QTY in cart</span>
                 </p> */}
-                <p>
-                  PRICE: <span>{product.price}</span>
-                </p>
-                {/* <p>
+                  <p>
+                    PRICE: <span>{product.price}</span>
+                  </p>
+                  {/* <p>
                   TOTAL PRICE: <span></span>
                 </p> */}
-              </div>
-            )
-          })}
+                </div>
+              )
+            })}
         </div>
-        <a href="./masterView.html">
+        <Link to="/masterdashboard">
           <i className="material-icons">keyboard_backspace</i>
           Back to DashBoard
-        </a>
+        </Link>
       </section>
     )
   }
