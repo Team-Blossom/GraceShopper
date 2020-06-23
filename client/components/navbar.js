@@ -14,9 +14,9 @@ const Navbar = ({handleClick, isLoggedIn, cart}) => (
         <p>UTONIUM</p>
       </li>
       <li>
-        <NavLink activeClassName="activeMainNav" to="/home#quality">
-          Who We Are
-        </NavLink>
+        <a activeClassName="activeMainNav" href="/home#quality">
+          Quality
+        </a>
       </li>
       <li>
         <NavLink activeClassName="activeMainNav" to="/allproducts">
