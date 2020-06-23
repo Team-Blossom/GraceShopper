@@ -18,7 +18,7 @@ export default class AlchemEditProduct extends React.Component {
         <div>
           {/* LINKS TO PRODUCT SINGLE PAGE */}
           <a id="currentProd">
-            <img src="./imagesViews/pratiksha-mohanty-V0xp-dTS3z0-unsplash.jpg" />
+            <img src="/pictures/pratiksha-mohanty-V0xp-dTS3z0-unsplash.jpg" />
             <h3>Product Name: </h3>
             <p>{product.name}</p>
             <h3>Stock QTY: </h3>
