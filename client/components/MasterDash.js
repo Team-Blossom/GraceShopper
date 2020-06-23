@@ -297,7 +297,7 @@ export class MasterDash extends React.Component {
                         <li>
                           {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
                           <Link
-                            to={{pathname: './orderDetails', state: {order}}}
+                            to={{pathname: '/orderDetails', state: {order}}}
                             className="btn btnToWhite"
                           >
                             Order Details
