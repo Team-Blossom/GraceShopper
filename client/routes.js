@@ -20,6 +20,7 @@ import orderDetails from './components/orderDetails'
 import Home from './components/Home'
 import {ThankYou} from './components/thankYouCart'
 import {getCartThunk} from './store/order'
+import AlchemEditProduct from './components/AlchemEditProduct'
 
 /**
  * COMPONENT
@@ -48,6 +49,7 @@ class Routes extends Component {
         {isAlchemist && (
           <Switch>
             <Route path="/alchemDash" component={AlchemDash} />
+            <Route path="/alchemeditproduct" component={AlchemEditProduct} />
           </Switch>
         )}
         {isLoggedIn && (
