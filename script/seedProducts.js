@@ -2,11 +2,11 @@ const {Product, Category} = require('../server/db/models/index')
 
 const createCategories = async () => {
   try {
-    const elixirs = await Category.create({
-      name: 'Elixirs'
-    })
     const emotes = await Category.create({
       name: 'Emotions'
+    })
+    const elixirs = await Category.create({
+      name: 'Elixirs'
     })
     const relics = await Category.create({
       name: 'Relics'
@@ -164,14 +164,14 @@ const createProds = async () => {
       // console.log(elixProds)
       elixProds.forEach(prod => {
         prod.setCategory(cat[1])
-        cat[0].addProduct(prod)
+        cat[1].addProduct(prod)
       })
     })
 
     //FOR RELICS - BULKCREATE METHOD
-    const allRelicProds = await Product.bulkCreate(
+    Promise.all(
       [
-        {
+        Product.create({
           name: 'Fallen Feather',
           price: 1000,
           description:
@@ -181,8 +181,8 @@ const createProds = async () => {
             'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png'
           ],
           rating: 5
-        },
-        {
+        }),
+        Product.create({
           name: 'Morgana Charm',
           price: 700,
           description:
@@ -192,8 +192,8 @@ const createProds = async () => {
             'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png'
           ],
           rating: 5
-        },
-        {
+        }),
+        Product.create({
           name: "Dragon's Tail",
           price: 900,
           description: 'Fire Everywhere.',
@@ -202,8 +202,8 @@ const createProds = async () => {
             'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png'
           ],
           rating: 5
-        },
-        {
+        }),
+        Product.create({
           name: 'Glove Of Truth',
           price: 1150,
           description:
@@ -213,8 +213,8 @@ const createProds = async () => {
             'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png'
           ],
           rating: 5
-        },
-        {
+        }),
+        Product.create({
           name: 'Odyssey Cloak',
           price: 950,
           description:
@@ -224,17 +224,22 @@ const createProds = async () => {
             'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png'
           ],
           rating: 5
-        }
+        })
       ]
       // ,
       // options
-    )
-
-    cat[3].addProducts(allRelicProds)
-    allRelicProds.forEach(prod => {
-      prod.setCategory(cat[3])
-      // cat[3].addProduct(prod)
+    ).then(allRelicProds => {
+      allRelicProds.forEach(prod => {
+        prod.setCategory(cat[2])
+        cat[2].addProduct(prod)
+      })
     })
+
+    // cat[3].addProducts(allRelicProds)
+    // allRelicProds.forEach(prod => {
+    //   prod.setCategory(cat[3])
+    //   // cat[3].addProduct(prod)
+    // })
 
     //FOR CONDUITS - PROMISE ALL/THEN METHOD
     Promise.all([
@@ -353,12 +358,19 @@ const createProds = async () => {
       rating: 5
     })
 
-    cat[4].addProducts([mySoul, darkness, fairy, golden, slate])
-    mySoul.setCategory(cat[4])
-    darkness.setCategory(cat[4])
-    fairy.setCategory(cat[4])
-    golden.setCategory(cat[4])
-    slate.setCategory(cat[4])
+    await cat[4].addProducts([mySoul, darkness, fairy, golden, slate])
+    await mySoul.setCategory(cat[4])
+    await darkness.setCategory(cat[4])
+    await fairy.setCategory(cat[4])
+    await golden.setCategory(cat[4])
+    await slate.setCategory(cat[4])
+
+    // cat[0].addProducts([calm, happiness, sadness, anger, fear])
+    // calm.setCategory(cat[0])
+    // happiness.setCategory(cat[0])
+    // sadness.setCategory(cat[0])
+    // anger.setCategory(cat[0])
+    // fear.setCategory(cat[0])
   } catch (error) {
     console.log('ERROR IN THE PRODUCTS CREATION FUNC', error)
   }
