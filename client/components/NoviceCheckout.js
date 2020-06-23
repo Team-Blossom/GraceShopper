@@ -4,37 +4,26 @@ import axios from 'axios'
 import {ThankYou} from '../components/thankYouCart'
 import {Link} from 'react-router-dom'
 
-const CheckoutComponent = ({cart}) => {
+const NoviceCheckoutComponent = ({cart}) => {
   const [checkedOut, setcheckedOut] = useState(false)
   const handleSubmit = async e => {
     e.preventDefault()
-    const order = await axios.put('/api/orders', {status: 'processing'})
-    console.log(order.data)
+    await axios.put('/api/orders', {status: 'processing'})
     setcheckedOut(true)
-    console.log(checkedOut)
   }
 
   return checkedOut ? (
     <ThankYou />
   ) : (
-    <section id="masterCheckoutSection">
-      <form
-        id="master-ckotForms"
-        onSubmit={e => {
-          handleSubmit(e)
-        }}
-      >
-        <div id="masterShippingAddress">
+    <section id="checkoutSection">
+      <form id="ckotForms" onSubmit={e => handleSubmit(e)}>
+        <div id="personalDetails">
+          <h3>Personal Details</h3>
+          <input required type="text" placeholder="Name" />
+          <input required type="email" placeholder="Email" />
+        </div>
+        <div id="shippingAddress">
           <h3>Shipping Address</h3>
-          <select defaultValue="1">
-            <option disabled value="1">
-              NEW ADDRESS
-            </option>
-            <option>ADDRESS 1</option>
-            <option>ADDRESS 2</option>
-            <option>ADDRESS 3</option>
-            <option>ADDRESS 4</option>
-          </select>
           <ul>
             <li>
               <input required type="text" placeholder="First Name" />
@@ -49,12 +38,12 @@ const CheckoutComponent = ({cart}) => {
             <li>
               <input type="text" placeholder="City" />
               <input type="text" maxLength="2" placeholder="State" />
+
               <input
                 type="text"
                 minLength="5"
                 maxLength="5"
                 placeholder="Zip Code"
-                pattern="[0-9]*"
               />
             </li>
             <li>
@@ -70,21 +59,13 @@ const CheckoutComponent = ({cart}) => {
             </li>
           </ul>
         </div>
-        <div id="master-billingInfo">
+        <div id="billingInfo">
           <h3>Card Information</h3>
-          <select defaultValue="1">
-            <option disabled value="1">
-              NEW CARD
-            </option>
-            <option>CARD 1</option>
-            <option>CARD 2</option>
-          </select>
           <input
             type="text"
             minLength="16"
             maxLength="16"
             placeholder="Card Number"
-            pattern="[0-9]*"
           />
           <input type="text" placeholder="Name Cn Card" />
           <select defaultValue="1">
@@ -128,7 +109,7 @@ const CheckoutComponent = ({cart}) => {
       <div className="cartSummary">
         <div>
           <h2>
-            Cart Summary
+            Cart Summary{' '}
             <span>
               <Link to="/cart" className="btn">
                 (edit)
@@ -160,4 +141,4 @@ const mapState = state => {
   }
 }
 
-export const Checkout = connect(mapState)(CheckoutComponent)
+export const NoviceCheckout = connect(mapState)(NoviceCheckoutComponent)

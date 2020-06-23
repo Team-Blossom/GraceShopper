@@ -61,7 +61,7 @@ export default class AlchemAddProducts extends React.Component {
           <div>
             <h2>A NEW PRODUCT IS MADE!</h2>
             <h3>They are going to love it!</h3>
-            <img src="./imagesViews/gslogopic.jpg" />
+            <img src="/pictures/gslogopic.jpg" />
             {/* <!-- Link to new product  --> */}
             <a className="btn">See New Product</a>
             {/* <!-- Link back to Alchemist View --> */}
