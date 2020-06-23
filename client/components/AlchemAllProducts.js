@@ -18,6 +18,14 @@ export default class AlchemAllProd extends React.Component {
     })
   }
 
+  async handleDelete(product) {
+    await axios.delete(`/api/products/` + product.id)
+    const products = await axios.get('/api/products')
+    this.setState({
+      products: products.data
+    })
+  }
+
   render() {
     return (
       <div id="alchemProdPanel" style={{display: 'flex', zIndex: '53'}}>
@@ -79,9 +87,12 @@ export default class AlchemAllProd extends React.Component {
                       >
                         edit
                       </Link>
-                      <a className="btn">
+                      <Link
+                        className="btn"
+                        onClick={() => this.handleDelete(product)}
+                      >
                         <i className="material-icons">delete</i>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>

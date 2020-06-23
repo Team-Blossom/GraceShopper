@@ -39,7 +39,8 @@ router.post('/', async (req, res, next) => {
       name: req.body.name,
       price: req.body.price,
       pictures: req.body.pictures,
-      description: req.body.description
+      description: req.body.description,
+      categoryId: req.body.categoryId
     })
     res.json(newProduct)
   } catch (error) {

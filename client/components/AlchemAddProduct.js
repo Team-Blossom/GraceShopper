@@ -9,7 +9,10 @@ export default class AlchemAddProducts extends React.Component {
       name: '',
       pictures: '',
       price: 0,
-      description: ''
+      categoryId: 0,
+      description: '',
+      submitted: false,
+      newProdId: 0
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -24,10 +27,29 @@ export default class AlchemAddProducts extends React.Component {
   async handleSubmit(event) {
     event.preventDefault()
     const newProd = await axios.post('/api/products', this.state)
-    console.log(newProd)
+    this.setState({submitted: true, newProdId: newProd.data.id})
   }
 
   render() {
+    if (this.state.submitted) {
+      return (
+        <div style={{display: 'flex', zIndex: '50'}} id="successAddProd">
+          <div>
+            <h2>A NEW PRODUCT IS MADE!</h2>
+            <h3>They are going to love it!</h3>
+            <img src="/pictures/gslogopic.jpg" />
+            {/* <!-- Link to new product  --> */}
+            <Link to={`/allproducts/${this.state.newProdId}`} className="btn">
+              See New Product
+            </Link>
+            {/* <!-- Link back to Alchemist View --> */}
+            <Link className="btn" onClick={() => window.location.reload(false)}>
+              Back To Alchemist Cabinet
+            </Link>
+          </div>
+        </div>
+      )
+    }
     return (
       <section id="addProdSection">
         <div style={{display: 'flex', zIndex: '50'}}>
@@ -61,6 +83,18 @@ export default class AlchemAddProducts extends React.Component {
                 />
               </li>
               <li>
+                <select name="categoryId" defaultValue="0">
+                  <option disabled value="0">
+                    Category
+                  </option>
+                  <option value="1">Emotions</option>
+                  <option value="2">Elixirs</option>
+                  <option value="3">Relics</option>
+                  <option value="4">Conduits</option>
+                  <option value="5">Literature</option>
+                </select>
+              </li>
+              <li>
                 <textarea
                   required
                   name="description"
@@ -68,32 +102,18 @@ export default class AlchemAddProducts extends React.Component {
                 />
               </li>
               <li>
-                {/* <!-- ONSUBMIT TOGGLE THE DISPLAY OF THE ADDEDPROD DIV BELOW --> */}
                 <button className="btn btn-gold btnToWhite" type="submit">
                   ADD
                 </button>
-                <a
+                <Link
                   className="btn btnToWhite"
                   onClick={() => window.location.reload(false)}
                 >
                   CANCEL
-                </a>
+                </Link>
               </li>
             </ul>
           </form>
-        </div>
-        <div style={{display: 'none', zIndex: 50}} id="successAddProd">
-          <div>
-            <h2>A NEW PRODUCT IS MADE!</h2>
-            <h3>They are going to love it!</h3>
-            <img src="/pictures/gslogopic.jpg" />
-            {/* <!-- Link to new product  --> */}
-            <a className="btn">See New Product</a>
-            {/* <!-- Link back to Alchemist View --> */}
-            <a className="btn" href="./alchemistView.html">
-              Back To Alchemist Cabinet
-            </a>
-          </div>
         </div>
       </section>
     )
