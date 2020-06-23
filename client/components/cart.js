@@ -5,8 +5,9 @@ import {SlimProduct} from './cartSingleItem'
 import {getCartThunk} from '../store/order'
 
 class CartComponent extends React.Component {
-  componentDidMount() {
-    this.props.getCart()
+  async componentDidMount() {
+    await this.props.getCart()
+    console.log('cart: ', this.props.cart)
   }
 
   render() {

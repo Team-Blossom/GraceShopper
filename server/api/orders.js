@@ -70,10 +70,21 @@ router.post('/', async (req, res, next) => {
         where: {orderId: order.id, productId: product.id}
       })
       if (cartItem) {
-        await cartItem.increment({quantity: 1})
+        if (req.body.quantity) {
+          await cartItem.increment({quantity: req.body.quantity})
+        } else {
+          await cartItem.increment({quantity: 1})
+        }
       }
       await order.addProduct(product)
-      await order.increment({quantity: 1, price: product.price})
+      if (req.body.quantity) {
+        await order.increment({
+          quantity: req.body.quantity,
+          price: product.price * req.body.quantity
+        })
+      } else {
+        await order.increment({quantity: 1, price: product.price})
+      }
       res.sendStatus(201)
     } catch (error) {
       next(error)
@@ -92,16 +103,26 @@ router.post('/', async (req, res, next) => {
         req.session.cart = order
       }
 
+      await order.addProduct(product)
+
       let cartItem = await Cart.findOne({
         where: {orderId: order.id, productId: product.id}
       })
 
-      if (cartItem) {
+      if (req.body.quantity) {
+        await cartItem.increment({quantity: req.body.quantity - 1})
+      } else {
         await cartItem.increment({quantity: 1})
       }
 
-      await order.addProduct(product)
-      await order.increment({quantity: 1, price: product.price})
+      if (req.body.quantity) {
+        await order.increment({
+          quantity: req.body.quantity,
+          price: product.price * req.body.quantity
+        })
+      } else {
+        await order.increment({quantity: 1, price: product.price})
+      }
 
       res.sendStatus(201)
     } catch (error) {
