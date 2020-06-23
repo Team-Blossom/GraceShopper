@@ -54,16 +54,16 @@ export class OrderDetails extends React.Component {
             return (
               <div className="orderedProd" key={product.id}>
                 <img src="/pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
-                <p style={{fontSize: '.8rem'}}>PRODUCT NAME</p>
-                <p>
+                <p style={{fontSize: '.8rem'}}>{product.name}</p>
+                {/* <p>
                   PRODUCT QTY: <span>QTY in cart</span>
-                </p>
+                </p> */}
                 <p>
-                  PRODUCT PRICE: <span>PRICE</span>
+                  PRICE: <span>{product.price}</span>
                 </p>
-                <p>
-                  TOTAL PRICE: <span>PRICE*QTY</span>
-                </p>
+                {/* <p>
+                  TOTAL PRICE: <span></span>
+                </p> */}
               </div>
             )
           })}
