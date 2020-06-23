@@ -21,9 +21,10 @@ export default class AlchemAddProducts extends React.Component {
     })
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault()
-    console.log(this.state)
+    const newProd = await axios.post('/api/products', this.state)
+    console.log(newProd)
   }
 
   render() {
