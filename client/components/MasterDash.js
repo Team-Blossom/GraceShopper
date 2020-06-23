@@ -152,7 +152,9 @@ export class MasterDash extends React.Component {
               <div id="logo">
                 <img src="/pictures/gslogopic.jpg" />
               </div>
-              <a className="btn">Continue Shopping</a>
+              <Link to="/allproducts" className="btn">
+                Continue Shopping
+              </Link>
             </div>
 
             <div
