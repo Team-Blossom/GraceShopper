@@ -7,7 +7,6 @@ import {
   Register,
   UserHome,
   Cart,
-  Checkout,
   NoviceCheckout,
   MasterCheckout
 } from './components'
@@ -35,8 +34,22 @@ class Routes extends Component {
 
     return (
       <Switch>
+        {/* Routes placed here are available to all visitors */}
+        <Route path="/home" component={Home} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Register} />
+        <Route path="/allproducts/:productId" component={SingleProduct} />
+        <Route exact path="/allproducts" component={AllProducts} />
+        <Route path="/cart" component={Cart} />
+        <Route path="/categories/:categoryId" component={ProductsView} />
+        <Route path="/masterdashboard" component={MasterDash} />
+        <Route path="/thankyou" component={ThankYou} />
         {/* Routes placed here are only available to Alchemists */}
-        {isAlchemist && <Route path="/alchemDash" component={AlchemDash} />}
+        {isAlchemist && (
+          <Switch>
+            <Route path="/alchemDash" component={AlchemDash} />
+          </Switch>
+        )}
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -47,17 +60,7 @@ class Routes extends Component {
             {/* <Route path="/masterdashboard/orderview" component={orderView}></Route> */}
           </Switch>
         )}
-        {/* Routes placed here are available to all visitors */}
-        <Route path="/home" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Register} />
-        <Route path="/allproducts/:productId" component={SingleProduct} />
-        <Route exact path="/allproducts" component={AllProducts} />
-        <Route path="/cart" component={Cart} />
-        <Route path="/categories/:categoryId" component={ProductsView} />
         <Route path="/checkout" component={NoviceCheckout} />
-        <Route path="/masterdashboard" component={MasterDash} />
-        <Route path="/thankyou" component={ThankYou} />
         <Route path="/" component={AllProducts} />
       </Switch>
     )
