@@ -50,7 +50,6 @@ class Routes extends Component {
         <Route path="/categories/:categoryId" component={ProductsView} />
         <Route path="/masterdashboard" component={MasterDash} />
         <Route path="/thankyou" component={ThankYou} />
-        <Redirect to="/home" />
         {/* Routes placed here are only available to Alchemists */}
         {isAlchemist && (
           <Switch>
@@ -69,7 +68,7 @@ class Routes extends Component {
           </Switch>
         )}
         <Route path="/checkout" component={NoviceCheckout} />
-        <Route path="/" component={AllProducts} />
+        <Redirect to="/home" />
       </Switch>
       // </Router>
     )
