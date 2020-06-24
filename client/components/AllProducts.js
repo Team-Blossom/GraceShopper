@@ -4,6 +4,7 @@ import {NavLink, Link} from 'react-router-dom'
 import {fetchProducts} from '../store/products'
 import axios from 'axios'
 import {addProductThunk} from '../store/order'
+import Loading from './loadingScreen'
 
 export class AllProducts extends React.Component {
   constructor() {
@@ -42,6 +43,9 @@ export class AllProducts extends React.Component {
     } else {
       products = allProducts
     }
+    // if(categoryName){
+    //   return <Loading/>
+    // }
     return (
       <section id="productsSection">
         <div id="prodNav">

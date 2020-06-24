@@ -121,10 +121,29 @@ export default class Home extends React.Component {
           </div>
         </div>
         <div id="appSoon">
-          <h2>BLA BLA BLA!</h2>
-          <img />
-          <div className="sidebar">hi</div>
-          <div />
+          <h2>APP COMING SOON!</h2>
+          <div id="appCont">
+            <div>
+              <img src="/pictures/app-IPhone-BIG.png" />
+            </div>
+            <div className="sidebar" />
+            <div>
+              <h3>Mobile Delivery!</h3>
+              <p>
+                {' '}
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
+                natus deserunt facilis, voluptatum tempora temporibus sed ipsam
+                molestias ea quod ab. Provident at rem, voluptates autem facere
+                soluta?
+              </p>
+              <a
+                href="https://www.google.com"
+                className="btn btn-gold btnToWhite"
+              >
+                Support Dev
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     )
