@@ -19,13 +19,15 @@ export default class AlchemAllUsers extends React.Component {
   }
 
   render() {
+    const handleBack = this.props.backFunc
     return (
       <div id="alchemMastersPanel" style={{display: 'flex'}}>
         <div id="alchemMastersHeader">
           <Link
             className="btn"
             name="alchemOptions"
-            onClick={() => window.location.reload(false)}
+            to="/alchemDash"
+            onClick={() => handleBack('')}
           >
             {/* <i name="alchemOptions" style={{fontSize: '48px'}} className="material-icons">
         keyboard_backspace</i> */}

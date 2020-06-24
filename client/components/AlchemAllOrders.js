@@ -19,13 +19,14 @@ export default class AlchemAllOrders extends React.Component {
   }
 
   render() {
+    const handleBack = this.props.backFunc
     return (
       <div id="alchemOrderPanel" style={{display: 'flex'}}>
         <div id="alchemOrderHeader">
           <Link
             className="btn"
             name="alchemOptions"
-            onClick={() => window.location.reload(false)}
+            onClick={() => handleBack('')}
           >
             {/* <i name="alchemOptions" style={{fontSize: '48px'}} className="material-icons">
             keyboard_backspace</i> */}

@@ -63,6 +63,9 @@ export class OrderDetails extends React.Component {
                   <p>
                     PRICE: <span>{product.price}</span>
                   </p>
+                  <p>
+                    QTY: <span>{product.cart.quantity}</span>
+                  </p>
                   {/* <p>
                   TOTAL PRICE: <span></span>
                 </p> */}
