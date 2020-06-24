@@ -140,7 +140,7 @@ export default class Home extends React.Component {
                 href="https://www.google.com"
                 className="btn btn-gold btnToWhite"
               >
-                Support Dev
+                Support Devs
               </a>
             </div>
           </div>

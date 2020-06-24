@@ -20,7 +20,7 @@ const Product = db.define('products', {
     type: Sequelize.TEXT
   },
   pictures: {
-    type: Sequelize.ARRAY(STRING),
+    type: Sequelize.ARRAY(Sequelize.TEXT),
     set(value) {
       this.setDataValue('pictures', makeArr(value))
     }
