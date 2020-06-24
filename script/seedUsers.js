@@ -17,10 +17,13 @@ async function seedUsers() {
       email: 'theboywholived@email.com',
       password: '123',
       addresses: [
-        ['342 Drury Ln, Magical Kingdom, Ma, 85764, JN'],
-        ['788 Walnut Court Romulus, MI 48174']
+        [['342 Drury Ln'], ['Magical Kingdom'], ['Ma'], ['85764'], ['Water']],
+        [['788 Walnut Court'], ['Romulus'], ['MI'], ['48174'], ['Water']]
       ],
-      billing: [[1234123412341234], [2345234523452345]]
+      billing: [
+        [['1234123412341234'], ['Harold Potter'], ['01'], ['2021']],
+        [['2345234523452345'], ['James Potter'], ['04'], ['2020']]
+      ]
     }),
     User.create({
       firstname: 'Saruman',
@@ -28,10 +31,13 @@ async function seedUsers() {
       email: 'powerhungry9000@email.com',
       password: '123',
       addresses: [
-        ['815 North Valley View Dr.Aiken, SC 29803'],
-        ['11 St Louis Rd.Chicopee, MA 01020']
+        [['342 Drury Ln'], ['Magical Kingdom'], ['Ma'], ['85764'], ['Water']],
+        [['788 Walnut Court'], ['Romulus'], ['MI'], ['48174'], ['Water']]
       ],
-      billing: [[9999888877776666], [1111222233334444]]
+      billing: [
+        [['1234123412341234'], ['Harold Potter'], ['01'], ['2021']],
+        [['2345234523452345'], ['James Potter'], ['04'], ['2020']]
+      ]
     }),
     User.create({
       firstname: 'Gandalf',
@@ -40,10 +46,41 @@ async function seedUsers() {
       password: '123',
       role: 'Alchemist',
       addresses: [
-        ['815 North Valley View Dr.Aiken, SC 29803'],
-        ['11 St Louis Rd.Chicopee, MA 01020']
+        [
+          ['Bilbo'],
+          ['The Bar at Miniature Lane'],
+          ['Grassy Knoll'],
+          ['The Shire'],
+          ['ME'],
+          ['85764'],
+          ['Earth']
+        ],
+        [
+          ['Éowyn'],
+          ['788 Walnut Court'],
+          ['Apt 2'],
+          ['Romulus'],
+          ['MI'],
+          ['48174'],
+          ['Water']
+        ]
       ],
-      billing: [[5555666677778888], [3333444455556666]]
+      billing: [
+        [
+          ['Bilbos Card'],
+          ['1234123412341234'],
+          ['Bilbo Baggins'],
+          ['01'],
+          ['2021']
+        ],
+        [
+          ['Frodos Card'],
+          ['2345234523452345'],
+          ['Frodo Baggins'],
+          ['04'],
+          ['2020']
+        ]
+      ]
     }),
     User.create({
       firstname: 'Albus',
@@ -52,10 +89,13 @@ async function seedUsers() {
       password: 'harry',
       role: 'Alchemist',
       addresses: [
-        ['815 North Valley View Dr.Aiken, SC 29803'],
-        ['11 St Louis Rd.Chicopee, MA 01020']
+        [['342 Drury Ln'], ['Magical Kingdom'], ['Ma'], ['85764'], ['Water']],
+        [['788 Walnut Court'], ['Romulus'], ['MI'], ['48174'], ['Water']]
       ],
-      billing: [[1234567891234567], [9087654321234567]]
+      billing: [
+        [['1234123412341234'], ['Harold Potter'], ['01'], ['2021']],
+        [['2345234523452345'], ['James Potter'], ['04'], ['2020']]
+      ]
     }),
     User.create({
       firstname: 'Doctor',
@@ -63,10 +103,13 @@ async function seedUsers() {
       email: 'strangerdanger@email.com',
       password: '123',
       addresses: [
-        ['815 North Valley View Dr.Aiken, SC 29803'],
-        ['11 St Louis Rd.Chicopee, MA 01020']
+        [['342 Drury Ln'], ['Magical Kingdom'], ['Ma'], ['85764'], ['Water']],
+        [['788 Walnut Court'], ['Romulus'], ['MI'], ['48174'], ['Water']]
       ],
-      billing: [[9876765412341234], [9087987676544321]]
+      billing: [
+        [['1234123412341234'], ['Harold Potter'], ['01'], ['2021']],
+        [['2345234523452345'], ['James Potter'], ['04'], ['2020']]
+      ]
     })
   ])
 

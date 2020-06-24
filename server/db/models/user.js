@@ -32,10 +32,10 @@ const User = db.define('user', {
     }
   },
   addresses: {
-    type: Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.STRING))
+    type: Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.STRING)))
   },
   billing: {
-    type: Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.BIGINT))
+    type: Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.STRING)))
   },
   salt: {
     type: Sequelize.STRING,

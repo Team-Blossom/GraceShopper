@@ -48,12 +48,13 @@ class Routes extends Component {
         <Route exact path="/allproducts" component={AllProducts} />
         <Route path="/cart" component={Cart} />
         <Route path="/categories/:categoryId" component={ProductsView} />
-        <Route path="/masterdashboard" component={MasterDash} />
         <Route path="/thankyou" component={ThankYou} />
         {/* Routes placed here are only available to Alchemists */}
         {isAlchemist && (
           <Switch>
+            <Route path="/masterdashboard" component={MasterDash} />
             <Route path="/alchemDash" component={AlchemDash} />
+            <Route path="/checkout" component={MasterCheckout} />
             <Route path="/alchemeditproduct" component={AlchemEditProduct} />
           </Switch>
         )}
