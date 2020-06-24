@@ -38,8 +38,8 @@ const MasterCheckoutComponent = ({cart, user}) => {
       >
         <div id="masterShippingAddress">
           <h3>Shipping Address</h3>
-          <select defaultValue="1" onChange={e => handleSelectAdd(e)}>
-            <option value="1">NEW ADDRESS</option>
+          <select defaultValue="0" onChange={e => handleSelectAdd(e)}>
+            <option value="0">NEW ADDRESS</option>
             {user.addresses &&
               user.addresses.map((address, index) => (
                 <option value={index}>{address[0]}</option>
@@ -47,31 +47,35 @@ const MasterCheckoutComponent = ({cart, user}) => {
           </select>
           <ul>
             <li>
-              <input required type="text" value={user.firstname} />
-              <input required type="Last Name" value={user.lastname} />
+              <input required type="text" defaultValue={user.firstname} />
+              <input required type="text" defaultValue={user.lastname} />
             </li>
             <li>
               <input
                 required
                 type="text"
                 placeholder="Address"
-                value={addressToShow[1]}
+                defaultValue={addressToShow[1]}
               />
             </li>
             <li>
               <input
                 type="text"
                 placeholder="Apt, etc..."
-                value={addressToShow[2]}
+                defaultValue={addressToShow[2]}
               />
             </li>
             <li>
-              <input type="text" placeholder="City" value={addressToShow[3]} />
+              <input
+                type="text"
+                placeholder="City"
+                defaultValue={addressToShow[3]}
+              />
               <input
                 type="text"
                 maxLength="2"
                 placeholder="State"
-                value={addressToShow[4]}
+                defaultValue={addressToShow[4]}
               />
               <input
                 type="text"
@@ -79,7 +83,7 @@ const MasterCheckoutComponent = ({cart, user}) => {
                 maxLength="5"
                 placeholder="Zip Code"
                 pattern="[0-9]*"
-                value={addressToShow[5]}
+                defaultValue={addressToShow[5]}
               />
             </li>
             <li>
