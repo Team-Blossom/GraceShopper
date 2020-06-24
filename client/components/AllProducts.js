@@ -75,7 +75,11 @@ export class AllProducts extends React.Component {
               return (
                 <div className="prodBox" key={product.id}>
                   <Link to={`/allproducts/${product.id}`} className="linklink">
-                    <img src={product.pictures[0]} />
+                    <div
+                      id="thePic"
+                      style={{backgroundImage: `url(${product.pictures[0]})`}}
+                    />
+                    {/* <img src={product.pictures[0]} /> */}
                     <div>
                       <p>{product.name}</p>
                       <p>{product.price}&#164;</p>
