@@ -17,12 +17,34 @@ async function seedUsers() {
       email: 'theboywholived@email.com',
       password: '123',
       addresses: [
-        [['342 Drury Ln'], ['Magical Kingdom'], ['Ma'], ['85764'], ['Water']],
-        [['788 Walnut Court'], ['Romulus'], ['MI'], ['48174'], ['Water']]
+        [
+          ['Hermione Granger'],
+          ['5555 Diagon Alley'],
+          ['Unit 9 1/2'],
+          ['London'],
+          ['GB'],
+          ['12345'],
+          ['Earth']
+        ],
+        [
+          ['Sirius Black'],
+          ['123 Azkaban'],
+          ['Cell 55'],
+          ['London'],
+          ['GB'],
+          ['48174'],
+          ['Earth']
+        ]
       ],
       billing: [
-        [['1234123412341234'], ['Harold Potter'], ['01'], ['2021']],
-        [['2345234523452345'], ['James Potter'], ['04'], ['2020']]
+        [['My Card'], ['1234123412341234'], ['Harry Potter'], ['01'], ['2021']],
+        [
+          ['Voldemorts Card'],
+          ['2345234523452345'],
+          ['Tom Riddle'],
+          ['04'],
+          ['2020']
+        ]
       ]
     }),
     User.create({
@@ -31,12 +53,34 @@ async function seedUsers() {
       email: 'powerhungry9000@email.com',
       password: '123',
       addresses: [
-        [['342 Drury Ln'], ['Magical Kingdom'], ['Ma'], ['85764'], ['Water']],
-        [['788 Walnut Court'], ['Romulus'], ['MI'], ['48174'], ['Water']]
+        [
+          ['Hermione Granger'],
+          ['5555 Diagon Alley'],
+          ['Unit 9 1/2'],
+          ['London'],
+          ['GB'],
+          ['12345'],
+          ['Earth']
+        ],
+        [
+          ['Sirius Black'],
+          ['123 Azkaban'],
+          ['Cell 55'],
+          ['London'],
+          ['GB'],
+          ['48174'],
+          ['Earth']
+        ]
       ],
       billing: [
-        [['1234123412341234'], ['Harold Potter'], ['01'], ['2021']],
-        [['2345234523452345'], ['James Potter'], ['04'], ['2020']]
+        [['My Card'], ['1234123412341234'], ['Harry Potter'], ['01'], ['2021']],
+        [
+          ['Voldemorts Card'],
+          ['2345234523452345'],
+          ['Tom Riddle'],
+          ['04'],
+          ['2020']
+        ]
       ]
     }),
     User.create({
