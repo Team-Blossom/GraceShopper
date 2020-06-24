@@ -4,7 +4,7 @@ import axios from 'axios'
 import {ThankYou} from './thankYouCart'
 import {Link} from 'react-router-dom'
 
-const MasterCheckoutComponent = ({cart}) => {
+const MasterCheckoutComponent = ({cart, user}) => {
   const [checkedOut, setcheckedOut] = useState(false)
   const handleSubmit = async e => {
     e.preventDefault()
@@ -25,13 +25,8 @@ const MasterCheckoutComponent = ({cart}) => {
         <div id="masterShippingAddress">
           <h3>Shipping Address</h3>
           <select defaultValue="1">
-            <option disabled value="1">
-              NEW ADDRESS
-            </option>
-            <option>ADDRESS 1</option>
-            <option>ADDRESS 2</option>
-            <option>ADDRESS 3</option>
-            <option>ADDRESS 4</option>
+            <option value="1">NEW ADDRESS</option>
+            {user.addresses.map(address => <option>{address}</option>)}
           </select>
           <ul>
             <li>
@@ -71,11 +66,8 @@ const MasterCheckoutComponent = ({cart}) => {
         <div id="master-billingInfo">
           <h3>Card Information</h3>
           <select defaultValue="1">
-            <option disabled value="1">
-              NEW CARD
-            </option>
-            <option>CARD 1</option>
-            <option>CARD 2</option>
+            <option value="1">NEW CARD</option>
+            {user.billing.map(card => <option>{card}</option>)}
           </select>
           <input
             type="text"
@@ -154,7 +146,8 @@ const MasterCheckoutComponent = ({cart}) => {
 
 const mapState = state => {
   return {
-    cart: state.order
+    cart: state.order,
+    user: state.user
   }
 }
 
