@@ -50,11 +50,13 @@ const MasterCheckoutComponent = ({cart, user}) => {
               <input
                 required
                 type="text"
+                placeholder="First Name"
                 defaultValue={addressToShow[0][0].split(' ')[0]}
               />
               <input
                 required
                 type="text"
+                placeholder="Last Name"
                 defaultValue={addressToShow[0][0].split(' ')[1]}
               />
             </li>
