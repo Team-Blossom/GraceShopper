@@ -25,7 +25,10 @@ const Orders = db.define('orders', {
     validate: {
       isIn: [['cart', 'processing', 'canceled', 'completed']]
     }
-  }
+  },
+//   userId: {
+//     type: Sequelize.INTEGER
+//   }
 })
 
 module.exports = Orders
