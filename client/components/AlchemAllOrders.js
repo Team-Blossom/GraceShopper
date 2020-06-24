@@ -69,9 +69,12 @@ export default class AlchemAllOrders extends React.Component {
                   </li>
                   <li>
                     {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
-                    <a href="./orderDetails.html" className="btn btnToWhite">
+                    <Link
+                      to={{pathname: 'orderDetails', state: order}}
+                      className="btn btnToWhite"
+                    >
                       Order Details
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
