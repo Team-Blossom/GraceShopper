@@ -62,7 +62,7 @@ export default class AlchemAllProd extends React.Component {
                 <div key={product.id} className="alchemProd">
                   <ul>
                     <li>
-                      <img src="/pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
+                      <img src={product.pictures[0]} />
                     </li>
                     <li>
                       <p>Product Name:</p>

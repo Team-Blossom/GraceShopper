@@ -19,7 +19,8 @@ async function seedUsers() {
       addresses: [
         ['342 Drury Ln, Magical Kingdom, Ma, 85764, JN'],
         ['788 Walnut Court Romulus, MI 48174']
-      ]
+      ],
+      billing: [[1234123412341234], [2345234523452345]]
     }),
     User.create({
       firstname: 'Saruman',
@@ -29,7 +30,8 @@ async function seedUsers() {
       addresses: [
         ['815 North Valley View Dr.Aiken, SC 29803'],
         ['11 St Louis Rd.Chicopee, MA 01020']
-      ]
+      ],
+      billing: [[9999888877776666], [1111222233334444]]
     }),
     User.create({
       firstname: 'Gandalf',
@@ -40,7 +42,8 @@ async function seedUsers() {
       addresses: [
         ['815 North Valley View Dr.Aiken, SC 29803'],
         ['11 St Louis Rd.Chicopee, MA 01020']
-      ]
+      ],
+      billing: [[5555666677778888], [3333444455556666]]
     }),
     User.create({
       firstname: 'Albus',
@@ -51,7 +54,8 @@ async function seedUsers() {
       addresses: [
         ['815 North Valley View Dr.Aiken, SC 29803'],
         ['11 St Louis Rd.Chicopee, MA 01020']
-      ]
+      ],
+      billing: [[1234567891234567], [9087654321234567]]
     }),
     User.create({
       firstname: 'Doctor',
@@ -61,7 +65,8 @@ async function seedUsers() {
       addresses: [
         ['815 North Valley View Dr.Aiken, SC 29803'],
         ['11 St Louis Rd.Chicopee, MA 01020']
-      ]
+      ],
+      billing: [[9876765412341234], [9087987676544321]]
     })
   ])
 

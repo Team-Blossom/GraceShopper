@@ -34,6 +34,9 @@ const User = db.define('user', {
   addresses: {
     type: Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.STRING))
   },
+  billing: {
+    type: Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.BIGINT))
+  },
   salt: {
     type: Sequelize.STRING,
     // Making `.salt` act like a function hides it when serializing to JSON.
