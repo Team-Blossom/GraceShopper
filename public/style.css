@@ -1407,7 +1407,13 @@ MASTER ADDRESS/BILLING FORM
   display: flex;
   justify-content: center;
 }
-
+.alchemProd,
+.alchemProd ul {
+  justify-content: flex-start;
+  /* background-color: aqua; */
+  margin-left: 0;
+  padding-left: 0;
+}
 .alchemProd ul li,
 .alchemMaster ul li {
   flex-grow: 1;
@@ -1416,8 +1422,17 @@ MASTER ADDRESS/BILLING FORM
   justify-content: center;
   margin-right: 5px;
 }
+.alchemProd ul li:first-child {
+  /* background-color: #f77f00; */
+  margin-left: 0;
+  max-width: 120px;
+}
+.alchemProd ul li:nth-child(2) {
+  margin-right: auto;
+}
 .alchemProd ul li img {
   height: 120px;
+  width: 120px;
   border-radius: 10px 0 0 10px;
   /* width: auto; */
   /* width: 50px; */
@@ -1831,7 +1846,7 @@ THANK YOU
 #thankYouSection {
   height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('./pictures/nynne-schroder-4iOcciwDzRw-unsplash.jpg');
+    url('./pictures/thankWithLogo.png');
   background-size: cover;
   background-position: center;
 
@@ -2084,7 +2099,55 @@ HOME
 #appSoon {
   background-image: url('./pictures/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg');
   background-size: cover;
+
+  display: flex;
+  flex-direction: column;
 }
 #appSoon h2 {
   color: #61210f;
+}
+#appSoon > #appCont {
+  display: flex;
+  justify-content: center;
+}
+#appCont > div:last-child,
+#appCont > div:first-child {
+  /* flex-grow: 1; */
+  width: 47%;
+  /* background-color: grey; */
+}
+#appCont > div:first-child {
+  display: flex;
+  justify-content: flex-end;
+}
+#appCont img {
+  width: 180px;
+  max-height: 100%;
+}
+#appCont > div.sidebar {
+  border-left: solid 5px #61210f;
+  width: 0;
+  margin: 0 20px;
+}
+#appCont > div:last-child {
+  /* width: 200px; */
+  /* background-color: #61210f; */
+  padding-right: 100px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#appCont h3 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 10px;
+}
+#appCont p {
+  font-size: 0.8rem;
+  color: #61210f;
+}
+#appCont a {
+  margin: auto 0;
 }
