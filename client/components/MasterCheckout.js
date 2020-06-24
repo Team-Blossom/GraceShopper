@@ -47,8 +47,18 @@ const MasterCheckoutComponent = ({cart, user}) => {
           </select>
           <ul>
             <li>
-              <input required type="text" defaultValue={user.firstname} />
-              <input required type="text" defaultValue={user.lastname} />
+              <input
+                required
+                type="text"
+                placeholder="First Name"
+                defaultValue={addressToShow[0][0].split(' ')[0]}
+              />
+              <input
+                required
+                type="text"
+                placeholder="Last Name"
+                defaultValue={addressToShow[0][0].split(' ')[1]}
+              />
             </li>
             <li>
               <input
