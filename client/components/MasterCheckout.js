@@ -4,14 +4,25 @@ import axios from 'axios'
 import {ThankYou} from './thankYouCart'
 import {Link} from 'react-router-dom'
 
-const MasterCheckoutComponent = ({cart}) => {
+const MasterCheckoutComponent = ({cart, user}) => {
   const [checkedOut, setcheckedOut] = useState(false)
+  const [addressToShow, setAddress] = useState([[''], [''], [''], [''], ['']])
+  const [billingToShow, setBilling] = useState([[''], [''], [''], ['']])
   const handleSubmit = async e => {
     e.preventDefault()
     await axios.put('/api/orders', {status: 'processing'})
     setcheckedOut(true)
   }
 
+  const handleSelectAdd = e => {
+    let index = e.target.value
+    setAddress(user.addresses[index])
+  }
+
+  const handleSelectBill = e => {
+    let index = e.target.value
+    setBilling(user.billing[index])
+  }
   return checkedOut ? (
     <ThankYou />
   ) : (
@@ -24,39 +35,52 @@ const MasterCheckoutComponent = ({cart}) => {
       >
         <div id="masterShippingAddress">
           <h3>Shipping Address</h3>
-          <select defaultValue="1">
-            <option disabled value="1">
-              NEW ADDRESS
-            </option>
-            <option>ADDRESS 1</option>
-            <option>ADDRESS 2</option>
-            <option>ADDRESS 3</option>
-            <option>ADDRESS 4</option>
+          <select defaultValue="1" onChange={e => handleSelectAdd(e)}>
+            <option value="1">NEW ADDRESS</option>
+            {user.addresses &&
+              user.addresses.map((address, index) => (
+                <option value={index}>{address[0]}</option>
+              ))}
           </select>
           <ul>
             <li>
-              <input required type="text" placeholder="First Name" />
-              <input required type="Last Name" placeholder="Last Name" />
+              <input required type="text" value={user.firstname} />
+              <input required type="Last Name" value={user.lastname} />
             </li>
             <li>
-              <input required type="text" placeholder="Address" />
+              <input
+                required
+                type="text"
+                placeholder="Address"
+                value={addressToShow[1]}
+              />
             </li>
             <li>
-              <input type="text" placeholder="Apt, etc..." />
+              <input
+                type="text"
+                placeholder="Apt, etc..."
+                value={addressToShow[2]}
+              />
             </li>
             <li>
-              <input type="text" placeholder="City" />
-              <input type="text" maxLength="2" placeholder="State" />
+              <input type="text" placeholder="City" value={addressToShow[3]} />
+              <input
+                type="text"
+                maxLength="2"
+                placeholder="State"
+                value={addressToShow[4]}
+              />
               <input
                 type="text"
                 minLength="5"
                 maxLength="5"
                 placeholder="Zip Code"
                 pattern="[0-9]*"
+                value={addressToShow[5]}
               />
             </li>
             <li>
-              <select defaultValue="1">
+              <select defaultValue="1" value={addressToShow[6]}>
                 <option disabled value="1">
                   Select Nation
                 </option>
@@ -70,12 +94,12 @@ const MasterCheckoutComponent = ({cart}) => {
         </div>
         <div id="master-billingInfo">
           <h3>Card Information</h3>
-          <select defaultValue="1">
-            <option disabled value="1">
-              NEW CARD
-            </option>
-            <option>CARD 1</option>
-            <option>CARD 2</option>
+          <select defaultValue="1" onChange={e => handleSelectBill(e)}>
+            <option value="1">NEW CARD</option>
+            {user.billing &&
+              user.billing.map((card, index) => (
+                <option value={index}>{card[0]}</option>
+              ))}
           </select>
           <input
             type="text"
@@ -83,9 +107,14 @@ const MasterCheckoutComponent = ({cart}) => {
             maxLength="16"
             placeholder="Card Number"
             pattern="[0-9]*"
+            value={billingToShow[1]}
           />
-          <input type="text" placeholder="Name Cn Card" />
-          <select defaultValue="1">
+          <input
+            type="text"
+            placeholder="Name Cn Card"
+            value={billingToShow[2]}
+          />
+          <select defaultValue="1" value={billingToShow[3]}>
             <option disabled value="1">
               Exp.M
             </option>
@@ -102,7 +131,7 @@ const MasterCheckoutComponent = ({cart}) => {
             <option>11</option>
             <option>12</option>
           </select>
-          <select defaultValue="1">
+          <select defaultValue="1" value={billingToShow[4]}>
             <option disabled value="1">
               Exp.Y
             </option>
@@ -154,7 +183,8 @@ const MasterCheckoutComponent = ({cart}) => {
 
 const mapState = state => {
   return {
-    cart: state.order
+    cart: state.order,
+    user: state.user
   }
 }
 
