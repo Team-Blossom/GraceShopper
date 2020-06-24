@@ -12,7 +12,7 @@ async function orderSeed() {
       date: new Date(),
       address: '1719 W Chicago Ave, Chicago, IL, 60622',
       billing: 1573850345838567,
-      userId: 6
+      
     }),
     Orders.create({
       quantity: 2,
@@ -21,7 +21,7 @@ async function orderSeed() {
       date: new Date(),
       address: '853 Horatio Blvd, Buffalo Grove, IL, 60084',
       billing: 3967849556733456,
-      userId: 2
+     
     }),
     Orders.create({
       quantity: 6,
@@ -30,7 +30,7 @@ async function orderSeed() {
       date: new Date(),
       address: '543 Magical Ln, Magicland, Mg, 12345',
       billing: 1949503868495048,
-      userId: 3
+     
     }),
     Orders.create({
       quantity: 2,
@@ -39,7 +39,7 @@ async function orderSeed() {
       date: new Date(),
       address: '840 Shrumville Ave, Shrumvalley, Sm, 45322',
       billing: 1948394950056443,
-      userId: 4
+      
     }),
     Orders.create({
       quantity: 2,
@@ -48,7 +48,7 @@ async function orderSeed() {
       date: new Date(),
       address: '483 Gandolf Ln, Gandolfia, Fl, 23532',
       billing: 3904834739400483,
-      userId: 5
+      
     })
   ])
 
