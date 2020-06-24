@@ -55,13 +55,16 @@ export class OrderDetails extends React.Component {
             order.products.map(product => {
               return (
                 <div className="orderedProd" key={product.id}>
-                  <img src="/pictures/hue12-photography-8rTwokBwz1w-unsplash.jpg" />
+                  <img src={product.pictures[0]} />
                   <p style={{fontSize: '.8rem'}}>{product.name}</p>
                   {/* <p>
                   PRODUCT QTY: <span>QTY in cart</span>
                 </p> */}
                   <p>
                     PRICE: <span>{product.price}</span>
+                  </p>
+                  <p>
+                    QTY: <span>{product.cart.quantity}</span>
                   </p>
                   {/* <p>
                   TOTAL PRICE: <span></span>

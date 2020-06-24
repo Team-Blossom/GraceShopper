@@ -58,13 +58,13 @@ export default class AlchemDash extends React.Component {
           </div>
         )}
         {this.state.selectedComp === 'addProdDisplay' ? (
-          <AlchemAddProducts />
+          <AlchemAddProducts backFunc={this.handlePanelDisplay} />
         ) : this.state.selectedComp === 'productsDisplay' ? (
-          <AlchemAllProducts />
+          <AlchemAllProducts backFunc={this.handlePanelDisplay} />
         ) : this.state.selectedComp === 'mastersDisplay' ? (
-          <AlchemAllUsers />
+          <AlchemAllUsers backFunc={this.handlePanelDisplay} />
         ) : this.state.selectedComp === 'ordersDisplay' ? (
-          <AlchemAllOrders />
+          <AlchemAllOrders backFunc={this.handlePanelDisplay} />
         ) : null}
       </section>
     )

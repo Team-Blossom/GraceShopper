@@ -66,17 +66,17 @@ router.post('/', async (req, res, next) => {
       if (!order) {
         order = await Orders.create({userId: req.user.id, status: 'cart'})
       }
+      await order.addProduct(product)
       let cartItem = await Cart.findOne({
         where: {orderId: order.id, productId: product.id}
       })
-      if (cartItem) {
-        if (req.body.quantity) {
-          await cartItem.increment({quantity: req.body.quantity})
-        } else {
-          await cartItem.increment({quantity: 1})
-        }
+
+      if (req.body.quantity) {
+        await cartItem.increment({quantity: req.body.quantity - 1})
+      } else {
+        await cartItem.increment({quantity: 1})
       }
-      await order.addProduct(product)
+
       if (req.body.quantity) {
         await order.increment({
           quantity: req.body.quantity,
@@ -263,6 +263,10 @@ router.put('/', async (req, res, next) => {
       if (!order) {
         res.status(500).send('Cart is empty!')
       }
+      order.address = req.body.address
+        .slice(1)
+        .flat()
+        .join('')
       order.status = req.body.status
       order.save()
       res.json(order)
@@ -277,7 +281,7 @@ router.put('/', async (req, res, next) => {
       if (!order) {
         res.status(500).send('Cart is empty!')
       }
-
+      order.address = req.body.address.flat().join('')
       order.status = req.body.status
       order.save()
       req.session.destroy()

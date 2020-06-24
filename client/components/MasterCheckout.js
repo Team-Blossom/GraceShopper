@@ -10,7 +10,10 @@ const MasterCheckoutComponent = ({cart, user}) => {
   const [billingToShow, setBilling] = useState([[''], [''], [''], ['']])
   const handleSubmit = async e => {
     e.preventDefault()
-    await axios.put('/api/orders', {status: 'processing'})
+    await axios.put('/api/orders', {
+      status: 'processing',
+      address: addressToShow
+    })
     setcheckedOut(true)
   }
 

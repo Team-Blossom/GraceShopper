@@ -16,7 +16,7 @@ import ProductsView from './components/ProductsView'
 import {me} from './store'
 import MasterDash from './components/MasterDash'
 import AlchemDash from './components/AlchemDash'
-import OrderDetails from './components/OrderDetails'
+import OrderDetails from './components/orderDetails'
 import Home from './components/Home'
 import {ThankYou} from './components/thankYouCart'
 import {getCartThunk} from './store/order'
@@ -56,6 +56,7 @@ class Routes extends Component {
             <Route path="/masterdashboard" component={MasterDash} />
             <Route path="/alchemDash" component={AlchemDash} />
             <Route path="/checkout" component={MasterCheckout} />
+            <Route path="/orderDetails" component={OrderDetails} />
             <Route path="/alchemeditproduct" component={AlchemEditProduct} />
           </Switch>
         )}

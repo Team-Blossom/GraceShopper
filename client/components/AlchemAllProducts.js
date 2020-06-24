@@ -27,6 +27,7 @@ export default class AlchemAllProd extends React.Component {
   }
 
   render() {
+    const handleBack = this.props.backFunc
     return (
       <div id="alchemProdPanel" style={{display: 'flex', zIndex: '53'}}>
         <div id="alchemProdHeader">
@@ -34,7 +35,7 @@ export default class AlchemAllProd extends React.Component {
             to="/alchemdash/"
             className="btn"
             name="alchemOptions"
-            onClick={() => window.location.reload(false)}
+            onClick={() => handleBack('')}
           >
             {/* <i
               name="alchemOptions"

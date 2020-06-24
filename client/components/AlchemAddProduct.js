@@ -31,6 +31,7 @@ export default class AlchemAddProducts extends React.Component {
   }
 
   render() {
+    const handleBack = this.props.backFunc
     if (this.state.submitted) {
       return (
         <div style={{display: 'flex', zIndex: '50'}} id="successAddProd">
@@ -43,7 +44,7 @@ export default class AlchemAddProducts extends React.Component {
               See New Product
             </Link>
             {/* <!-- Link back to Alchemist View --> */}
-            <Link className="btn" onClick={() => window.location.reload(false)}>
+            <Link className="btn" onClick={() => handleBack('')}>
               Back To Alchemist Cabinet
             </Link>
           </div>
@@ -105,10 +106,7 @@ export default class AlchemAddProducts extends React.Component {
                 <button className="btn btn-gold btnToWhite" type="submit">
                   ADD
                 </button>
-                <Link
-                  className="btn btnToWhite"
-                  onClick={() => window.location.reload(false)}
-                >
+                <Link className="btn btnToWhite" onClick={() => handleBack('')}>
                   CANCEL
                 </Link>
               </li>
