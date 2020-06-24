@@ -165,7 +165,10 @@ export class MasterDash extends React.Component {
               <h2>Personal Details</h2>
               <div id="masterName">
                 <h4>
-                  Name: <span style={{color: '#f77f00'}}>{user.firstname}</span>
+                  Name:{' '}
+                  <span style={{color: '#f77f00'}}>
+                    {user.firstname} {user.lastname}
+                  </span>
                 </h4>
                 <form>
                   {/* <!-- PLACEHOLDER SHOULD BE WHAT ALREADY EXISTS IN DATA BASE --> */}
@@ -224,24 +227,30 @@ export class MasterDash extends React.Component {
                   <h4>New Address</h4>
                 </a>
               </div>
-              <div className="masterAddress" name="addressForm">
-                {/* <!-- I BELIEVE WE INCLUDED THE ADDRESSEE NAME? --> */}
-                <h4>{user.firstname}'s adresses</h4>
-                {user.addresses &&
-                  user.addresses.map(address => {
-                    return (
-                      <div key={user.id}>
+
+              {/* <!-- I BELIEVE WE INCLUDED THE ADDRESSEE NAME? --> */}
+
+              {user.addresses &&
+                user.addresses.map((address, index) => {
+                  return (
+                    <div
+                      className="masterAddress"
+                      name="addressForm"
+                      key={user.id}
+                    >
+                      <div>
+                        <h4> Address {index + 1}</h4>
                         <p>{address}</p>
                         <a href="./masterAddressForm.html" className="btn">
                           Edit
                         </a>
                         <a className="btn">Delete</a>
                       </div>
-                    )
-                  })}
+                    </div>
+                  )
+                })}
 
-                {/* <!-- LINKS TO PRE-FILLED ADDRESS FORM VIEW --> */}
-              </div>
+              {/* <!-- LINKS TO PRE-FILLED ADDRESS FORM VIEW --> */}
             </div>
 
             <div
@@ -297,7 +306,7 @@ export class MasterDash extends React.Component {
                         <li>
                           {/* <!-- LINKS TO SPECIFIC ORDER DETAILS --> */}
                           <Link
-                            to={{pathname: './orderDetails', state: {order}}}
+                            to={{pathname: '/orderDetails', state: {order}}}
                             className="btn btnToWhite"
                           >
                             Order Details

@@ -26,6 +26,9 @@ const Orders = db.define('orders', {
       isIn: [['cart', 'processing', 'canceled', 'completed']]
     }
   }
+  //   userId: {
+  //     type: Sequelize.INTEGER
+  //   }
 })
 
 module.exports = Orders
